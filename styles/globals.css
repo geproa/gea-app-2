@@ -18,10 +18,30 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+
+.formContainer{
+  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-5 sm:w-4/5 md:w-3/4  
+}
+
+.formSection{
+  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-5 sm:w-4/5 md:w-3/4  
+}
+
+.inputsGrid{
+  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-2 md:gap-4 bg-white  sm:w-4/5 xl:w-full
+}
+
+.title-box{
+  @apply bg-blue-400 py-7 pl-4 text-xl font-semibold my-4 w-full
+}
+
+
+.label {
+  @apply block text-gray-700 text-sm font-bold mb-2;
+}
+
+.star {
+  @apply text-red-600
 }

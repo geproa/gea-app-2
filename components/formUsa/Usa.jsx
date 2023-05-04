@@ -198,7 +198,7 @@ export default function FormUsa() {
         {/* LOGIN.GOV Account */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">LOGIN.GOV Account</h3>
+            <h3 class="text-3xl text-white pb-2">LOGIN.GOV Account</h3>
           </div>
           <label className="label">
             Have you created a LOGIN.GOV Account<span className="star">*</span>
@@ -275,7 +275,7 @@ export default function FormUsa() {
         {/* Personal Details */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Personal Details</h3>
+            <h3 class="text-3xl text-white pb-2">Personal Details</h3>
             <p class="font-normal">
               You must give EXACT details as they appear on your official
               documents
@@ -488,7 +488,7 @@ export default function FormUsa() {
         {/* Citizenship & Nationality */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Citizenship & Nationality</h3>
+            <h3 class="text-3xl text-white pb-2">Citizenship & Nationality</h3>
             <p class="font-normal">
               Enter the information EXACTLY as it appears on your Passport. If
               you are required to come in for an interview, you will need to
@@ -582,7 +582,7 @@ export default function FormUsa() {
         {/* Secondary Citizenship */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Secondary Citizenship</h3>
+            <h3 class="text-3xl text-white pb-2">Secondary Citizenship</h3>
             <p class="font-normal">
               You must give EXACT details as they appear on your official
               documents
@@ -677,7 +677,7 @@ export default function FormUsa() {
         {/* Alternate Documents */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Alternate Documents</h3>
+            <h3 class="text-3xl text-white pb-2">Alternate Documents</h3>
             <p class="font-normal">
               Only required when there is no valid passport
             </p>
@@ -780,7 +780,7 @@ export default function FormUsa() {
         {/* Canada/US Permanent Residence */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Canada/US Permanent Residence</h3>
+            <h3 class="text-3xl text-white pb-2">Canada/US Permanent Residence</h3>
             <p class="font-normal">
               Details Must be added if you are not a US/Canada Citizen
             </p>
@@ -885,7 +885,7 @@ export default function FormUsa() {
 
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Driving Licence </h3>
+            <h3 class="text-3xl text-white pb-2">Driving Licence </h3>
           </div>
           <label className="label">
             Do you have a driving licence <span className="star">*</span>
@@ -923,7 +923,7 @@ export default function FormUsa() {
           {showTextInputsDriving && (
             <>
               <div class="title-box">
-                <h3 class="text-3xl pb-2">Driving Licence</h3>
+                <h3 class="text-3xl text-white pb-2">Driving Licence</h3>
                 <p class="font-normal">
                   If you have a driving licence you must provide details
                 </p>
@@ -1075,7 +1075,7 @@ export default function FormUsa() {
         {/* Address History */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Address History</h3>
+            <h3 class="text-3xl text-white pb-2">Address History</h3>
             <p class="font-normal">
               Only if you have not lived at your current address for more than 5
               years. You have to provide 5 years continuous address history -
@@ -1309,7 +1309,7 @@ export default function FormUsa() {
           {showfiveYearsInput && (
             <>
               <div class="title-box">
-                <h3 class="text-3xl pb-2">5 Year Address History</h3>
+                <h3 class="text-3xl text-white pb-2">5 Year Address History</h3>
               </div>
               {/* Address 2 */}
 
@@ -1633,7 +1633,7 @@ export default function FormUsa() {
         {/* US Contact Address */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">US Contact Address</h3>
+            <h3 class="text-3xl text-white pb-2">US Contact Address</h3>
             <p class="font-normal">If your current address is not in the US</p>
           </div>
           <div class="inputsGrid">
@@ -1764,7 +1764,7 @@ export default function FormUsa() {
         {/* Information About Your Current Work */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl pb-2">Information About Your Current Work</h3>
+            <h3 class="text-3xl text-white pb-2">Information About Your Current Work</h3>
             <p class="font-normal">
               You MUST provide 5 years work history. Your application can not be
               processed without it. If you are a Student, Child, Unemployed or
@@ -1966,7 +1966,7 @@ export default function FormUsa() {
           {showfiveYearsEmploymentInput && (
             <>
               <div class="title-box">
-                <h3 class="text-3xl pb-2">Employment Continued</h3>
+                <h3 class="text-3xl text-white pb-2">Employment Continued</h3>
               </div>
               {/* Employment Continued 2 */}
 
@@ -2099,9 +2099,7 @@ export default function FormUsa() {
                   {...register("employer2StateProvince")}
                   className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
-                <p class="text-sm pt-1">
-                  State/Province 
-                </p>
+                <p class="text-sm pt-1">State/Province</p>
               </div>
 
               <div className="mb-4">
@@ -2131,9 +2129,9 @@ export default function FormUsa() {
               </div>
               {/* Employment Continued 2 - End*/}
 
-            {/* Employment Continued 3 */}
+              {/* Employment Continued 3 */}
 
-            <div className="mb-4">
+              <div className="mb-4">
                 <label htmlFor="employer3monthYear" className="label">
                   Employer 3 From
                 </label>
@@ -2262,9 +2260,7 @@ export default function FormUsa() {
                   {...register("employer3StateProvince")}
                   className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
-                <p class="text-sm pt-1">
-                  State/Province 
-                </p>
+                <p class="text-sm pt-1">State/Province</p>
               </div>
 
               <div className="mb-4">
@@ -2294,9 +2290,9 @@ export default function FormUsa() {
               </div>
               {/* Employment Continued 3 - End*/}
 
-               {/* Employment Continued 4 */}
+              {/* Employment Continued 4 */}
 
-            <div className="mb-4">
+              <div className="mb-4">
                 <label htmlFor="employer4monthYear" className="label">
                   Employer 4 From
                 </label>
@@ -2455,11 +2451,25 @@ export default function FormUsa() {
                 </select>
                 <p class="text-sm pt-1">Country</p>
               </div>
-              {/* Employment Continued 4 - End*/} 
+              {/* Employment Continued 4 - End*/}
             </>
           )}
         </div>
         {/* Information About Your Current Work - End */}
+
+        {/* Travel History */}
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Travel History</h3>
+            <p class="font-normal">
+              List all the countries visited in last 5 years{" "}
+              <b>excluding Mexico, USA & Canada</b>
+            </p>
+          </div>
+
+          <div class="inputsGrid"></div>
+        </div>
+        {/* Travel History - End*/}
 
         <input
           type="submit"

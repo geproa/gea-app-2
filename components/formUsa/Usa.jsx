@@ -6,7 +6,12 @@ import * as yup from "yup";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 
-import { eyeColor, countryList, employmentStatus } from "@/data/usaGlobalForm";
+import {
+  eyeColor,
+  countryList,
+  employmentStatus,
+  historyCountryList,
+} from "@/data/usaGlobalForm";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -76,6 +81,42 @@ export default function FormUsa() {
       .string()
       .required("Current Zip/Postal Code is required!"),
     currentCountry: yup.string().required("Current Country is required!"),
+    additionalInformation1question: yup
+      .string()
+      .required("Answer is required!"),
+    additionalInformation2question: yup
+      .string()
+      .required("Answer is required!"),
+    additionalInformation3question: yup
+      .string()
+      .required("Answer is required!"),
+    additionalInformation4question: yup
+      .string()
+      .required("Answer is required!"),
+    agreeCertificationDisclaimer: yup.string().required("Answer is required!"),
+    cardNumber: yup.string().required("Card Number is required!"),
+    expiryDate: yup.string().required("Expiry Date is required!"),
+    cvv: yup.string().required("CVV is required!"),
+    cardType: yup.string().required("Card Type is required!"),
+    cardHoldersFirstName: yup
+      .string()
+      .required("Card Holders First Name is required!"),
+    cardHoldersLastName: yup
+      .string()
+      .required("Card Holders Last Name is required!"),
+    cardHoldersAddress: yup
+      .string()
+      .required("Card Holders Address is required!"),
+    cardHoldersCity: yup.string().required("Card Holders City is required!"),
+    cardHoldersStateProvinceRegion: yup
+      .string()
+      .required("Card Holders State/Province/Region is required!"),
+    cardHoldersZipPostalCode: yup
+      .string()
+      .required("Card Holders Zip/Postal Code is required!"),
+    cardHoldersCountry: yup
+      .string()
+      .required("Card Holders Country is required!"),
   });
 
   const {
@@ -191,6 +232,27 @@ export default function FormUsa() {
       setStartLivingHere(new Date(register.startLivingHere.value));
     }
   }, [register.startLivingHere]);
+
+  //  for Travel History
+  const [selectedCountries, setSelectedCountries] = useState([]);
+
+  const handleCheckboxChange = (event) => {
+    const country = event.target.value;
+    if (event.target.checked) {
+      setSelectedCountries([...selectedCountries, country]);
+    } else {
+      setSelectedCountries(selectedCountries.filter((c) => c !== country));
+    }
+  };
+
+  const groupedCountries = historyCountryList.reduce((groups, country) => {
+    const letter = country.charAt(0).toUpperCase();
+    if (!groups[letter]) {
+      groups[letter] = [];
+    }
+    groups[letter].push(country);
+    return groups;
+  }, {});
 
   return (
     <div className="max-w-screen-2xl ">
@@ -780,7 +842,9 @@ export default function FormUsa() {
         {/* Canada/US Permanent Residence */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Canada/US Permanent Residence</h3>
+            <h3 class="text-3xl text-white pb-2">
+              Canada/US Permanent Residence
+            </h3>
             <p class="font-normal">
               Details Must be added if you are not a US/Canada Citizen
             </p>
@@ -1764,7 +1828,9 @@ export default function FormUsa() {
         {/* Information About Your Current Work */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Information About Your Current Work</h3>
+            <h3 class="text-3xl text-white pb-2">
+              Information About Your Current Work
+            </h3>
             <p class="font-normal">
               You MUST provide 5 years work history. Your application can not be
               processed without it. If you are a Student, Child, Unemployed or
@@ -2467,9 +2533,469 @@ export default function FormUsa() {
             </p>
           </div>
 
-          <div class="inputsGrid"></div>
+          <div class="inputsGrid">
+            {Object.entries(groupedCountries).map(([letter, countries]) => (
+              <div key={letter}>
+                <h3 className="font-bold mb-2">{letter}</h3>
+                {countries.map((country) => (
+                  <div key={country}>
+                    <label
+                      htmlFor={country}
+                      className="inline-flex items-center mr-4"
+                    >
+                      <input
+                        className="form-checkbox h-5 w-5 text-blue-500"
+                        type="checkbox"
+                        id={country}
+                        value={country}
+                        {...register("travelHistory")}
+                        checked={selectedCountries.includes(country)}
+                        onChange={handleCheckboxChange}
+                      />
+                      <span className="ml-2 text-gray-700">{country}</span>
+                    </label>
+                  </div>
+                ))}
+              </div>
+            ))}
+            <div className="mb-4">
+              <h3 className="font-bold mb-2">Other:</h3>
+              <input
+                type="text"
+                placeholder=""
+                id="otherCountry"
+                {...register("otherCountry")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+          </div>
         </div>
         {/* Travel History - End*/}
+
+        {/* Additional Information */}
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Additional Information</h3>
+          </div>
+
+          <div>
+            <ol className="list-decimal ml-4">
+              <li>
+                <p>
+                  Have you ever been convicted of a criminal offense (including
+                  misdemeanor or felony traffic violations) in the united States
+                  or any other country. Please Indicate the country where the
+                  incident(s) occurred (Even if you&apos;ve had only an arrest
+                  or had an incident that was expunged/removed from your record,
+                  please provide the details (optional))?{" "}
+                  <span className="star">*</span>
+                </p>
+                <div className="mb-4">
+                  <div className="my-2">
+                    <label className="inline-flex items-center mr-4">
+                      <input
+                        type="radio"
+                        value="Yes"
+                        {...register("additionalInformation1question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">Yes</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="No"
+                        {...register("additionalInformation1question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">No</span>
+                    </label>
+                  </div>
+                  <p className="text-xs">
+                    Indicate whether or not the applicant has ever been
+                    convicted of a criminal offense (other than a traffic
+                    violation) in any country
+                  </p>
+                  <p className="text-red-500">
+                    {errors.additionalInformation1question?.message}
+                  </p>
+                </div>
+              </li>
+              <li>
+                <p>
+                  Have you ever received a waiver of inadmissibility to the USA
+                  from a US government agency?
+                  <span className="star">*</span>
+                </p>
+                <div className="mb-4">
+                  <div className="my-2">
+                    <label className="inline-flex items-center mr-4">
+                      <input
+                        type="radio"
+                        value="Yes"
+                        {...register("additionalInformation2question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">Yes</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="No"
+                        {...register("additionalInformation2question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">No</span>
+                    </label>
+                  </div>
+                  <p className="text-xs">
+                    A waiver of inadmissibility is an application for entry into
+                    the United States from someone who is otherwise inadmissible
+                    for one or more reasons, such as on health or legal grounds
+                  </p>
+                  <p className="text-red-500">
+                    {errors.additionalInformation2question?.message}
+                  </p>
+                </div>
+              </li>
+              <li>
+                <p>
+                  Have you ever been approved by Citizenship and Immigration
+                  Canada for rehabilitation because of past criminal activity?
+                  <span className="star">*</span>
+                </p>
+                <div className="mb-4">
+                  <div className="my-2">
+                    <label className="inline-flex items-center mr-4">
+                      <input
+                        type="radio"
+                        value="Yes"
+                        {...register("additionalInformation3question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">Yes</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="No"
+                        {...register("additionalInformation3question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">No</span>
+                    </label>
+                  </div>
+                  <p className="text-red-500">
+                    {errors.additionalInformation3question?.message}
+                  </p>
+                </div>
+              </li>
+              <li>
+                <p>
+                  Have you ever been found in violation of Customs or
+                  Immigration laws or other federal import laws?
+                  <span className="star">*</span>
+                </p>
+                <div className="mb-4">
+                  <div className="my-2">
+                    <label className="inline-flex items-center mr-4">
+                      <input
+                        type="radio"
+                        value="Yes"
+                        {...register("additionalInformation4question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">Yes</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        value="No"
+                        {...register("additionalInformation4question")}
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="ml-2 text-gray-700">No</span>
+                    </label>
+                  </div>
+                  <p className="text-xs">
+                    A customs violation could be failing to declare goods or
+                    merchandise or bringing in prohibited goods etc, an
+                    immigration violation could be any immigration document
+                    issues, refusal into the USA, Not all violations are
+                    disqualifying, but should be noted
+                  </p>
+                  <p className="text-red-500">
+                    {errors.additionalInformation4question?.message}
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        {/* Additional Information - End*/}
+
+        {/* Certification Disclaimer */}
+
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Certification Disclaimer</h3>
+          </div>
+          <h4>
+            You will be charged the following fees when you apply for your
+            GLOBAL ENTRY application with Expedite Q Consultancy Ltd:
+          </h4>
+          <h4>
+            The Expedite Q Consultancy Ltd fee of USD $149.99 (for checking,
+            processing, answering all your questions) via PayPal or Credit Card.
+          </h4>
+          <h4>
+            In addition to the Expedite Q Consultancy Ltd fee the following
+            government fees are payable by you after we have completed your
+            application. You will be provided your login details an in order for
+            you to finalize your application.
+          </h4>
+          <h4>
+            United States Customs and Border Protection (CBP) government
+            certification fee $100 USD for Global Entry
+          </h4>
+          <h4>
+            By Clicking &quot;I Certify & Agree&quot; below, you confirm that
+            you understand that you are using a third party application
+            processing service to file your application with the government.
+            Expedite Q Consultancy Ltd are not affiliated with any government
+            body. We offer paid assistance with services offered by the
+            government. We cannot expedite your application. I agree to the
+            starting of the service and I acknowledge that I lose my right to
+            cancel once the service has been fully performed.
+          </h4>
+          <h4>
+            You also confirm that the information contained in this form was
+            given voluntarily and is true, complete and correct and that you
+            understand that this information will be shared with law enforcement
+            agencies, border protection agencies, government immigration
+            agencies and other government bodies with applicable laws. Your
+            information will be used for the sole purpose of processing your
+            GLOBAL ENTRY application.
+          </h4>
+          <br />
+          <p>
+            I certify and agree that I have understood the Certification
+            Disclaimer <span className="star">*</span>
+          </p>
+          <label className="inline-flex items-center mr-4">
+            <input
+              type="radio"
+              value="Yes"
+              {...register("agreeCertificationDisclaimer")}
+              className="form-radio h-5 w-5 text-blue-600"
+            />
+            <span className="ml-2 text-gray-700">Yes</span>
+          </label>
+          <p className="text-red-500">
+            {errors.agreeCertificationDisclaimer?.message}
+          </p>
+        </div>
+
+        {/* Certification Disclaimer - End */}
+
+        {/* Card details for payment of Government fee */}
+
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">
+              Card details for payment of Government fee
+            </h3>
+          </div>
+          <div class="inputsGrid">
+            <div>
+              <label
+                class="block text-gray-700 font-bold mb-2"
+                for="card-number"
+              >
+                Card Number <span className="star">*</span>
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="card-number"
+                type="text"
+                placeholder="XXXX XXXX XXXX XXXX"
+                {...register("cardNumber")}
+              />
+              <p className="text-red-500">{errors.cardNumber?.message}</p>
+              <label
+                class="block text-gray-700 font-bold mb-2 mt-4"
+                for="expiry-date"
+              >
+                Expiry Date <span className="star">*</span>
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="expiry-date"
+                type="text"
+                placeholder="MM / YY"
+                {...register("expiryDate")}
+              />
+              <p className="text-red-500">{errors.expiryDate?.message}</p>
+              <label class="block text-gray-700 font-bold mb-2 mt-4" for="cvv">
+                CVV <span className="star">*</span>
+              </label>
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="cvv"
+                type="text"
+                placeholder="XXX"
+                {...register("cvv")}
+              />
+              <p className="text-red-500">{errors.cvv?.message}</p>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="cardType" className="label">
+                Card Type <span className="star">*</span>
+              </label>
+              <select
+                id="cardType"
+                onChange={(e) => setValue("cardType", e.target.value)}
+                className="shadow  border rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                {...register("cardType")}
+              >
+                <option></option>
+                <option value="Visa">Visa</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="American Express">American Express</option>
+                <option value="Discover">Discover</option>
+              </select>
+              <p className="text-red-500">{errors.cardType?.message}</p>
+            </div>
+          </div>
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">
+              Card Holder Name & Address Details if they are the same as entered
+              above please use the Tick Box to copy
+            </h3>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersFirstName" className="label">
+              Card Holders First Name <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersFirstName"
+              {...register("cardHoldersFirstName")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">
+              {errors.cardHoldersFirstName?.message}
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersLastName" className="label">
+              Card Holders Last Name <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersLastName"
+              {...register("cardHoldersLastName")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">
+              {errors.cardHoldersLastName?.message}
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersAddress" className="label">
+              Card Holders Address <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersAddress"
+              {...register("cardHoldersAddress")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">{errors.cardHoldersAddress?.message}</p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersAddressLine2" className="label">
+              Card Holders Address Line 2
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersAddress"
+              {...register("cardHoldersAddressLine2")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersCity" className="label">
+              Card Holders City <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersCity"
+              {...register("cardHoldersCity")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">{errors.cardHoldersCity?.message}</p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersStateProvinceRegion" className="label">
+              Card Holders State/Province/Region <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersStateProvinceRegion"
+              {...register("cardHoldersStateProvinceRegion")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">
+              {errors.cardHoldersStateProvinceRegion?.message}
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersZipPostalCode" className="label">
+              Card Holders Zip/Postal Code <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersZipPostalCode"
+              {...register("cardHoldersZipPostalCode")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">
+              {errors.cardHoldersZipPostalCode?.message}
+            </p>
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="cardHoldersCountry" className="label">
+              Card Holders Country <span className="star">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder=""
+              id="cardHoldersCountry"
+              {...register("cardHoldersCountry")}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+            <p className="text-red-500">{errors.cardHoldersCountry?.message}</p>
+          </div>
+        </div>
+
+        {/* Card details for payment of Government fee - End */}
 
         <input
           type="submit"

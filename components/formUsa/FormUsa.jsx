@@ -94,7 +94,9 @@ export default function FormUsa() {
 
         <div className="mb-4">
           <label className="label">Cities</label>
+
           <div>
+
             <label className="inline-flex items-center mr-4">
               <input
                 type="checkbox"
@@ -104,6 +106,8 @@ export default function FormUsa() {
               />
               <span className="ml-2 text-gray-700">New York</span>
             </label>
+
+            
             <label className="inline-flex items-center mr-4">
               <input
                 type="checkbox"

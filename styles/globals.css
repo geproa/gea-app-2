@@ -22,11 +22,11 @@ body {
 
 
 .formContainer{
-  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-5 sm:w-4/5 md:w-3/4  
+  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-auto sm:w-4/5 md:w-3/4 lg:w-11/12 
 }
 
 .formSection{
-  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-5 sm:w-4/5 md:w-3/4  
+  @apply  grid grid-cols-1 gap-2 p-5 md:grid-cols-1 md:gap-4 bg-white shadow-md mx-auto sm:w-4/5 md:w-3/4  
 }
 
 .inputsGrid{

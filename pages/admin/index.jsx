@@ -33,9 +33,6 @@ export async function getServerSideProps({ query }) {
 }
 
 
-
-
-
 function Admin({data}) {
   const handleLogout = async () => {
     try {

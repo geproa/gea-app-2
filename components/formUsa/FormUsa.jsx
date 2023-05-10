@@ -3,9 +3,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
-
+import { useState } from "react";
+import Modal from "react-modal"
 
 export default function FormUsa() {
+
+  const [showReviewModal, setShowReviewModal] = useState(false);
+
   const schema = yup.object().shape({
     firstName: yup.string().required("Name is required!"),
     surname: yup.string().required("Surname is required!"),
@@ -13,16 +17,22 @@ export default function FormUsa() {
     city: yup.string().required("City required!"),
   });
 
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    watch
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
+    setShowReviewModal(true)
+  };
+
+  const handleConfirm  = async (data) => {
     try {
       const docRef = await addDoc(collection(db, "entries"), data);
       console.log("Document written with ID: ", docRef.id);
@@ -30,6 +40,7 @@ export default function FormUsa() {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    setShowReviewModal(false)
     reset();
   };
 
@@ -96,7 +107,6 @@ export default function FormUsa() {
           <label className="label">Cities</label>
 
           <div>
-
             <label className="inline-flex items-center mr-4">
               <input
                 type="checkbox"
@@ -107,7 +117,6 @@ export default function FormUsa() {
               <span className="ml-2 text-gray-700">New York</span>
             </label>
 
-            
             <label className="inline-flex items-center mr-4">
               <input
                 type="checkbox"
@@ -159,6 +168,22 @@ export default function FormUsa() {
           type="submit"
           className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         />
+
+<Modal
+          isOpen={showReviewModal}
+          onRequestClose={() => setShowReviewModal(false)}
+          contentLabel="Form Review"
+        >
+          <h2>Form Review</h2>
+          <p>Name: {watch("firstName")}</p>
+          <p>Surname: {watch("surname")}</p>
+          <p>Email: {watch("email")}</p>
+          <p>City: {watch("city")}</p>
+          {/* Add other fields as needed */}
+
+          <button onClick={() => handleConfirm(watch())}>Confirm</button>
+          <button onClick={() => setShowReviewModal(false)}>Edit</button>
+        </Modal>
       </form>
     </div>
   );

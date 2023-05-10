@@ -85,15 +85,16 @@ function AdminUsa({ totalDocs }) {
         {currentDocs.map((item) => (
           <li key={item.id}>
             <input
+            className="mx-5"
               type="checkbox"
               checked={checkedItems[item.id]}
               onChange={(event) => handleCheckboxChange(event, item.id)}
             />
-            {item.firstName}
+            {item.firstName} {item.lastName}
             <Link href={`/usa/${item.id}`}>
-              <button>Details</button>
+              <button className="mx-5 text-blue-500">Details</button>
             </Link>
-            <button onClick={() => handleDelete(item.id)}>Delete</button>
+            <button className="text-red-500" onClick={() => handleDelete(item.id)}>Delete</button>
           </li>
         ))}
       </ul>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,8 +18,12 @@ import {
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { redirect } from "next/dist/server/api-utils";
 
 export default function FormUsa() {
+
+  const router = useRouter()
+
   const schema = yup.object().shape({
     // loginGovAccount: yup.string().required("Required!"),
     email: yup.string().email().required("Email is required!"),
@@ -150,6 +155,7 @@ export default function FormUsa() {
     }
     setShowReviewModal(false);
     reset();
+    router.push('/')
   };
 
   const [showReviewModal, setShowReviewModal] = useState(false);

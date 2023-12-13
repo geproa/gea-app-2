@@ -18,21 +18,22 @@ export default function Contacts() {
         {/* faq1 */}
         <div className={styles.faq}>
           <h2
-            style={{ color: "#505050", fontWeight: "bold", fontSize: "24px", textAlign: "center" }}
+            style={{
+              color: "#505050",
+              fontWeight: "bold",
+              fontSize: "24px",
+              textAlign: "center",
+            }}
           >
             We are always available and ready to help if you have any questions.
           </h2>
-
           <ContactForm />
-
-       
-
         </div>
         <br />
         <section className={styles.ctaBtns}>
-          <Link href="/apply">USA Global Entry</Link>
-          <Link href="/apply">Canada NEXUS</Link>
-          <Link href="/apply">Mexico Sentri</Link>
+          <Link href="/usa-info">USA Global Entry</Link>
+          <Link href="/canada-info">Canada NEXUS</Link>
+          <Link href="/mexico-info">Mexico Sentri</Link>
         </section>
       </section>
     </main>

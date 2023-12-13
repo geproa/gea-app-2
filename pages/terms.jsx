@@ -48,9 +48,9 @@ export default function Terms() {
           </p>
         </div>
         <section className={styles.ctaBtns}>
-          <Link href="/apply">USA Global Entry</Link>
-          <Link href="/apply">Canada NEXUS</Link>
-          <Link href="/apply">Mexico Sentri</Link>
+          <Link href="/usa-info">USA Global Entry</Link>
+          <Link href="/canada-info">Canada NEXUS</Link>
+          <Link href="/mexico-info">Mexico Sentri</Link>
         </section>
       </section>
     </main>

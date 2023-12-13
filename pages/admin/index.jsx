@@ -1,12 +1,9 @@
-
 import withAuth from "../../lib/withAuth";
 import { auth } from "../../lib/firebase";
-import  AdminUsa from "@/components/adminUsa/AdminUsa";
+import AdminUsa from "@/components/adminUsa/AdminUsa";
 
 import { db } from "../../lib/firebase";
 import { getDocs, collection } from "firebase/firestore";
-
-
 
 export async function getServerSideProps({ query }) {
   const myCollection = collection(db, "entries");
@@ -32,8 +29,7 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-
-function Admin({data}) {
+function Admin({ data }) {
   const handleLogout = async () => {
     try {
       await auth.signOut();
@@ -42,18 +38,17 @@ function Admin({data}) {
     }
   };
   return (
-<>
-<div style={{display:'flex', justifyContent:'space-around'}}>
-      <h1>Admin Page</h1>
-      <div onClick={handleLogout}>
-        <button>Log Out</button>
+    <>
+      <div className="max-w-7xl mx-auto mt-5 flex justify-between">
+        <h1 className="text-blue-500 text-xl font-bold">Administration Page</h1>
+        <div onClick={handleLogout}>
+          <button  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-1 rounded">Log Out</button>
+        </div>
       </div>
-    </div>
-    <div>
-      <h2>USA</h2>
-      <AdminUsa data={data}/>
-    </div>
-</>
+      <div>
+        <AdminUsa data={data} />
+      </div>
+    </>
   );
 }
 

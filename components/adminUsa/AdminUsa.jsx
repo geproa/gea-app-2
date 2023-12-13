@@ -14,12 +14,9 @@ function AdminUsa({ totalDocs }) {
   const [currentPage, setCurrentPage] = useState(1);
   const docsPerPage = 20; // adjust as needed
   const [data, setData] = useState([]);
-  const [checkedItems, setCheckedItems] = useState(
-    data.reduce(
-      (acc, item) => ({ ...acc, [item.id]: item.checked || false }),
-      {}
-    )
-  );
+  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItemsAdmin1, setCheckedItemsAdmin1] = useState({});
+  const [checkedItemsAdmin2, setCheckedItemsAdmin2] = useState({});
 
   useEffect(() => {
     const entriesRef = collection(db, "entries");
@@ -32,6 +29,18 @@ function AdminUsa({ totalDocs }) {
       setCheckedItems(
         entries.reduce(
           (acc, item) => ({ ...acc, [item.id]: item.checked || false }),
+          {}
+        )
+      );
+      setCheckedItemsAdmin1(
+        entries.reduce(
+          (acc, item) => ({ ...acc, [item.id]: item.checkedAdmin1 || false }),
+          {}
+        )
+      );
+      setCheckedItemsAdmin2(
+        entries.reduce(
+          (acc, item) => ({ ...acc, [item.id]: item.checkedAdmin2 || false }),
           {}
         )
       );
@@ -51,6 +60,34 @@ function AdminUsa({ totalDocs }) {
       const entryRef = doc(db, "entries", id);
       await updateDoc(entryRef, {
         checked: isChecked,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCheckboxChangeAdmin1 = async (event, id) => {
+    const isChecked = event.target.checked;
+    setCheckedItemsAdmin1((prevState) => ({ ...prevState, [id]: isChecked }));
+
+    try {
+      const entryRef = doc(db, "entries", id);
+      await updateDoc(entryRef, {
+        checkedAdmin1: isChecked,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCheckboxChangeAdmin2 = async (event, id) => {
+    const isChecked = event.target.checked;
+    setCheckedItemsAdmin2((prevState) => ({ ...prevState, [id]: isChecked }));
+
+    try {
+      const entryRef = doc(db, "entries", id);
+      await updateDoc(entryRef, {
+        checkedAdmin2: isChecked,
       });
     } catch (error) {
       console.log(error);
@@ -79,36 +116,95 @@ function AdminUsa({ totalDocs }) {
   const totalPages = Math.ceil(totalDocs / docsPerPage);
 
   return (
-    <div>
-      <h1>Applications for USA program:</h1>
-      <ul>
-        {currentDocs.map((item) => (
-          <li key={item.id}>
-            <input
-            className="mx-5"
-              type="checkbox"
-              checked={checkedItems[item.id]}
-              onChange={(event) => handleCheckboxChange(event, item.id)}
-            />
-            {item.firstName} {item.lastName}
-            <Link href={`/usa/${item.id}`}>
-              <button className="mx-5 text-blue-500">Details</button>
-            </Link>
-            <button className="text-red-500" onClick={() => handleDelete(item.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <span>Page {currentPage} </span>
+    <div className="max-w-7xl mx-auto mt-10">
+      <h1 className="text-xl mb-5">Applications for USA program:</h1>
+      <table className="table-auto">
+        <thead>
+          <tr>
+            <th className="border border-blue-500 border-opacity-100 p-2">
+              Status
+            </th>
+            <th className="border border-blue-500 border-opacity-100 p-2">
+              Admin 1
+            </th>
+            <th className="border border-blue-500 border-opacity-100 p-2">
+              Admin 2
+            </th>
+            <th className="border border-blue-500 border-opacity-100 p-2">
+              Name
+            </th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentDocs.map((item) => (
+            <tr key={item.id}>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                <input
+                   className="mx-5 w-6 h-6"
+                  type="checkbox"
+                  checked={checkedItems[item.id]}
+                  onChange={(event) => handleCheckboxChange(event, item.id)}
+                />
+              </td>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                <input
+                  name="Admin1"
+                  className="mx-5 w-6 h-6"
+                  type="checkbox"
+                  checked={checkedItemsAdmin1[item.id]}
+                  onChange={(event) =>
+                    handleCheckboxChangeAdmin1(event, item.id)
+                  }
+                />
+              </td>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                <input
+                  name="Admin2"
+                  className="mx-5 w-6 h-6"
+                  type="checkbox"
+                  checked={checkedItemsAdmin2[item.id]}
+                  onChange={(event) =>
+                    handleCheckboxChangeAdmin2(event, item.id)
+                  }
+                />
+              </td>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                {item.firstName} {item.lastName}
+              </td>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                <Link href={`/usa/${item.id}`}>
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded">
+                    Details
+                  </button>
+                </Link>
+              </td>
+              <td className="border border-blue-500 border-opacity-100 p-2">
+                <button
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-1 rounded"
+                  onClick={() => handleDelete(item.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div class="flex items-center mt-5">
         <button
           disabled={currentPage === 1}
           onClick={() => handlePageChange(currentPage - 1)}
+          class="ml-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-md"
         >
           Prev
         </button>
+        <span className="m-5">Page {currentPage}</span>
         <button
           disabled={currentPage === totalPages}
           onClick={() => handlePageChange(currentPage + 1)}
+          class="ml-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-md"
         >
           Next
         </button>

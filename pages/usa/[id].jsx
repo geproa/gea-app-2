@@ -26,8 +26,8 @@ function UsaItem() {
   }
 
   return (
-    <div>
-      <h1>Application Preview for {item.firstName} {item.firstLast}</h1>
+    <div className="max-w-7xl mx-auto py-5">
+      <h1>Application form for {item.firstName} {item.firstLast}</h1>
 
       <br />
       <h2>Have you created a LOGIN.GOV Account: {item.loginGovAccount}</h2>
@@ -36,7 +36,7 @@ function UsaItem() {
       <p>Password: {item.personalKeyPassword}</p>
 
       <br />
-      <h2>Personal Details</h2>
+      <h2 className="text-xl font-bold my-1">Personal Details</h2>
       <p>Email: {item.email}</p>
       <p>First Name: {item.firstName}</p>
       <p>Last Name: {item.lastName}</p>
@@ -52,7 +52,7 @@ function UsaItem() {
       <p>Country of Birth {item.countryBirth}</p>
 
       <br />
-      <h2>Citizenship & Nationality</h2>
+      <h2 className="text-xl font-bold my-1">Citizenship & Nationality</h2>
       <p>Primary Citizenship: {item.primaryCitizenship}</p>
       <p>Primary Passport Number: {item.primaryPassportNumber}</p>
       <p>Passport Expiry Date: {item.passportExpiryDate}</p>
@@ -62,7 +62,7 @@ function UsaItem() {
       </p>
 
       <br />
-      <h2>Secondary Citizenship:</h2>
+      <h2 className="text-xl font-bold my-1">Secondary Citizenship:</h2>
       <p>Secondary Citizenship: {item.secondaryCitizenship}</p>
       <p>Secondary Passport Number: {item.secondaryPassportNumber}</p>
       <p>Secondary Expiry Date: {item.secondaryExpiryDate}</p>
@@ -73,7 +73,7 @@ function UsaItem() {
       </p>
 
       <br />
-      <h2>Alternate Documents:</h2>
+      <h2 className="text-xl font-bold my-1">Alternate Documents:</h2>
       <p>
         Citizenship Certificate Number: {item.citizenshipCertificateNumber}
       </p>
@@ -89,7 +89,7 @@ function UsaItem() {
       </p>
 
       <br />
-      <h2>Canada/US Permanent Residence</h2>
+      <h2 className="text-xl font-bold my-1">Canada/US Permanent Residence</h2>
       <p>Permanent Resident: {item.permanentResident}</p>
       <p>PR Card Number (USCIS Number): {item.pRCardNumber}</p>
       <p>PR Country of Issue: {item.pRCountryOfIssue}</p>
@@ -101,7 +101,7 @@ function UsaItem() {
       <p>PR Expiry Date: {item.pRExpiryDate}</p>
 
       <br />
-      <h2>Driving Licence</h2>
+      <h2 className="text-xl font-bold my-1">Driving Licence</h2>
       <p>Have a driving licence: {item.hasDrivingLicence}</p>
       <p>Driving Licence Number: {item.drivingLicenceNumber}</p>
       <p>Driving Licence Expiry Date: {item.drivingLicenceExpiryDate}</p>
@@ -116,7 +116,7 @@ function UsaItem() {
       <p>Exact Name on Licence: {item.exactNameOnLicence}</p>
 
       <br />
-      <h2>Address History</h2>
+      <h2 className="text-xl font-bold my-1">Address History</h2>
       <p>
         Have you lived at your Residential Address for 5 years or more:
         {item.residentialAddressFor5YearsOrMore}
@@ -130,7 +130,7 @@ function UsaItem() {
       </p>
       <p>Current Zip/Postal Code: {item.currentZipPostalCode}</p>
       <p>Current Country: {item.currentCountry}</p>
-      <h3>Mailing Address:</h3>
+      <h3 className="text-lg font-semibold">Mailing Address:</h3>
       <p>Address Line 1: {item.mailingAddressLine1}</p>
       <p>Address Line 2: {item.mailingAddressLine2}</p>
       <p>City: {item.mailingAddressCity}</p>
@@ -139,12 +139,12 @@ function UsaItem() {
       <p>Country: {item.mailingAddressCountry}</p>
 
       <br />
-      <h2>5 Year Address History</h2>
-      <h3>
+      <h2 className="text-xl font-bold my-1">5 Year Address History</h2>
+      <h3 className="text-lg font-semibold">
         Address 2 - when Did you start living here: {item.address2monthYear}
       </h3>
-      <h3>End Date: {item.address2monthYearEndDate}</h3>
-      <h3>Five Year History Address 2</h3>
+      <h3 className="text-lg font-semibold">End Date: {item.address2monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">Five Year History Address 2</h3>
       <p>Address Line 1: {item.address2addressLine1}</p>
       <p>Address Line 2: {item.address2addressLine2}</p>
       <p>City: {item.address2City}</p>
@@ -153,11 +153,11 @@ function UsaItem() {
       <p>Country: {item.addressLine2Country}</p>
 
       <br />
-      <h3>
+      <h3 className="text-lg font-semibold">
         Address 3 - when Did you start living here: {item.address3monthYear}
       </h3>
-      <h3>End Date: {item.address3monthYearEndDate}</h3>
-      <h3>Five Year History Address 3</h3>
+      <h3 className="text-lg font-semibold">End Date: {item.address3monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">Five Year History Address 3</h3>
       <p>Address Line 1: {item.address3addressLine1}</p>
       <p>Address Line 2: {item.address3addressLine2}</p>
       <p>City: {item.address3City}</p>
@@ -166,11 +166,11 @@ function UsaItem() {
       <p>Country: {item.addressLine3Country}</p>
 
       <br />
-      <h3>
+      <h3 className="text-lg font-semibold">
         Address 4 - when Did you start living here: {item.address4monthYear}
       </h3>
-      <h3>End Date: {item.address4monthYearEndDate}</h3>
-      <h3>Five Year History Address 4</h3>
+      <h3 className="text-lg font-semibold">End Date: {item.address4monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">Five Year History Address 4</h3>
       <p>Address Line 1: {item.address4addressLine1}</p>
       <p>Address Line 2: {item.address4addressLine2}</p>
       <p>City: {item.address4City}</p>
@@ -179,16 +179,16 @@ function UsaItem() {
       <p>Country: {item.addressLine4Country}</p>
 
       <br />
-      <h2>US Contact Address</h2>
+      <h2 className="text-xl font-bold my-1">US Contact Address</h2>
       <p>
         Since when have you used this contact address:
         {item.uSContactAddressSinceWhen}
       </p>
-      <h3>US Contact Name</h3>
+      <h3 className="text-lg font-semibold">US Contact Name</h3>
       <p>First Name: {item.uSContactFirstName}</p>
       <p>Last Name: {item.uSContactLastName}</p>
       <p>US Contact Phone Number: {item.uSContactPhoneNumber}</p>
-      <h3>Contact Address</h3>
+      <h3 className="text-lg font-semibold">Contact Address</h3>
       <p>Address Line 1: {item.usContactAddressLine1}</p>
       <p>Address Line 2: {item.usContactAddressLine2}</p>
       <p>City: {item.usContactAddressCity}</p>
@@ -197,7 +197,7 @@ function UsaItem() {
       <p>Country: {item.usContactAddressCountry}</p>
 
       <br />
-      <h2>Information About Your Current Work</h2>
+      <h2 className="text-xl font-bold my-1">Information About Your Current Work</h2>
       <p>
         Has your employment status been the same for 5 years or more:
         {item.employmentFor5YearsOrMore}
@@ -207,7 +207,7 @@ function UsaItem() {
       <p>Occupation: {item.occupation}</p>
       <p>Employer Name: {item.employerName}</p>
       <p>Employer Phone Number: {item.employerPhoneNumber}</p>
-      <h3>Employer Address</h3>
+      <h3 className="text-lg font-semibold">Employer Address</h3>
       <p>Address Line 1: {item.employerAddressLine1}</p>
       <p>Address Line 2: {item.employerAddressLine2}</p>
       <p>City: {item.employerAddressCity}</p>
@@ -215,14 +215,14 @@ function UsaItem() {
       <p>ZIP / Postal: {item.employerAddressZipPostal}</p>
       <p>Country: {item.employerAddressCountry}</p>
 
-      <h2>Employment Continued</h2>
+      <h2 className="text-xl font-bold my-1">Employment Continued</h2>
       <p>Employer 2 From: {item.employer2monthYear}</p>
       <p>End Date: {item.employer2monthYearEndDate}</p>
       <p>Employment Status 2: {item.employmentStatus2}</p>
       <p>Employer 2 Occupation: {item.employer2Occupation}</p>
       <p>Employer 2 Name: {item.employerName2}</p>
       <p>Employer 2 Phone Number: {item.employer2PhoneNumber}</p>
-      <h3>Employer 2 Address</h3>
+      <h3 className="text-lg font-semibold">Employer 2 Address</h3>
       <p>Address Line 1: {item.employer2addressLine1}</p>
       <p>Address Line 2: {item.employer2addressLine2}</p>
       <p>City: {item.employer2City}</p>
@@ -238,7 +238,7 @@ function UsaItem() {
       <p>Employer 3 Occupation: {item.employer3Occupation}</p>
       <p>Employer 3 Name: {item.employerName3}</p>
       <p>Employer 3 Phone Number: {item.employer3PhoneNumber}</p>
-      <h3>Employer 3 Address</h3>
+      <h3 className="text-lg font-semibold">Employer 3 Address</h3>
       <p>Address Line 1: {item.employer3addressLine1}</p>
       <p>Address Line 2: {item.employer3addressLine2}</p>
       <p>City: {item.employer3City}</p>
@@ -254,7 +254,7 @@ function UsaItem() {
       <p>Employer 4 Occupation: {item.employer4Occupation}</p>
       <p>Employer 4 Name: {item.employerName4}</p>
       <p>Employer 4 Phone Number: {item.employer4PhoneNumber}</p>
-      <h3>Employer 4 Address</h3>
+      <h3 className="text-lg font-semibold">Employer 4 Address</h3>
       <p>Address Line 1: {item.employer4addressLine1}</p>
       <p>Address Line 2: {item.employer4addressLine2}</p>
       <p>City: {item.employer4City}</p>
@@ -263,11 +263,11 @@ function UsaItem() {
       <p>Country: {item.employer4Country}</p>
 
       <br />
-      <h2>Travel History</h2>
+      <h2 className="text-xl font-bold my-1">Travel History</h2>
       <p>Countries: {item.travelHistory}</p>
 
       <br />
-      <h2>Additional Information</h2>
+      <h2 className="text-xl font-bold my-1">Additional Information</h2>
       <p>
         1. Have you ever been convicted of a criminal offense (including
         misdemeanor or felony traffic violations) in the united States or any
@@ -301,14 +301,14 @@ function UsaItem() {
       <p>{item.agreeCertificationDisclaimer}</p>
 
       <br />
-      <h2>Card details for payment of Government fee</h2>
+      <h2 className="text-xl font-bold my-1">Card details for payment of Government fee</h2>
       <p>Card Number: {item.cardNumber}</p>
       <p>Expiry Date: {item.expiryDate}</p>
       <p>CVV: {item.cvv}</p>
       <p>Card Type {item.cardType}</p>
 
       <br />
-      <h2>Card Holder Name & Address Details</h2>
+      <h2 className="text-xl font-bold my-1">Card Holder Name & Address Details</h2>
       <p>Card Holders First Name: {item.cardHoldersFirstName}</p>
       <p>Card Holders Last Name: {item.cardHoldersLastName}</p>
       <p>Card Holders Address: {item.cardHoldersAddress}</p>

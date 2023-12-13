@@ -9,7 +9,7 @@ function Footer() {
       <div className={styles.footerMenu}>
         <div className={styles.footerUsa}>
           <h4>
-            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}} href="/usa">USA</Link>
+            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}} href="/usa-info">USA</Link>
           </h4>
           <Link href="/apply">Global Entry</Link>
           <Link href="/apply">Global Entry Renewal</Link>
@@ -17,7 +17,7 @@ function Footer() {
         </div>
         <div className={styles.footerCanada}>
           <h4>
-            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="canada">CANADA</Link>
+            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="/canada-info">CANADA</Link>
           </h4>
           <Link href="/apply">NEXUS</Link>
           <Link href="/apply">NEXUS Renewal</Link>
@@ -25,7 +25,7 @@ function Footer() {
         </div>
         <div className={styles.footerMexico}>
           <h4>
-            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="mexico">MEXICO</Link>
+            <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="/mexico-info">MEXICO</Link>
           </h4>
           <Link href="/apply">SENTRI</Link>
           <Link href="/apply">SENTRI Renewal</Link>

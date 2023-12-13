@@ -1,0 +1,220 @@
+.heroSection {
+    background: linear-gradient(180deg, rgba(93, 187, 240, 0.28) 0%, rgba(93, 187, 240, 0) 100%);
+    height: 187px;
+}
+
+.titleH1 {
+    font-family: "Roboto-Medium", Helvetica;
+    color: #505050;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 53px;
+    width: 1230px;
+    margin: 0 auto;
+}
+
+.main {
+    font-family: 'Roboto', sans-serif;
+}
+
+.titleH1 h1 {
+    padding: 64px 0 128px 0;
+}
+
+.titleBox {
+    width: 100%;
+    background-color: rgba(232, 245, 253, 1);
+}
+
+.title {
+    width: 1230px;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.title h2 {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.title h3 {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 120% */
+}
+
+.allContent {
+    max-width: 1230px;
+    margin: 48px auto 0 auto;
+}
+
+.faq {
+    margin: 32px 0;
+}
+
+.faq h3 {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 120% */
+    margin: 24px 0;
+}
+
+.faq p {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 120% */
+}
+
+.faq ul {
+    list-style: disc;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.steps h4 {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 40px 0 32px 0;
+    text-align: center;
+}
+
+.card {
+    max-width: 780px;
+    padding: 24px;
+    border-radius: 16px;
+    background: #C2F8EF;
+    margin: 24px auto 24px auto;
+    font-size: 20px;
+    border: 2px solid transparent;
+}
+
+.card:hover {
+    border: 2px solid #5DBBF0;
+    cursor: default;
+    transition: 0.3s;
+}
+
+.cardBlue {
+    max-width: 780px;
+    padding: 24px;
+    border-radius: 16px;
+    background: #4FAEE3;
+    margin: 24px auto 24px auto;
+    color: white;
+    font-size: 20px;
+    border: 2px solid transparent;
+}
+
+.cardBlue:hover {
+    border: 2px solid #505050;
+    cursor: default;
+    transition: 0.3s;
+}
+
+
+
+
+.ctaBtn {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 10px;
+    background: var(--Main, #5DBBF0);
+    display: flex;
+    width: 272px;
+    height: 77px;
+    padding: 11px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+
+}
+
+.ctaBtn:hover {
+    background-color: rgb(59 130 246 / 0.5);
+    transition: 0.3s;
+}
+
+.cta {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+
+}
+
+
+.ctaDiv {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.ctaBtn2 {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 10px;
+    background: var(--Main, #5DBBF0);
+    display: flex;
+    width: 958px;
+    height: 77px;
+    padding: 11px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+}
+
+.ctaBtn2:hover {
+    background-color: rgb(59 130 246 / 0.5);
+}
+
+
+.ctaBtns {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.ctaBtns a {
+    color: var(--Main, #5DBBF0);
+    font-family: Roboto;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 56px;
+}
+
+.ctaBtns a:hover{
+    color: rgb(59 130 246 / 0.5); 
+    transition: 0.3s;
+}

@@ -1,0 +1,317 @@
+.heroSection {
+    background: linear-gradient(180deg, rgba(93, 187, 240, 0.28) 0%, rgba(93, 187, 240, 0) 100%);
+    height: 187px;
+}
+
+.titleH1 {
+    font-family: "Roboto-Medium", Helvetica;
+    color: #505050;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 53px;
+    width: 1230px;
+    margin: 0 auto;
+    background: url('../public/images/pngwing.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.main {
+    font-family: 'Roboto', sans-serif;
+}
+
+.titleH1 h1 {
+    padding: 64px 0 128px 0;
+}
+
+.box .pngwing {
+    height: 362px;
+    left: 783px;
+    object-fit: cover;
+    position: absolute;
+    top: 1px;
+    width: 657px;
+}
+
+
+.boxContent {
+    width: 1236px;
+    height: 779px;
+    border-radius: 24px;
+    background: #E8F5FD;
+    padding: 32px;
+    margin: 0 auto;
+    margin-top: 140px;
+}
+
+.boxContent h2 {
+    color: #505050;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boxContent h3 {
+    color: #505050;
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 24px 0 40px 0;
+}
+
+.textContent {
+    color: #505050;
+    font-family: Roboto;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 120% */
+}
+
+
+
+.how h3 {
+    color: #505050;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 46px;
+    /* 127.778% */
+    width: 1000px;
+    margin: 124px auto 56px auto;
+}
+
+.elementDiv {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.titleElement {
+    width: 780px;
+    height: 65px;
+    border-radius: 16px;
+    background: #C2F8EF;
+
+}
+
+.titleElement p {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    padding: 13px 0 13px 32px;
+}
+
+
+
+.rowOne {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.rowOne:hover .number,
+.rowOne:hover .imgText {
+    /* Styles for the child elements when the parent is being hovered over */
+    border: 2px solid #5DBBF0;
+}
+
+
+.number {
+    width: 130px;
+    height: 130px;
+    background-color: #C2F8EF;
+    border-radius: 16px;
+}
+
+.number {
+    color: var(--Main, #5DBBF0);
+    font-family: Roboto;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgText {
+    width: 780px;
+    height: 130px;
+    border-radius: 16px;
+    background: #C2F8EF;
+    display: flex;
+    justify-content: space-around;
+    cursor: default;
+}
+
+.imgText img {
+    margin: 38px 16px 38px 24px;
+}
+
+.imgText p {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    padding: 30px 24px;
+}
+
+.imgText a:hover {
+    color: #5DBBF0;
+}
+
+.ctaBtn {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 10px;
+    background: var(--Main, #5DBBF0);
+    display: flex;
+    width: 958px;
+    height: 77px;
+    padding: 11px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+}
+
+.ctaBtn:hover {
+    background-color: rgb(59 130 246 / 0.5);
+}
+
+.wrapperDiv button {
+    margin: 0 auto;
+}
+
+.disclaimer {
+    color: var(--Main-Text, #505050);
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    width: 954px;
+    height: 44px;
+    flex-shrink: 0;
+    margin: 24px auto 56px auto;
+}
+
+.ctaBtns {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.ctaBtns a {
+    color: var(--Main, #5DBBF0);
+    font-family: Roboto;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 56px;
+}
+
+.ctaBtns a:hover {
+    color: rgb(59 130 246 / 0.5);
+    transition: 0.3s;
+}
+
+@media (min-width: 360px) and (max-width: 1024px) {
+    .titleH1 {
+        font-size: x-large;
+    }
+
+    .titleH1 h1 {
+        padding: 40px 0 0 0;
+        width: 30%;
+        margin: 0 10px;
+        line-height: 36px;
+    }
+
+    .boxContent {
+        width: 94%;
+        height: 100%;
+        margin-top: 80px;
+    }
+
+    .how {
+        width: 94%;
+        height: 100%;
+        margin-top: 80px;
+    }
+
+    .how h3 {
+        width: 90%;
+        font-size: x-large;
+        margin: 80px auto 40px auto;
+    }
+
+    .titleElement {
+        width: 100%;
+        margin: 0 10px 0 10px;
+    }
+
+    .rowOne {
+        width: 100%;
+        margin: 10px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .number {
+        width: 50%;
+        height: 50%;
+    }
+
+    .imgText {
+        width: 100%;
+        height: 50%;
+    }
+
+    .imgText p {
+        font-size: medium;
+        line-height: 24px;
+    }
+
+    .ctaBtn {
+        width: 80%;
+        margin-top: 40px !important;
+    }
+
+    .disclaimer p {
+        margin: 0 10px 0px 32px;
+        width: 40%;
+    }
+
+    .ctaBtns {
+        margin-top: 124px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 60px;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+    .ctaBtns a {
+        margin: 10px 0;
+    }
+}
+

@@ -130,6 +130,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
+              className={styles.iconImg}
                 src="/images/business-time.svg"
                 alt="business-time-icon"
                 width={63}
@@ -148,6 +149,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
+               className={styles.iconImg}
                 src="/images/file-circle.svg"
                 alt="business-time-icon"
                 width={63}
@@ -166,6 +168,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
+               className={styles.iconImg}
                 src="/images/clipboard.svg"
                 alt="business-time-icon"
                 width={43}

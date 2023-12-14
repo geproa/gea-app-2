@@ -116,7 +116,7 @@ export default function Canada() {
           </div>
           <div className={styles.cta}>
             <button className={styles.ctaBtn}>
-              <Link href="/apply">APPLY ONLINE</Link>
+              <Link href="/apply-canada">APPLY ONLINE</Link>
             </button>
           </div>
         </div>
@@ -228,7 +228,7 @@ export default function Canada() {
             <br />
             <br />
           </p>
-          <Link href="/apply" style={{ color: "#5DBBF0", fontWeight: "bold" }}>
+          <Link href="/apply-canada" style={{ color: "#5DBBF0", fontWeight: "bold" }}>
             APPLY NOW
           </Link>
         </div>
@@ -320,7 +320,7 @@ export default function Canada() {
           </p>
           <div className={styles.ctaDiv}>
             <button className={styles.ctaBtn2}>
-              <Link href="/apply">APPLY NOW</Link>
+              <Link href="/apply-canada">APPLY NOW</Link>
             </button>
           </div>
         </div>

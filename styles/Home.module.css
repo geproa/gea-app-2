@@ -169,6 +169,10 @@
     padding: 30px 24px;
 }
 
+.imgText a{
+    color: #505050;
+}
+
 .imgText a:hover {
     color: #5DBBF0;
 }
@@ -322,5 +326,19 @@
     .ctaBtns a {
         margin: 10px 0;
     }
+
+
+    #title{
+        font-size: 24px !important;
+    }
+
+    #links{
+        display: flex;
+        flex-direction: column;
+    }
+
+   #links a{
+    font-size: 14px !important;
+   }
 }
 

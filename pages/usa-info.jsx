@@ -167,7 +167,7 @@ export default function Usa() {
           </div>
           <div className={styles.cta}>
             <button className={styles.ctaBtn}>
-              <Link href="apply">APPLY ONLINE</Link>
+              <Link href="apply-usa">APPLY ONLINE</Link>
             </button>
           </div>
         </div>
@@ -296,7 +296,7 @@ export default function Usa() {
             with Global Entry.
             <br />
             <br />
-            <Link href="/apply" style={{ color: "#5DBBF0", fontWeight: "bold" }}>
+            <Link href="/apply-usa" style={{ color: "#5DBBF0", fontWeight: "bold" }}>
               APPLY NOW
             </Link>
           </p>
@@ -428,7 +428,7 @@ export default function Usa() {
             <br />
             <br />
             <Link
-              href="/apply"
+              href="/apply-usa"
               style={{ color: "#5DBBF0", fontWeight: "bold" }}
             >
               APPLY NOW  
@@ -671,7 +671,7 @@ export default function Usa() {
           </p>
           <br />
           <Link
-            href="/apply"
+            href="/apply-usa"
             style={{ color: "#5DBBF0", fontWeight: "bold", fontSize: "20px" }}
             S
           >

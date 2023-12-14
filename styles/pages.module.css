@@ -218,3 +218,93 @@
     color: rgb(59 130 246 / 0.5); 
     transition: 0.3s;
 }
+
+@media (min-width: 360px) and (max-width: 1024px) {
+    .titleH1 {
+        font-size: x-large;
+    }
+
+    .titleH1 h1 {
+        padding: 40px 0 0 0;
+        width: 30%;
+        margin: 0 10px;
+        line-height: 36px;
+    }
+
+    .titleBox{
+        margin-top: 0px;
+    }
+    .title{
+        margin: 0px 10px;
+        width: 100%;
+    }
+
+    .allContent{
+        margin: 0px 10px;
+        width: 100%;
+    }
+
+    .allContent p{
+        font-size: 16px;
+    }
+
+    .allContent h2{
+        font-size: 16px;
+    }
+
+    .steps h4{
+        font-size: 24px;
+    }
+
+    .cardBlue li{
+        font-size: 16px;
+    }
+
+    .faq{
+        width: 95%;
+    }
+
+    .faq h2{
+        font-size: 24px;
+    }
+
+
+    .faq li{
+        margin-top: 16px;
+        font-size: 16px;
+    }
+
+    .steps{
+        width: 90%;
+    }
+
+    .steps h4{
+        line-height: 28px;
+    }
+
+
+    .heroSection{
+        height: 88px;
+    }
+
+    .ctaBtns{
+        width: 90%;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .ctaBtns a{
+        margin: 8px 0;
+    }
+
+    .ctaBtn2{
+        width: 300px;
+    }
+
+    .h2contacts{
+        text-align: left !important;
+        margin-left: 10px;
+    }
+}

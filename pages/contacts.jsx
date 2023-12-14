@@ -18,6 +18,7 @@ export default function Contacts() {
         {/* faq1 */}
         <div className={styles.faq}>
           <h2
+          className={styles.h2contacts}
             style={{
               color: "#505050",
               fontWeight: "bold",

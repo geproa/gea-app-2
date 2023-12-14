@@ -25,23 +25,23 @@ import {
 
 const productsUsa = [
   { name: "Global Entry", href: "/usa-info", icon: ClipboardDocumentCheckIcon },
-  { name: "Global Entry Apply", href: "/apply", icon: GlobeAltIcon },
-  { name: "Global Entry Renewal", href: "/apply", icon: CursorArrowRaysIcon },
-  { name: "Global Entry Child", href: "/apply", icon: UserIcon },
+  { name: "Global Entry Apply", href: "/apply-usa", icon: GlobeAltIcon },
+  { name: "Global Entry Renewal", href: "/apply-usa", icon: CursorArrowRaysIcon },
+  { name: "Global Entry Child", href: "/apply-usa", icon: UserIcon },
 ];
 
 const productsCanada = [
   { name: "Nexus Canada", href: "/canada-info", icon: ClipboardDocumentCheckIcon },
-  { name: "NEXUS Apply", href: "/apply", icon: GlobeAltIcon },
-  { name: "NEXUS Renewal", href: "/apply", icon: CursorArrowRaysIcon },
-  { name: "NEXUS Child", href: "/apply", icon: UserIcon },
+  { name: "NEXUS Apply", href: "/apply-canada", icon: GlobeAltIcon },
+  { name: "NEXUS Renewal", href: "/apply-canada", icon: CursorArrowRaysIcon },
+  { name: "NEXUS Child", href: "/apply-canada", icon: UserIcon },
 ];
 
 const productsMexico = [
   { name: "SENTRI", href: "/mexico-info", icon: ClipboardDocumentCheckIcon },
-  { name: "SENTRI Apply", href: "/apply", icon: GlobeAltIcon },
-  { name: "SENTRI Renewal", href: "/apply", icon: CursorArrowRaysIcon },
-  { name: "SENTRI Child", href: "/apply", icon: UserIcon },
+  { name: "SENTRI Apply", href: "/apply-mexico", icon: GlobeAltIcon },
+  { name: "SENTRI Renewal", href: "/apply-mexico", icon: CursorArrowRaysIcon },
+  { name: "SENTRI Child", href: "/apply-mexico", icon: UserIcon },
 ];
 
 function classNames(...classes) {

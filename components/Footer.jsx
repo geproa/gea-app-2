@@ -11,25 +11,25 @@ function Footer() {
           <h4>
             <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}} href="/usa-info">USA</Link>
           </h4>
-          <Link href="/apply">Global Entry</Link>
-          <Link href="/apply">Global Entry Renewal</Link>
-          <Link href="/apply">Global Entry Child</Link>
+          <Link href="/apply-usa">Global Entry</Link>
+          <Link href="/apply-usa">Global Entry Renewal</Link>
+          <Link href="/apply-usa">Global Entry Child</Link>
         </div>
         <div className={styles.footerCanada}>
           <h4>
             <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="/canada-info">CANADA</Link>
           </h4>
-          <Link href="/apply">NEXUS</Link>
-          <Link href="/apply">NEXUS Renewal</Link>
-          <Link href="/apply">NEXUS Child</Link>
+          <Link href="/apply-canada">NEXUS</Link>
+          <Link href="/apply-canada">NEXUS Renewal</Link>
+          <Link href="/apply-canada">NEXUS Child</Link>
         </div>
         <div className={styles.footerMexico}>
           <h4>
             <Link style={{fontWeight:'bold', fontSize:'20px', marginBottom:'24px'}}  href="/mexico-info">MEXICO</Link>
           </h4>
-          <Link href="/apply">SENTRI</Link>
-          <Link href="/apply">SENTRI Renewal</Link>
-          <Link href="/apply">SENTRI Child</Link>
+          <Link href="/apply-mexico">SENTRI</Link>
+          <Link href="/apply-mexico">SENTRI Renewal</Link>
+          <Link href="/apply-mexico">SENTRI Child</Link>
         </div>
       </div>
 

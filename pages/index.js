@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -57,13 +57,11 @@ export default function Home() {
                 While
               </span>
               <span class="span">
-                {" "}
                 <b>Trusted Traveler Programs</b>
               </span>
               <span class="text-wrapper"> like</span>
               <span class="span">
-                {" "}
-                <b>Global Entry</b>, <b>Nexus and Sentri</b>{" "}
+                <b>Global Entry</b>, <b>Nexus and Sentri</b>
               </span>
               <span class="text-wrapper">
                 offer undeniable benefits for both businesses and individuals,
@@ -130,7 +128,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
-              className={styles.iconImg}
+                className={styles.iconImg}
                 src="/images/business-time.svg"
                 alt="business-time-icon"
                 width={63}
@@ -149,7 +147,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
-               className={styles.iconImg}
+                className={styles.iconImg}
                 src="/images/file-circle.svg"
                 alt="business-time-icon"
                 width={63}
@@ -168,7 +166,7 @@ export default function Home() {
             </div>
             <div className={styles.imgText}>
               <Image
-               className={styles.iconImg}
+                className={styles.iconImg}
                 src="/images/clipboard.svg"
                 alt="business-time-icon"
                 width={43}

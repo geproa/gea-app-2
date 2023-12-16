@@ -27,6 +27,8 @@ function UsaItem() {
 
   return (
     <div className="max-w-7xl mx-auto py-5">
+      <h1>Form type: {item.formType}</h1>
+      <br/>
       <h1>Application form for {item.firstName} {item.firstLast}</h1>
 
       <br />

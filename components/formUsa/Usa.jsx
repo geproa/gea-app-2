@@ -277,7 +277,7 @@ export default function FormUsa() {
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">Global Entry Apply Form</h3>
           </div>
-          <div className="mb-4">
+          <div>
             <select
               id="formType"
               className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

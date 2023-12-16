@@ -272,6 +272,26 @@ export default function FormUsa() {
   return (
     <div class="max-w-screen-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
+        {/* Form Type */}
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Global Entry Apply Form</h3>
+          </div>
+          <div className="mb-4">
+            <select
+              id="formType"
+              className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setValue("Global Entry Apply", e.target.value)}
+              {...register("formType")}
+            >
+              <option key="Global Entry Apply" value="Global Entry Apply">
+                Global Entry Apply
+              </option>
+            </select>
+          </div>
+        </div>
+        {/* Form Type - End */}
+
         {/* LOGIN.GOV Account */}
         <div className="formSection">
           <div class="title-box">
@@ -3036,129 +3056,251 @@ export default function FormUsa() {
           onRequestClose={() => setShowReviewModal(false)}
           contentLabel="Form Review"
         >
-          <h1 style={{fontWeight:'bold', fontSize:'24px'}}>Application Preview</h1>
+          <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
+            Application Preview
+          </h1>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>
-          Have you created a LOGIN.GOV Account:  <b> {watch("loginGovAccount")}</b>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Have you created a LOGIN.GOV Account:{" "}
+            <b> {watch("loginGovAccount")}</b>
           </h2>
-          <p>Personal Key: <b>{watch("personalKey")}</b></p>
-          <p>Email address: <b>{watch("personalKeyEmail")}</b></p>
-          <p>Password: <b>{watch("personalKeyPassword")}</b></p>
-
-          <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Personal Details</h2>
-          <p>Email: <b>{watch("email")}</b> </p>
-          <p>First Name: <b>{watch("firstName")}</b></p>
-          <p>Last Name: <b>{watch("lastName")}</b> </p>
-          <p>Middle Names: <b>{watch("middleNames")}</b> </p>
-          <p>Other Names: <b>{watch("otherNames")}</b> </p>
-          <p>Gender: <b>{watch("gender")}</b> </p>
-          <p>Phone Number: <b>{watch("phoneNumber")}</b> </p>
-          <p>Height: <b>{watch("height")}</b> </p>
-          <p>Eye Colour: <b>{watch("eyeColour")}</b> </p>
-          <p>Birth Date: <b>{watch("eyeColour")}</b> </p>
-          <p>City of Birth: <b>{watch("cityBirth")}</b> </p>
-          <p>State / Province of Birth: <b>{watch("stateBirth")}</b> </p>
-          <p>Country of Birth: <b>{watch("countryBirth")}</b> </p>
-
-          <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Citizenship & Nationality</h2>
-          <p>Primary Citizenship: <b>{watch("primaryCitizenship")}</b> </p>
-          <p>Primary Passport Number: <b>{watch("primaryPassportNumber")}</b> </p>
-          <p>Passport Expiry Date: <b>{watch("passportExpiryDate")}</b> </p>
-          <p>Passport Date of Issue: <b>{watch("passportDateOfIssue")}</b> </p>
           <p>
-            Exact Name on Primary Passport: <b>{watch("exactNameOnPrimaryPassport")}</b>
-            
+            Personal Key: <b>{watch("personalKey")}</b>
+          </p>
+          <p>
+            Email address: <b>{watch("personalKeyEmail")}</b>
+          </p>
+          <p>
+            Password: <b>{watch("personalKeyPassword")}</b>
           </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Secondary Citizenship:</h2>
-          <p>Secondary Citizenship: <b>{watch("secondaryCitizenship")}</b> </p>
-          <p>Secondary Passport Number: <b>{watch("secondaryPassportNumber")}</b> </p>
-          <p>Secondary Expiry Date: <b>{watch("secondaryExpiryDate")}</b> </p>
-          <p>Secondary Date of Issue: <b>{watch("secondaryDateOfIssue")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Personal Details
+          </h2>
           <p>
-            Exact Name on Secondary Passport: <b>{watch("exactNameOnSecondaryPassport")}</b>
-            
+            Email: <b>{watch("email")}</b>{" "}
+          </p>
+          <p>
+            First Name: <b>{watch("firstName")}</b>
+          </p>
+          <p>
+            Last Name: <b>{watch("lastName")}</b>{" "}
+          </p>
+          <p>
+            Middle Names: <b>{watch("middleNames")}</b>{" "}
+          </p>
+          <p>
+            Other Names: <b>{watch("otherNames")}</b>{" "}
+          </p>
+          <p>
+            Gender: <b>{watch("gender")}</b>{" "}
+          </p>
+          <p>
+            Phone Number: <b>{watch("phoneNumber")}</b>{" "}
+          </p>
+          <p>
+            Height: <b>{watch("height")}</b>{" "}
+          </p>
+          <p>
+            Eye Colour: <b>{watch("eyeColour")}</b>{" "}
+          </p>
+          <p>
+            Birth Date: <b>{watch("eyeColour")}</b>{" "}
+          </p>
+          <p>
+            City of Birth: <b>{watch("cityBirth")}</b>{" "}
+          </p>
+          <p>
+            State / Province of Birth: <b>{watch("stateBirth")}</b>{" "}
+          </p>
+          <p>
+            Country of Birth: <b>{watch("countryBirth")}</b>{" "}
           </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Alternate Documents:</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Citizenship & Nationality
+          </h2>
           <p>
-            Citizenship Certificate Number: <b> {watch("citizenshipCertificateNumber")}</b>
-           
+            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>{" "}
           </p>
-          <p>Country of Issue: <b></b> {watch("countryOfIssue")}</p>
           <p>
-            Exact Name on Citizenship Certificate: <b> {watch("exactNameOnCitizenshipCertificate")}</b>
-           
+            Primary Passport Number: <b>{watch("primaryPassportNumber")}</b>{" "}
           </p>
-          <p>Alternate Issue Date: <b>{watch("alternateIssueDate")}</b> </p>
-          <p>Birth Certificate Number: <b>{watch("birthCertificateNumber")}</b> </p>
           <p>
-            Exact Name on Birth Certificate: <b> {watch("exactNameOnBirthCertificate")}</b>
-           
+            Passport Expiry Date: <b>{watch("passportExpiryDate")}</b>{" "}
+          </p>
+          <p>
+            Passport Date of Issue: <b>{watch("passportDateOfIssue")}</b>{" "}
+          </p>
+          <p>
+            Exact Name on Primary Passport:{" "}
+            <b>{watch("exactNameOnPrimaryPassport")}</b>
           </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Canada/US Permanent Residence</h2>
-          <p>Permanent Resident: <b>{watch("permanentResident")}</b> </p>
-          <p>PR Card Number (USCIS Number): <b>{watch("pRCardNumber")}</b> </p>
-          <p>PR Country of Issue: <b>{watch("pRCountryOfIssue")}</b> </p>
-          <p>Exact Name on PR Card: <b>{watch("exactNameOnPrCard")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Secondary Citizenship:
+          </h2>
+          <p>
+            Secondary Citizenship: <b>{watch("secondaryCitizenship")}</b>{" "}
+          </p>
+          <p>
+            Secondary Passport Number: <b>{watch("secondaryPassportNumber")}</b>{" "}
+          </p>
+          <p>
+            Secondary Expiry Date: <b>{watch("secondaryExpiryDate")}</b>{" "}
+          </p>
+          <p>
+            Secondary Date of Issue: <b>{watch("secondaryDateOfIssue")}</b>{" "}
+          </p>
+          <p>
+            Exact Name on Secondary Passport:{" "}
+            <b>{watch("exactNameOnSecondaryPassport")}</b>
+          </p>
+
+          <br />
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Alternate Documents:
+          </h2>
+          <p>
+            Citizenship Certificate Number:{" "}
+            <b> {watch("citizenshipCertificateNumber")}</b>
+          </p>
+          <p>
+            Country of Issue: <b></b> {watch("countryOfIssue")}
+          </p>
+          <p>
+            Exact Name on Citizenship Certificate:{" "}
+            <b> {watch("exactNameOnCitizenshipCertificate")}</b>
+          </p>
+          <p>
+            Alternate Issue Date: <b>{watch("alternateIssueDate")}</b>{" "}
+          </p>
+          <p>
+            Birth Certificate Number: <b>{watch("birthCertificateNumber")}</b>{" "}
+          </p>
+          <p>
+            Exact Name on Birth Certificate:{" "}
+            <b> {watch("exactNameOnBirthCertificate")}</b>
+          </p>
+
+          <br />
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Canada/US Permanent Residence
+          </h2>
+          <p>
+            Permanent Resident: <b>{watch("permanentResident")}</b>{" "}
+          </p>
+          <p>
+            PR Card Number (USCIS Number): <b>{watch("pRCardNumber")}</b>{" "}
+          </p>
+          <p>
+            PR Country of Issue: <b>{watch("pRCountryOfIssue")}</b>{" "}
+          </p>
+          <p>
+            Exact Name on PR Card: <b>{watch("exactNameOnPrCard")}</b>{" "}
+          </p>
           <p>
             Does your Permanent Resident Card have a machine readable zone?:
             {watch("readableZone")}
           </p>
-          <p>PR Expiry Date: <b>{watch("pRExpiryDate")}</b> </p>
+          <p>
+            PR Expiry Date: <b>{watch("pRExpiryDate")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Driving Licence</h2>
-          <p>Have a driving licence: <b>{watch("hasDrivingLicence")}</b> </p>
-          <p>Driving Licence Number: <b>{watch("drivingLicenceNumber")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Driving Licence
+          </h2>
           <p>
-            Driving Licence Expiry Date: <b>{watch("drivingLicenceExpiryDate")}</b> 
+            Have a driving licence: <b>{watch("hasDrivingLicence")}</b>{" "}
           </p>
-          <p>DL State / Province of Issue: <b>{watch("dlProvinceOfIssue")}</b>  </p>
-          <p>DL Country: <b>{watch("dLCountry")}</b> </p>
-          <p>Is this an Enhanced Licence: <b></b> {watch("enhancedLicence")}</p>
           <p>
-            Has this Licence a Hazardous Material Endorsement: <b>{watch("hazardousMaterialEndorsement")}</b>
-            
+            Driving Licence Number: <b>{watch("drivingLicenceNumber")}</b>{" "}
           </p>
-          <p>Is this a Commercial Licence: <b>{watch("commercialLicence")}</b>  </p>
-          <p>Exact Name on Licence: <b>{watch("exactNameOnLicence")}</b> </p>
+          <p>
+            Driving Licence Expiry Date:{" "}
+            <b>{watch("drivingLicenceExpiryDate")}</b>
+          </p>
+          <p>
+            DL State / Province of Issue: <b>{watch("dlProvinceOfIssue")}</b>{" "}
+          </p>
+          <p>
+            DL Country: <b>{watch("dLCountry")}</b>{" "}
+          </p>
+          <p>
+            Is this an Enhanced Licence: <b></b> {watch("enhancedLicence")}
+          </p>
+          <p>
+            Has this Licence a Hazardous Material Endorsement:{" "}
+            <b>{watch("hazardousMaterialEndorsement")}</b>
+          </p>
+          <p>
+            Is this a Commercial Licence: <b>{watch("commercialLicence")}</b>{" "}
+          </p>
+          <p>
+            Exact Name on Licence: <b>{watch("exactNameOnLicence")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Address History</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Address History
+          </h2>
           <p>
-            Have you lived at your Residential Address for 5 years or more: <b> {watch("residentialAddressFor5YearsOrMore")}</b>
-           
+            Have you lived at your Residential Address for 5 years or more:{" "}
+            <b> {watch("residentialAddressFor5YearsOrMore")}</b>
           </p>
           <p>
-            Current When did you start living here: <b>{watch("startLivingHere")}</b> 
+            Current When did you start living here:{" "}
+            <b>{watch("startLivingHere")}</b>
           </p>
-          <p>Current Address: <b>{watch("currentAddress")}</b> </p>
-          <p>Current Address Line 2: <b>{watch("currentAddressLine2")}</b> </p>
-          <p>Current City: <b>{watch("currentCity")}</b> </p>
           <p>
-            Current State/Province/Region: <b>{watch("currentStateProvinceRegion")}</b> 
+            Current Address: <b>{watch("currentAddress")}</b>{" "}
           </p>
-          <p>Current Zip/Postal Code: <b>{watch("currentZipPostalCode")}</b> </p>
-          <p>Current Country: <b>{watch("currentCountry")}</b> </p>
-          <h3 style={{fontWeight:'bold'}}>Mailing Address:</h3>
-          <p>Address Line 1: <b>{watch("mailingAddressLine1")}</b> </p>
-          <p>Address Line 2: <b>{watch("mailingAddressLine2")}</b> </p>
-          <p>City: <b>{watch("mailingAddressCity")}</b> </p>
-          <p>State/Province: <b>{watch("mailingAddressStateProvince")}</b> </p>
-          <p>ZIP / Postal: <b>{watch("mailingAddressZipPostal")}</b> </p>
-          <p>Country: <b>{watch("mailingAddressCountry")}</b> </p>
+          <p>
+            Current Address Line 2: <b>{watch("currentAddressLine2")}</b>{" "}
+          </p>
+          <p>
+            Current City: <b>{watch("currentCity")}</b>{" "}
+          </p>
+          <p>
+            Current State/Province/Region:{" "}
+            <b>{watch("currentStateProvinceRegion")}</b>
+          </p>
+          <p>
+            Current Zip/Postal Code: <b>{watch("currentZipPostalCode")}</b>{" "}
+          </p>
+          <p>
+            Current Country: <b>{watch("currentCountry")}</b>{" "}
+          </p>
+          <h3 style={{ fontWeight: "bold" }}>Mailing Address:</h3>
+          <p>
+            Address Line 1: <b>{watch("mailingAddressLine1")}</b>{" "}
+          </p>
+          <p>
+            Address Line 2: <b>{watch("mailingAddressLine2")}</b>{" "}
+          </p>
+          <p>
+            City: <b>{watch("mailingAddressCity")}</b>{" "}
+          </p>
+          <p>
+            State/Province: <b>{watch("mailingAddressStateProvince")}</b>{" "}
+          </p>
+          <p>
+            ZIP / Postal: <b>{watch("mailingAddressZipPostal")}</b>{" "}
+          </p>
+          <p>
+            Country: <b>{watch("mailingAddressCountry")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>5 Year Address History</h2>
-          <h3 style={{fontWeight:'bold'}}>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            5 Year Address History
+          </h2>
+          <h3 style={{ fontWeight: "bold" }}>
             Address 2 - when Did you start living here:
             {watch("address2monthYear")}
           </h3>
@@ -3172,7 +3314,7 @@ export default function FormUsa() {
           <p>Country: {watch("addressLine2Country")}</p>
 
           <br />
-          <h3 style={{fontWeight:'bold'}}>
+          <h3 style={{ fontWeight: "bold" }}>
             Address 3 - when Did you start living here:
             {watch("address3monthYear")}
           </h3>
@@ -3186,12 +3328,14 @@ export default function FormUsa() {
           <p>Country: {watch("addressLine3Country")}</p>
 
           <br />
-          <h3 style={{fontWeight:'bold'}}>
+          <h3 style={{ fontWeight: "bold" }}>
             Address 4 - when Did you start living here:
             {watch("address4monthYear")}
           </h3>
-          <h3 style={{fontWeight:'bold'}}>End Date: {watch("address4monthYearEndDate")}</h3>
-          <h3 style={{fontWeight:'bold'}}>Five Year History Address 4</h3>
+          <h3 style={{ fontWeight: "bold" }}>
+            End Date: {watch("address4monthYearEndDate")}
+          </h3>
+          <h3 style={{ fontWeight: "bold" }}>Five Year History Address 4</h3>
           <p>Address Line 1: {watch("address4addressLine1")}</p>
           <p>Address Line 2: {watch("address4addressLine2")}</p>
           <p>City: {watch("address4City")}</p>
@@ -3200,51 +3344,97 @@ export default function FormUsa() {
           <p>Country: {watch("addressLine4Country")}</p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>US Contact Address</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            US Contact Address
+          </h2>
           <p>
-            Since when have you used this contact address:<b>{watch("uSContactAddressSinceWhen")}</b>
-            
+            Since when have you used this contact address:
+            <b>{watch("uSContactAddressSinceWhen")}</b>
           </p>
-          <h3 style={{fontWeight:'bold'}}>US Contact Name</h3>
-          <p>First Name:<b>{watch("uSContactFirstName")}</b> </p>
-          <p>Last Name:<b>{watch("uSContactLastName")}</b> </p>
-          <p>US Contact Phone Number:<b>{watch("uSContactPhoneNumber")}</b> </p>
-          <h3 style={{fontWeight:'bold'}}>Contact Address</h3>
-          <p>Address Line 1:<b>{watch("usContactAddressLine1")}</b> </p>
-          <p>Address Line 2:<b>{watch("usContactAddressLine2")}</b> </p>
-          <p>City:<b>{watch("usContactAddressCity")}</b> </p>
-          <p>State/Province:<b>{watch("usContactAddressStateProvince")}</b> </p>
-          <p>ZIP / Postal:<b>{watch("usContactAddressZipPostal")}</b> </p>
-          <p>Country:<b>{watch("usContactAddressCountry")}</b> </p>
+          <h3 style={{ fontWeight: "bold" }}>US Contact Name</h3>
+          <p>
+            First Name:<b>{watch("uSContactFirstName")}</b>{" "}
+          </p>
+          <p>
+            Last Name:<b>{watch("uSContactLastName")}</b>{" "}
+          </p>
+          <p>
+            US Contact Phone Number:<b>{watch("uSContactPhoneNumber")}</b>{" "}
+          </p>
+          <h3 style={{ fontWeight: "bold" }}>Contact Address</h3>
+          <p>
+            Address Line 1:<b>{watch("usContactAddressLine1")}</b>{" "}
+          </p>
+          <p>
+            Address Line 2:<b>{watch("usContactAddressLine2")}</b>{" "}
+          </p>
+          <p>
+            City:<b>{watch("usContactAddressCity")}</b>{" "}
+          </p>
+          <p>
+            State/Province:<b>{watch("usContactAddressStateProvince")}</b>{" "}
+          </p>
+          <p>
+            ZIP / Postal:<b>{watch("usContactAddressZipPostal")}</b>{" "}
+          </p>
+          <p>
+            Country:<b>{watch("usContactAddressCountry")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Information About Your Current Work</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Information About Your Current Work
+          </h2>
           <p>
-            Has your employment status been the same for 5 years or more: <b> {watch("employmentFor5YearsOrMore")}</b>
-           
+            Has your employment status been the same for 5 years or more:{" "}
+            <b> {watch("employmentFor5YearsOrMore")}</b>
           </p>
-          <p>From: <b>{watch("employmentDate")}</b> </p>
-          <p>Employment Status: <b>{watch("employmentStatus")}</b> </p>
-          <p>Occupation: <b>{watch("occupation")}</b> </p>
-          <p>Employer Name: <b>{watch("employerName")}</b> </p>
-          <p>Employer Phone Number: <b>{watch("employerPhoneNumber")}</b> </p>
-          <h3 style={{fontWeight:'bold'}}>Employer Address</h3>
-          <p>Address Line 1: <b>{watch("employerAddressLine1")}</b> </p>
-          <p>Address Line 2: <b>{watch("employerAddressLine2")}</b> </p>
-          <p>City: <b>{watch("employerAddressCity")}</b> </p>
-          <p>State/Province: <b>{watch("employerAddressStateProvince")}</b> </p>
-          <p>ZIP / Postal: <b>{watch("employerAddressZipPostal")}</b> </p>
-          <p>Country: <b>{watch("employerAddressCountry")}</b> </p>
-              <br/>
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Employment Continued</h2>
+          <p>
+            From: <b>{watch("employmentDate")}</b>{" "}
+          </p>
+          <p>
+            Employment Status: <b>{watch("employmentStatus")}</b>{" "}
+          </p>
+          <p>
+            Occupation: <b>{watch("occupation")}</b>{" "}
+          </p>
+          <p>
+            Employer Name: <b>{watch("employerName")}</b>{" "}
+          </p>
+          <p>
+            Employer Phone Number: <b>{watch("employerPhoneNumber")}</b>{" "}
+          </p>
+          <h3 style={{ fontWeight: "bold" }}>Employer Address</h3>
+          <p>
+            Address Line 1: <b>{watch("employerAddressLine1")}</b>{" "}
+          </p>
+          <p>
+            Address Line 2: <b>{watch("employerAddressLine2")}</b>{" "}
+          </p>
+          <p>
+            City: <b>{watch("employerAddressCity")}</b>{" "}
+          </p>
+          <p>
+            State/Province: <b>{watch("employerAddressStateProvince")}</b>{" "}
+          </p>
+          <p>
+            ZIP / Postal: <b>{watch("employerAddressZipPostal")}</b>{" "}
+          </p>
+          <p>
+            Country: <b>{watch("employerAddressCountry")}</b>{" "}
+          </p>
+          <br />
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Employment Continued
+          </h2>
           <p>Employer 2 From: {watch("employer2monthYear")}</p>
           <p>End Date: {watch("employer2monthYearEndDate")}</p>
           <p>Employment Status 2: {watch("employmentStatus2")}</p>
           <p>Employer 2 Occupation: {watch("employer2Occupation")}</p>
           <p>Employer 2 Name: {watch("employerName2")}</p>
           <p>Employer 2 Phone Number: {watch("employer2PhoneNumber")}</p>
-          <br/>
-          <h3 style={{fontWeight:'bold'}}>Employer 2 Address</h3>
+          <br />
+          <h3 style={{ fontWeight: "bold" }}>Employer 2 Address</h3>
           <p>Address Line 1: {watch("employer2addressLine1")}</p>
           <p>Address Line 2: {watch("employer2addressLine2")}</p>
           <p>City: {watch("employer2City")}</p>
@@ -3260,8 +3450,8 @@ export default function FormUsa() {
           <p>Employer 3 Occupation: {watch("employer3Occupation")}</p>
           <p>Employer 3 Name: {watch("employerName3")}</p>
           <p>Employer 3 Phone Number: {watch("employer3PhoneNumber")}</p>
-          <br/>
-          <h3 style={{fontWeight:'bold'}}>Employer 3 Address</h3>
+          <br />
+          <h3 style={{ fontWeight: "bold" }}>Employer 3 Address</h3>
           <p>Address Line 1: {watch("employer3addressLine1")}</p>
           <p>Address Line 2: {watch("employer3addressLine2")}</p>
           <p>City: {watch("employer3City")}</p>
@@ -3277,8 +3467,8 @@ export default function FormUsa() {
           <p>Employer 4 Occupation: {watch("employer4Occupation")}</p>
           <p>Employer 4 Name: {watch("employerName4")}</p>
           <p>Employer 4 Phone Number: {watch("employer4PhoneNumber")}</p>
-          <br/>
-          <h3 style={{fontWeight:'bold'}}>Employer 4 Address</h3>
+          <br />
+          <h3 style={{ fontWeight: "bold" }}>Employer 4 Address</h3>
           <p>Address Line 1: {watch("employer4addressLine1")}</p>
           <p>Address Line 2: {watch("employer4addressLine2")}</p>
           <p>City: {watch("employer4City")}</p>
@@ -3287,11 +3477,17 @@ export default function FormUsa() {
           <p>Country: {watch("employer4Country")}</p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Travel History</h2>
-          <p>Countries: <b>{watch("travelHistory")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Travel History
+          </h2>
+          <p>
+            Countries: <b>{watch("travelHistory")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Additional Information</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Additional Information
+          </h2>
           <p>
             1. Have you ever been convicted of a criminal offense (including
             misdemeanor or felony traffic violations) in the united States or
@@ -3300,53 +3496,96 @@ export default function FormUsa() {
             that was expunged/removed from your record, please provide the
             details (optional))?
           </p>
-          <p> <b>{watch("additionalInformation1question")}</b></p>
+          <p>
+            {" "}
+            <b>{watch("additionalInformation1question")}</b>
+          </p>
           <p>
             2. Have you ever received a waiver of inadmissibility to the USA
             from a US government agency?
           </p>
-          <p> <b>{watch("additionalInformation2question")}</b></p>
+          <p>
+            {" "}
+            <b>{watch("additionalInformation2question")}</b>
+          </p>
           <p>
             3. Have you ever been approved by Citizenship and Immigration Canada
             for rehabilitation because of past criminal activity?
           </p>
-          <p> <b>{watch("additionalInformation3question")}</b></p>
+          <p>
+            {" "}
+            <b>{watch("additionalInformation3question")}</b>
+          </p>
           <p>
             4. Have you ever been found in violation of Customs or Immigration
             laws or other federal import laws?
           </p>
-          <p> <b>{watch("additionalInformation4question")}</b></p>
+          <p>
+            {" "}
+            <b>{watch("additionalInformation4question")}</b>
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Certification Disclaimer</h2>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Certification Disclaimer
+          </h2>
           <p>
             I certify and agree that I have understood the Certification
             Disclaimer
           </p>
-          <p> <b>{watch("agreeCertificationDisclaimer")}</b></p>
+          <p>
+            {" "}
+            <b>{watch("agreeCertificationDisclaimer")}</b>
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Card details for payment of Government fee</h2>
-          <p>Card Number: <b>{watch("cardNumber")}</b> </p>
-          <p>Expiry Date: <b>{watch("expiryDate")}</b> </p>
-          <p>CVV: <b>{watch("cvv")}</b> </p>
-          <p>Card Type: <b>{watch("cardType")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Card details for payment of Government fee
+          </h2>
+          <p>
+            Card Number: <b>{watch("cardNumber")}</b>{" "}
+          </p>
+          <p>
+            Expiry Date: <b>{watch("expiryDate")}</b>{" "}
+          </p>
+          <p>
+            CVV: <b>{watch("cvv")}</b>{" "}
+          </p>
+          <p>
+            Card Type: <b>{watch("cardType")}</b>{" "}
+          </p>
 
           <br />
-          <h2 style={{fontWeight:'bold', fontSize:'18px'}}>Card Holder Name & Address Details</h2>
-          <p>Card Holders First Name: <b>{watch("cardHoldersFirstName")}</b> </p>
-          <p>Card Holders Last Name: <b>{watch("cardHoldersLastName")}</b> </p>
-          <p>Card Holders Address: <b>{watch("cardHoldersAddress")}</b> </p>
-          <p>Card Holders Address Line 2: <b>{watch("cardHoldersAddressLine2")}</b> </p>
-          <p>Card Holders City: <b>{watch("cardHoldersCity")}</b> </p>
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Card Holder Name & Address Details
+          </h2>
           <p>
-            Card Holders State/Province/Region: <b>{watch("cardHoldersStateProvinceRegion")}</b>
-            
+            Card Holders First Name: <b>{watch("cardHoldersFirstName")}</b>{" "}
           </p>
           <p>
-            Card Holders Zip/Postal Code: <b>{watch("cardHoldersZipPostalCode")}</b> 
+            Card Holders Last Name: <b>{watch("cardHoldersLastName")}</b>{" "}
           </p>
-          <p>Card Holders Country: <b>{watch("cardHoldersCountry")}</b> </p>
+          <p>
+            Card Holders Address: <b>{watch("cardHoldersAddress")}</b>{" "}
+          </p>
+          <p>
+            Card Holders Address Line 2:{" "}
+            <b>{watch("cardHoldersAddressLine2")}</b>{" "}
+          </p>
+          <p>
+            Card Holders City: <b>{watch("cardHoldersCity")}</b>{" "}
+          </p>
+          <p>
+            Card Holders State/Province/Region:{" "}
+            <b>{watch("cardHoldersStateProvinceRegion")}</b>
+          </p>
+          <p>
+            Card Holders Zip/Postal Code:{" "}
+            <b>{watch("cardHoldersZipPostalCode")}</b>
+          </p>
+          <p>
+            Card Holders Country: <b>{watch("cardHoldersCountry")}</b>{" "}
+          </p>
 
           <button
             className="rounded-md bg-blue-300 mr-4 mt-6 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

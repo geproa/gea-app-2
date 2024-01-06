@@ -276,7 +276,7 @@ export default function FormUsaRenewal() {
         {/* Form Type */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Global Entry Renewal</h3>
+            <h3 class="text-3xl text-white pb-2">Global Entry Renewal Form</h3>
           </div>
           <div>
             <select
@@ -286,7 +286,7 @@ export default function FormUsaRenewal() {
               {...register("formType")}
             >
               <option key="Global Entry Renewal" value="Global Entry Renewal">
-                Global Entry Renewal
+                Global Entry Renewal 
               </option>
             </select>
           </div>

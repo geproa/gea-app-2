@@ -32,7 +32,7 @@ export default function Apply() {
           </div>
           <div className={styles.imgText} style={myStyle} id={styles.links}>
             <Link href="/global-entry-usa-form">Global Entry</Link>
-            <Link href="#">Global Entry Renewal</Link>
+            <Link href="/global-entry-usa-form-renewal">Global Entry Renewal</Link>
             <Link href="#">Global Entry Child</Link>
           </div>
         </div>

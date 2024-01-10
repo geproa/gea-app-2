@@ -269,6 +269,9 @@ export default function FormUsa() {
     return groups;
   }, {});
 
+
+  
+
   return (
     <div class="max-w-screen-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
@@ -520,14 +523,16 @@ export default function FormUsa() {
                 selected={startDate}
                 {...register("birthDate")}
                 onChange={(date) => {
-                  date.setHours(0, 0, 0, 0);
-                  setStartDate(date);
-                  setValue("birthDate", date.toDateString(), {
-                    shouldValidate: true,
-                  });
+                  if (date) {
+                    date.setHours(0, 0, 0, 0);
+                    setStartDate(date);
+                    setValue("birthDate", date.toLocaleDateString("en-US"), {
+                      shouldValidate: true,
+                    });
+                  }
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/mm/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.birthDate?.message}</p>
@@ -634,12 +639,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportExpiryDate(date);
-                  setValue("passportExpiryDate", date.toDateString(), {
+                  setValue("passportExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -653,12 +658,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportDateOfIssue(date);
-                  setValue("passportDateOfIssue", date.toDateString(), {
+                  setValue("passportDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -731,12 +736,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryExpiryDate(date);
-                  setValue("secondaryExpiryDate", date.toDateString(), {
+                  setValue("secondaryExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -750,12 +755,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryDateOfIssue(date);
-                  setValue("secondaryDateOfIssue", date.toDateString(), {
+                  setValue("secondaryDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -841,12 +846,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setAlternateIssueDate(date);
-                  setValue("alternateIssueDate", date.toDateString(), {
+                  setValue("alternateIssueDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -974,12 +979,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPRExpiryDate(date);
-                  setValue("pRExpiryDate", date.toDateString(), {
+                  setValue("pRExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -1060,12 +1065,12 @@ export default function FormUsa() {
                   onChange={(date) => {
                     date.setHours(0, 0, 0, 0);
                     setDrivingLicenceExpiryDate(date);
-                    setValue("drivingLicenceExpiryDate", date.toDateString(), {
+                    setValue("drivingLicenceExpiryDate", date.toLocaleDateString("en-US"), {
                       shouldValidate: true,
                     });
                   }}
-                  placeholderText="DD/MM/YYYY"
-                  dateFormat="dd/MM/yyyy"
+                  placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                   className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
                 <p className="text-red-500">
@@ -1236,12 +1241,12 @@ export default function FormUsa() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartLivingHere(date);
-                  setValue("startLivingHere", date.toDateString(), {
+                  setValue("startLivingHere", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow w-32 appearance-none border border-red-500 rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.startLivingHere?.message}</p>
@@ -3057,7 +3062,7 @@ export default function FormUsa() {
           contentLabel="Form Review"
         >
           <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview
+            Application Preview - Global Entry Apply
           </h1>
 
           <br />
@@ -3107,7 +3112,7 @@ export default function FormUsa() {
             Eye Colour: <b>{watch("eyeColour")}</b>{" "}
           </p>
           <p>
-            Birth Date: <b>{watch("eyeColour")}</b>{" "}
+            Birth Date: <b>{watch("birthDate")}</b>{" "}
           </p>
           <p>
             City of Birth: <b>{watch("cityBirth")}</b>{" "}

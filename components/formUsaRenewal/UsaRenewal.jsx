@@ -25,7 +25,7 @@ export default function FormUsaRenewal() {
 
   const schema = yup.object().shape({
     // loginGovAccount: yup.string().required("Required!"),
-    passId:yup.string().required("PASSID is required!"),
+    passId: yup.string().required("PASSID is required!"),
     email: yup.string().email().required("Email is required!"),
     firstName: yup.string().required("First Name is required!"),
     lastName: yup.string().required("Last Name is required!"),
@@ -286,7 +286,7 @@ export default function FormUsaRenewal() {
               {...register("formType")}
             >
               <option key="Global Entry Renewal" value="Global Entry Renewal">
-                Global Entry Renewal 
+                Global Entry Renewal
               </option>
             </select>
           </div>
@@ -333,7 +333,7 @@ export default function FormUsaRenewal() {
             <div class="inputsGrid">
               <div className="mb-4">
                 <label htmlFor="goesId" className="label">
-                GOES ID
+                  GOES ID
                 </label>
                 <input
                   placeholder=""
@@ -345,7 +345,7 @@ export default function FormUsaRenewal() {
 
               <div className="mb-4">
                 <label htmlFor="goesPassword" className="label">
-                GOES Password
+                  GOES Password
                 </label>
                 <input
                   placeholder=""
@@ -357,7 +357,7 @@ export default function FormUsaRenewal() {
 
               <div className="mb-4">
                 <label htmlFor="passId" className="label">
-                PASSID <span className="star">*</span>
+                  PASSID <span className="star">*</span>
                 </label>
                 <input
                   placeholder=""
@@ -365,7 +365,11 @@ export default function FormUsaRenewal() {
                   {...register("passId")}
                   className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
-                <p className="text-xs mt-1">A PASSID is assigned to you upon approval for membership in Global Entry, NEXUS, or SENTRI. This nine-digit number usually begins with 98, serves as your known traveler number.</p>
+                <p className="text-xs mt-1">
+                  A PASSID is assigned to you upon approval for membership in
+                  Global Entry, NEXUS, or SENTRI. This nine-digit number usually
+                  begins with 98, serves as your known traveler number.
+                </p>
                 <p className="text-red-500">{errors.passId?.message}</p>
               </div>
             </div>
@@ -562,12 +566,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartDate(date);
-                  setValue("birthDate", date.toDateString(), {
+                  setValue("birthDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/mm/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.birthDate?.message}</p>
@@ -674,12 +678,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportExpiryDate(date);
-                  setValue("passportExpiryDate", date.toDateString(), {
+                  setValue("passportExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -693,12 +697,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportDateOfIssue(date);
-                  setValue("passportDateOfIssue", date.toDateString(), {
+                  setValue("passportDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -771,12 +775,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryExpiryDate(date);
-                  setValue("secondaryExpiryDate", date.toDateString(), {
+                  setValue("secondaryExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -790,12 +794,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryDateOfIssue(date);
-                  setValue("secondaryDateOfIssue", date.toDateString(), {
+                  setValue("secondaryDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -881,12 +885,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setAlternateIssueDate(date);
-                  setValue("alternateIssueDate", date.toDateString(), {
+                  setValue("alternateIssueDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -1014,12 +1018,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPRExpiryDate(date);
-                  setValue("pRExpiryDate", date.toDateString(), {
+                  setValue("pRExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -1100,12 +1104,12 @@ export default function FormUsaRenewal() {
                   onChange={(date) => {
                     date.setHours(0, 0, 0, 0);
                     setDrivingLicenceExpiryDate(date);
-                    setValue("drivingLicenceExpiryDate", date.toDateString(), {
+                    setValue("drivingLicenceExpiryDate", date.toLocaleDateString("en-US"), {
                       shouldValidate: true,
                     });
                   }}
-                  placeholderText="DD/MM/YYYY"
-                  dateFormat="dd/MM/yyyy"
+                  placeholderText="MM/DD/YYYY"
+                  dateFormat="MM/dd/yyyy"
                   className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
                 <p className="text-red-500">
@@ -1276,12 +1280,12 @@ export default function FormUsaRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartLivingHere(date);
-                  setValue("startLivingHere", date.toDateString(), {
+                  setValue("startLivingHere", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow w-32 appearance-none border border-red-500 rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.startLivingHere?.message}</p>
@@ -3097,7 +3101,7 @@ export default function FormUsaRenewal() {
           contentLabel="Form Review"
         >
           <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview
+            Application Preview - Global Entry Renewal
           </h1>
 
           <br />
@@ -3105,6 +3109,17 @@ export default function FormUsaRenewal() {
             Have you created a LOGIN.GOV Account:{" "}
             <b> {watch("loginGovAccount")}</b>
           </h2>
+
+          <p>
+            GOES ID: <b>{watch("goesId")}</b>
+          </p>
+          <p>
+            GOES Password: <b>{watch("goesPassword")}</b>
+          </p>
+          <p>
+            PASSID: <b>{watch("passId")}</b>
+          </p>
+
           <p>
             Personal Key: <b>{watch("personalKey")}</b>
           </p>
@@ -3147,7 +3162,7 @@ export default function FormUsaRenewal() {
             Eye Colour: <b>{watch("eyeColour")}</b>{" "}
           </p>
           <p>
-            Birth Date: <b>{watch("eyeColour")}</b>{" "}
+            Birth Date: <b>{watch("birthDate")}</b>{" "}
           </p>
           <p>
             City of Birth: <b>{watch("cityBirth")}</b>{" "}

@@ -532,12 +532,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartDate(date);
-                  setValue("birthDate", date.toDateString(), {
+                  setValue("birthDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/mm/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.birthDate?.message}</p>
@@ -599,8 +599,7 @@ export default function FormUsaChild() {
             <h3 class="text-3xl text-white pb-2">Parent / Guardian Details</h3>
           </div>
           <div class="inputsGrid">
-
-          <div className="mb-4">
+            <div className="mb-4">
               <label htmlFor="parentGuardianName" className="label">
                 Parent / Guardian Name
               </label>
@@ -622,16 +621,15 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setParentGuardianBirthDate(date);
-                  setValue("parentGuardianBirthDate", date.toDateString(), {
+                  setValue("parentGuardianBirthDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-
 
             <div className="mb-4">
               <label htmlFor="parentGuardianGender" className="label">
@@ -650,10 +648,6 @@ export default function FormUsaChild() {
                 <option value="Female">Female</option>
               </select>
             </div>
-
-        
-
-         
 
             <div className="mb-4">
               <label htmlFor="parentHomePhoneNumber" className="label">
@@ -735,12 +729,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportExpiryDate(date);
-                  setValue("passportExpiryDate", date.toDateString(), {
+                  setValue("passportExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -754,12 +748,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportDateOfIssue(date);
-                  setValue("passportDateOfIssue", date.toDateString(), {
+                  setValue("passportDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -832,12 +826,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryExpiryDate(date);
-                  setValue("secondaryExpiryDate", date.toDateString(), {
+                  setValue("secondaryExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -851,12 +845,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryDateOfIssue(date);
-                  setValue("secondaryDateOfIssue", date.toDateString(), {
+                  setValue("secondaryDateOfIssue", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -942,12 +936,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setAlternateIssueDate(date);
-                  setValue("alternateIssueDate", date.toDateString(), {
+                  setValue("alternateIssueDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -1075,12 +1069,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPRExpiryDate(date);
-                  setValue("pRExpiryDate", date.toDateString(), {
+                  setValue("pRExpiryDate", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
@@ -1161,12 +1155,12 @@ export default function FormUsaChild() {
                   onChange={(date) => {
                     date.setHours(0, 0, 0, 0);
                     setDrivingLicenceExpiryDate(date);
-                    setValue("drivingLicenceExpiryDate", date.toDateString(), {
+                    setValue("drivingLicenceExpiryDate", date.toLocaleDateString("en-US"), {
                       shouldValidate: true,
                     });
                   }}
-                  placeholderText="DD/MM/YYYY"
-                  dateFormat="dd/MM/yyyy"
+                  placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                   className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
                 <p className="text-red-500">
@@ -1337,12 +1331,12 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartLivingHere(date);
-                  setValue("startLivingHere", date.toDateString(), {
+                  setValue("startLivingHere", date.toLocaleDateString("en-US"), {
                     shouldValidate: true,
                   });
                 }}
-                placeholderText="DD/MM/YYYY"
-                dateFormat="dd/MM/yyyy"
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
                 className="shadow w-32 appearance-none border border-red-500 rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
               <p className="text-red-500">{errors.startLivingHere?.message}</p>
@@ -3158,7 +3152,7 @@ export default function FormUsaChild() {
           contentLabel="Form Review"
         >
           <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview
+            Application Preview - Global Entry Child
           </h1>
 
           <br />
@@ -3208,7 +3202,7 @@ export default function FormUsaChild() {
             Eye Colour: <b>{watch("eyeColour")}</b>{" "}
           </p>
           <p>
-            Birth Date: <b>{watch("eyeColour")}</b>{" "}
+            Birth Date: <b>{watch("birthDate")}</b>{" "}
           </p>
           <p>
             City of Birth: <b>{watch("cityBirth")}</b>{" "}
@@ -3222,10 +3216,32 @@ export default function FormUsaChild() {
 
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Parent / Guardian Details
+          </h2>
+          <p>
+            Parent / Guardian Name: <b>{watch("parentGuardianName")}</b>
+          </p>
+          <p>
+            Parent / Guardian Birth Date{" "}
+            <b>{watch("parentGuardianBirthDate")}</b>
+          </p>
+          <p>
+            Parent / Guardian Gender <b>{watch("parentGuardianGender")}</b>
+          </p>
+          <p>
+            Home Phone Number <b>{watch("parentHomePhoneNumber")}</b>
+          </p>
+          <p>
+            State / Province of birth{" "}
+            <b>{watch("parentStateProvinceOfBirth")}</b>
+          </p>
+
+          <br />
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Citizenship & Nationality
           </h2>
           <p>
-            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>{" "}
+            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>
           </p>
           <p>
             Primary Passport Number: <b>{watch("primaryPassportNumber")}</b>{" "}

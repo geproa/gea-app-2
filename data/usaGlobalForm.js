@@ -416,7 +416,6 @@ export const historyCountryList = [
   "Mauritania",
   "Mauritius",
   "Mayotte",
-  "Mexico",
   "Micronesia (Federated States of)",
   "Moldova (the Republic of)",
   "Monaco",

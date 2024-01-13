@@ -31,9 +31,9 @@ export default function Apply() {
             <p style={titleStyle} id={styles.title}>Canada</p>
           </div>
           <div className={styles.imgText} style={myStyle} id={styles.links}>
-            <Link href="#">NEXUS</Link>
-            <Link href="#">NEXUS Renewal</Link>
-            <Link href="#">NEXUS Child</Link>
+            <Link href="/nexus-apply-form">NEXUS</Link>
+            <Link href="/nexus-apply-form-renewal">NEXUS Renewal</Link>
+            <Link href="/nexus-apply-form-child">NEXUS Child</Link>
           </div>
         </div>
       </div>

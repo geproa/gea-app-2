@@ -57,7 +57,6 @@ export default function Apply() {
           <div className={styles.imgText} style={myStyle} id={styles.links}>
             <Link href="#">SENTRI</Link>
             <Link href="#">SENTRI Renewal</Link>
-            <Link href="#">SENTRI Child</Link>
           </div>
         </div>
       </div>

@@ -357,7 +357,7 @@ export default function FormNexusRenewal() {
 
               <div className="mb-4">
                 <label htmlFor="passId" className="label">
-                  PASSID <span className="star">*</span>
+                  PASSID*
                 </label>
                 <input
                   placeholder=""

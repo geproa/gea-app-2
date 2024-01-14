@@ -29,6 +29,7 @@ function Footer() {
           </h4>
           <Link href="/apply-mexico">SENTRI</Link>
           <Link href="/apply-mexico">SENTRI Renewal</Link>
+          <Link href="/apply-mexico">SENTRI Child</Link>
         </div>
       </div>
 

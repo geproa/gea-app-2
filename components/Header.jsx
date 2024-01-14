@@ -41,6 +41,7 @@ const productsMexico = [
   { name: "SENTRI", href: "/mexico-info", icon: ClipboardDocumentCheckIcon },
   { name: "SENTRI Apply", href: "/apply-mexico", icon: GlobeAltIcon },
   { name: "SENTRI Renewal", href: "/apply-mexico", icon: CursorArrowRaysIcon },
+  { name: "SENTRI Child", href: "/apply-mexico", icon: UserIcon },
 ];
 
 function classNames(...classes) {

@@ -55,8 +55,9 @@ export default function Apply() {
             <p style={titleStyle} id={styles.title}>Mexico</p>
           </div>
           <div className={styles.imgText} style={myStyle} id={styles.links}>
-            <Link href="#">SENTRI</Link>
-            <Link href="#">SENTRI Renewal</Link>
+            <Link href="/sentri-apply-form">SENTRI</Link>
+            <Link href="/sentri-apply-form-renewal">SENTRI Renewal</Link>
+            <Link href="/sentri-apply-form-child">SENTRI Child</Link>
           </div>
         </div>
       </div>

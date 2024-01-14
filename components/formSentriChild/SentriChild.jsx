@@ -20,7 +20,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { redirect } from "next/dist/server/api-utils";
 
-export default function FormUsaChild() {
+export default function FormSenriChild() {
   const router = useRouter();
 
   const schema = yup.object().shape({
@@ -285,17 +285,17 @@ export default function FormUsaChild() {
         {/* Form Type */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">NEXUS Canada Child Form</h3>
+            <h3 class="text-3xl text-white pb-2">SENTRI Mexico Child Form</h3>
           </div>
           <div>
             <select
               id="formType"
               className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={(e) => setValue("NEXUS Canada Child", e.target.value)}
+              onChange={(e) => setValue("SENTRI Mexico Child Form", e.target.value)}
               {...register("formType")}
             >
-              <option key="NEXUS Canada Child" value="NEXUS Canada Child">
-              NEXUS Canada Child
+              <option key="SENTRI Mexico Child" value="SENTRI Mexico Child">
+              SENTRI Mexico Child
               </option>
             </select>
           </div>
@@ -2025,7 +2025,7 @@ export default function FormUsaChild() {
                 placeholder="MM/YYYY"
                 id="employmentDate"
                 {...register("employmentDate")}
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -2086,7 +2086,7 @@ export default function FormUsaChild() {
               {...register("employerPhoneNumber")}
               className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-           
+          
           </div>
 
           {/* ----- Employer Address --------- */}
@@ -2665,6 +2665,73 @@ export default function FormUsaChild() {
           )}
         </div>
         {/* Information About Your Current Work - End */}
+
+
+                    {/* RFC / CURP Details */}
+
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">RFC / CURP Details</h3>
+          </div>
+
+          <div class="inputsGrid">
+            <div className="mb-4">
+              <label htmlFor="RFC" className="label">
+                RFC (Registro Federal de Contribuyentes)
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="RFC"
+                {...register("RFC")}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div>
+              <p>Check if this RFC is owned by you</p>
+              <div className="mb-4">
+                <div className="my-2">
+                  <label className="inline-flex items-center mr-4">
+                    <input
+                      type="radio"
+                      value="Yes"
+                      {...register("RFCIsOwned")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">Yes</span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      value="No"
+                      {...register("RFCIsOwned")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="CURP" className="label">
+                CURP
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="CURP"
+                {...register("CURP")}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RFC / CURP Details - End */}
+
+
 
         {/* Travel History */}
         <div className="formSection">
@@ -3592,6 +3659,24 @@ export default function FormUsaChild() {
           <p>Country: {watch("employer4Country")}</p>
 
           <br />
+
+
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+          RFC / CURP Details
+          </h2> 
+          <p>
+          RFC (Registro Federal de Contribuyentes): <b>{watch("RFC")}</b>
+          </p>
+          <p>
+          Check if this RFC is owned by you: <b>{watch("RFCIsOwned")}</b>
+          </p>
+          <p>
+          CURP: <b>{watch("CURP")}</b>
+          </p>
+
+          <br />
+
+
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Travel History
           </h2>

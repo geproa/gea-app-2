@@ -637,7 +637,7 @@ export default function FormUsaChild() {
               </label>
               <select
                 id="parentGuardianGender"
-                className="shadow  border border-red-500 rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow  border  rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 onChange={(e) =>
                   setValue("parentGuardianGender", e.target.value)
                 }
@@ -2018,14 +2018,14 @@ export default function FormUsaChild() {
 
             <div className="mb-4">
               <label htmlFor="employmentDate" className="label">
-                From <span className="star">*</span>
+                From 
               </label>
               <input
                 type="text"
                 placeholder="MM/YYYY"
                 id="employmentDate"
                 {...register("employmentDate")}
-                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -2077,14 +2077,14 @@ export default function FormUsaChild() {
 
           <div className="mb-4">
             <label htmlFor="employerPhoneNumber" className="label">
-              Employer Phone Number <span className="star">*</span>
+              Employer Phone Number 
             </label>
             <input
               type="tel"
               placeholder=""
               id="employerPhoneNumber"
               {...register("employerPhoneNumber")}
-              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             <p className="text-red-500">
               {errors.employerPhoneNumber?.message}

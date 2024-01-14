@@ -20,11 +20,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { redirect } from "next/dist/server/api-utils";
 
-export default function FormUsaChild() {
+export default function FormNexus() {
   const router = useRouter();
 
   const schema = yup.object().shape({
     // loginGovAccount: yup.string().required("Required!"),
+    passId: yup.string().required("PASSID is required!"),
     email: yup.string().email().required("Email is required!"),
     firstName: yup.string().required("First Name is required!"),
     lastName: yup.string().required("Last Name is required!"),
@@ -181,16 +182,6 @@ export default function FormUsaChild() {
     }
   }, [register.birthDate]);
 
-  //   for Parent / Guardian Details  Birth Date
-  const [parentGuardianBirthDate, setParentGuardianBirthDate] = useState(null);
-  useEffect(() => {
-    if (register.parentGuardianBirthDate) {
-      setParentGuardianBirthDate(
-        new Date(register.parentGuardianBirthDate.value)
-      );
-    }
-  }, [register.parentGuardianBirthDate]);
-
   //   for Citizenship & Nationality Passport Expiry Date
   const [passportExpiryDate, setPassportExpiryDate] = useState(null);
   useEffect(() => {
@@ -285,25 +276,25 @@ export default function FormUsaChild() {
         {/* Form Type */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">NEXUS Canada Child Form</h3>
+            <h3 class="text-3xl text-white pb-2">SENTRI Mexico Renewal Form</h3>
           </div>
           <div>
             <select
               id="formType"
               className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={(e) => setValue("NEXUS Canada Child", e.target.value)}
+              onChange={(e) => setValue("SENTRIMexicoRenewalForm", e.target.value)}
               {...register("formType")}
             >
-              <option key="NEXUS Canada Child" value="NEXUS Canada Child">
-              NEXUS Canada Child
+              <option key="SENTRIMexicoRenewalForm" value="SENTRIMexicoRenewalForm">
+              SENTRI Mexico Renewal Form
               </option>
             </select>
           </div>
         </div>
         {/* Form Type - End */}
 
-        {/* LOGIN.GOV Account */}
-        <div className="formSection">
+             {/* LOGIN.GOV Account */}
+             <div className="formSection">
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">LOGIN.GOV Account</h3>
           </div>
@@ -339,6 +330,49 @@ export default function FormUsaChild() {
               />
               <span className="ml-2 text-red-500">Yes</span>
             </label>
+            <div class="inputsGrid">
+              <div className="mb-4">
+                <label htmlFor="goesId" className="label">
+                  GOES ID
+                </label>
+                <input
+                  placeholder=""
+                  id="goesId"
+                  {...register("goesId")}
+                  className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label htmlFor="goesPassword" className="label">
+                  GOES Password
+                </label>
+                <input
+                  placeholder=""
+                  id="goesPassword"
+                  {...register("goesPassword")}
+                  className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label htmlFor="passId" className="label">
+                  PASSID*
+                </label>
+                <input
+                  placeholder=""
+                  id="passId"
+                  {...register("passId")}
+                  className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <p className="text-xs mt-1">
+                  A PASSID is assigned to you upon approval for membership in
+                  Global Entry, NEXUS, or SENTRI. This nine-digit number usually
+                  begins with 98, serves as your known traveler number.
+                </p>
+                <p className="text-red-500">{errors.passId?.message}</p>
+              </div>
+            </div>
           </div>
           {showTextInputs && (
             <>
@@ -530,11 +564,13 @@ export default function FormUsaChild() {
                 selected={startDate}
                 {...register("birthDate")}
                 onChange={(date) => {
-                  date.setHours(0, 0, 0, 0);
-                  setStartDate(date);
-                  setValue("birthDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  if (date) {
+                    date.setHours(0, 0, 0, 0);
+                    setStartDate(date);
+                    setValue("birthDate", date.toLocaleDateString("en-US"), {
+                      shouldValidate: true,
+                    });
+                  }
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -593,91 +629,6 @@ export default function FormUsaChild() {
         </div>
         {/* Personal Details - End*/}
 
-        {/* Parent / Guardian Details */}
-        <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Parent / Guardian Details</h3>
-          </div>
-          <div class="inputsGrid">
-            <div className="mb-4">
-              <label htmlFor="parentGuardianName" className="label">
-                Parent / Guardian Name
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentGuardianName"
-                {...register("parentGuardianName")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentGuardianBirthDate" className="label">
-                Parent / Guardian Birth Date
-              </label>
-              <DatePicker
-                selected={parentGuardianBirthDate}
-                onChange={(date) => {
-                  date.setHours(0, 0, 0, 0);
-                  setParentGuardianBirthDate(date);
-                  setValue("parentGuardianBirthDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
-                }}
-                placeholderText="MM/DD/YYYY"
-                dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentGuardianGender" className="label">
-                Parent / Guardian Gender
-              </label>
-              <select
-                id="parentGuardianGender"
-                className="shadow  border  rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onChange={(e) =>
-                  setValue("parentGuardianGender", e.target.value)
-                }
-                {...register("parentGuardianGender")}
-              >
-                <option></option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentHomePhoneNumber" className="label">
-                Home Phone Number
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentHomePhoneNumber"
-                {...register("parentHomePhoneNumber")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentStateProvinceOfBirth" className="label">
-                State / Province of birth
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentStateProvinceOfBirth"
-                {...register("parentStateProvinceOfBirth")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-          </div>
-        </div>
-        {/* Parent / Guardian Details - End */}
-
         {/* Citizenship & Nationality */}
         <div className="formSection">
           <div class="title-box">
@@ -729,9 +680,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportExpiryDate(date);
-                  setValue("passportExpiryDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "passportExpiryDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -748,9 +703,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportDateOfIssue(date);
-                  setValue("passportDateOfIssue", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "passportDateOfIssue",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -826,9 +785,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryExpiryDate(date);
-                  setValue("secondaryExpiryDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "secondaryExpiryDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -845,9 +808,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryDateOfIssue(date);
-                  setValue("secondaryDateOfIssue", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "secondaryDateOfIssue",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -936,9 +903,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setAlternateIssueDate(date);
-                  setValue("alternateIssueDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "alternateIssueDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -1155,12 +1126,16 @@ export default function FormUsaChild() {
                   onChange={(date) => {
                     date.setHours(0, 0, 0, 0);
                     setDrivingLicenceExpiryDate(date);
-                    setValue("drivingLicenceExpiryDate", date.toLocaleDateString("en-US"), {
-                      shouldValidate: true,
-                    });
+                    setValue(
+                      "drivingLicenceExpiryDate",
+                      date.toLocaleDateString("en-US"),
+                      {
+                        shouldValidate: true,
+                      }
+                    );
                   }}
                   placeholderText="MM/DD/YYYY"
-                dateFormat="MM/dd/yyyy"
+                  dateFormat="MM/dd/yyyy"
                   className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
                 <p className="text-red-500">
@@ -1331,9 +1306,13 @@ export default function FormUsaChild() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartLivingHere(date);
-                  setValue("startLivingHere", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "startLivingHere",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -2018,14 +1997,14 @@ export default function FormUsaChild() {
 
             <div className="mb-4">
               <label htmlFor="employmentDate" className="label">
-                From 
+                From <span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder="MM/YYYY"
                 id="employmentDate"
                 {...register("employmentDate")}
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -2077,16 +2056,18 @@ export default function FormUsaChild() {
 
           <div className="mb-4">
             <label htmlFor="employerPhoneNumber" className="label">
-              Employer Phone Number 
+              Employer Phone Number <span className="star">*</span>
             </label>
             <input
               type="tel"
               placeholder=""
               id="employerPhoneNumber"
               {...register("employerPhoneNumber")}
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-           
+            <p className="text-red-500">
+              {errors.employerPhoneNumber?.message}
+            </p>
           </div>
 
           {/* ----- Employer Address --------- */}
@@ -2666,6 +2647,417 @@ export default function FormUsaChild() {
         </div>
         {/* Information About Your Current Work - End */}
 
+        {/* RFC / CURP Details */}
+
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">RFC / CURP Details</h3>
+          </div>
+
+          <div class="inputsGrid">
+            <div className="mb-4">
+              <label htmlFor="RFC" className="label">
+                RFC (Registro Federal de Contribuyentes)
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="RFC"
+                {...register("RFC")}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div>
+              <p>Check if this RFC is owned by you</p>
+              <div className="mb-4">
+                <div className="my-2">
+                  <label className="inline-flex items-center mr-4">
+                    <input
+                      type="radio"
+                      value="Yes"
+                      {...register("RFCIsOwned")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">Yes</span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      value="No"
+                      {...register("RFCIsOwned")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="CURP" className="label">
+                CURP
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="CURP"
+                {...register("CURP")}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RFC / CURP Details - End */}
+
+        {/* Vehicle Information */}
+
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Vehicle Information</h3>
+          </div>
+          <div>
+            <p>
+              Do you plan to drive across the border from Mexico to the United
+              States?
+            </p>
+            <div className="mb-4">
+              <div className="my-2">
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="radio"
+                    value="Yes"
+                    {...register("driveAcrossBorderMexicoToUnitedStates")}
+                    className="form-radio h-5 w-5 text-blue-600"
+                  />
+                  <span className="ml-2 ">Yes</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    value="No"
+                    {...register("driveAcrossBorderMexicoToUnitedStates")}
+                    className="form-radio h-5 w-5 text-blue-600"
+                  />
+                  <span className="ml-2 ">No</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Is the vehicle already actively registered on your account or on
+              another Trusted Traveler Program member&#39;s account?
+            </p>
+            <div className="mb-4">
+              <div className="my-2">
+                <label className="inline-flex items-center mr-4">
+                  <input
+                    type="radio"
+                    value="Yes"
+                    {...register("vehicleAlreadyActivelyRegistered")}
+                    className="form-radio h-5 w-5 text-blue-600"
+                  />
+                  <span className="ml-2 ">Yes</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    value="No"
+                    {...register("vehicleAlreadyActivelyRegistered")}
+                    className="form-radio h-5 w-5 text-blue-600"
+                  />
+                  <span className="ml-2 ">No</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="inputsGrid">
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                Make
+              </label>
+              <input
+                type="text"
+                id="Make"
+                {...register("Make")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                Model
+              </label>
+              <input
+                type="text"
+                id="Model"
+                {...register("Model")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="yearOfManufacture" className="label">
+                Year of Manufacture
+              </label>
+              <input
+                type="text"
+                placeholder="MM/YYYY"
+                id="yearOfManufacture"
+                {...register("yearOfManufacture")}
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                VIN Number
+              </label>
+              <input
+                type="text"
+                id="VINNumber"
+                {...register("VINNumber")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                Licence Plate Number
+              </label>
+              <input
+                type="text"
+                id="licencePlateNumber"
+                {...register("licencePlateNumber")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                Vehicle Country of Issue
+              </label>
+              <input
+                type="text"
+                id="vehicleCountryOfIssue"
+                {...register("vehicleCountryOfIssue")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="" className="label">
+                Vehicle State / Province of Issue
+              </label>
+              <input
+                type="text"
+                id="vehicleStateProvinceOfIssue"
+                {...register("vehicleStateProvinceOfIssue")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div>
+              <p>Is this a Govenment Issue Plate</p>
+              <div className="mb-4">
+                <div className="my-2">
+                  <label className="inline-flex items-center mr-4">
+                    <input
+                      type="radio"
+                      value="Yes"
+                      {...register("isThisGovenmentIssuePlate")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">Yes</span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      value="No"
+                      {...register("isThisGovenmentIssuePlate")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p>Is a Vehicle Inspection Required</p>
+              <div className="mb-4">
+                <div className="my-2">
+                  <label className="inline-flex items-center mr-4">
+                    <input
+                      type="radio"
+                      value="Yes"
+                      {...register("isVehicleInspectionRequired")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">Yes</span>
+                  </label>
+                  <label className="inline-flex items-center">
+                    <input
+                      type="radio"
+                      value="No"
+                      {...register("isVehicleInspectionRequired")}
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="ml-2 ">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Vehicle Information - End */}
+        <div className="formSection">
+          <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">Vehicle Owner</h3>
+            <p class="font-normal">
+              There is no need to fill out the owner details if you are the
+              owner. The is no need to fill in date of birth if the owner is a
+              corporation or lease company.
+            </p>
+          </div>
+
+          <div class="inputsGrid">
+            <div className="mb-4">
+              <label htmlFor="vehicleOwnerGender" className="label">
+                Vehicle Owner Gender
+              </label>
+              <select
+                id="vehicleOwnerGender"
+                className="shadow  border rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                onChange={(e) => setValue("vehicleOwnerGender", e.target.value)}
+                {...register("vehicleOwnerGender")}
+              >
+                <option></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="owner" className="label">
+                Owner
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="owner"
+                {...register("owner")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="vehicleOwnerPhoneNumber" className="label">
+                Vehicle Owner Phone Number
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerPhoneNumber"
+                {...register("vehicleOwnerPhoneNumber")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="vehicleOwnerAddress " className="label">
+                Vehicle Owner Address
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerAddress"
+                {...register("vehicleOwnerAddress")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <p class="text-sm pt-1">Address Line 1</p>
+            </div>
+
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerAddress2"
+                {...register("vehicleOwnerAddress2")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <p class="text-sm pt-1">Address Line 2</p>
+            </div>
+
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerAddressCity"
+                {...register("vehicleOwnerAddressCity")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <p class="text-sm pt-1">City</p>
+            </div>
+
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerAddressStateProvince"
+                {...register("vehicleOwnerAddressStateProvince")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <p class="text-sm pt-1">State/Province</p>
+            </div>
+
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder=""
+                id="vehicleOwnerAddressZIPPostal"
+                {...register("vehicleOwnerAddressZIPPostal")}
+                className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              <p class="text-sm pt-1">ZIP / Postal</p>
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="vehicleOwnerDateOfBirth" className="label">
+                Vehicle Owner Date of Birth
+              </label>
+              <DatePicker
+                selected={startDate}
+                {...register("vehicleOwnerDateOfBirth")}
+                onChange={(date) => {
+                  if (date) {
+                    date.setHours(0, 0, 0, 0);
+                    setStartDate(date);
+                    setValue(
+                      "vehicleOwnerDateOfBirth",
+                      date.toLocaleDateString("en-US"),
+                      {
+                        shouldValidate: true,
+                      }
+                    );
+                  }
+                }}
+                placeholderText="MM/DD/YYYY"
+                dateFormat="MM/dd/yyyy"
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Vehicle Owner */}
+
+        {/* Vehicle Owner - End */}
+
         {/* Travel History */}
         <div className="formSection">
           <div class="title-box">
@@ -3150,7 +3542,7 @@ export default function FormUsaChild() {
           contentLabel="Form Review"
         >
           <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview - Global Entry Child
+            Application Preview - Global Entry Apply
           </h1>
 
           <br />
@@ -3158,6 +3550,16 @@ export default function FormUsaChild() {
             Have you created a LOGIN.GOV Account:{" "}
             <b> {watch("loginGovAccount")}</b>
           </h2>
+
+          <p>
+            GOES ID: <b>{watch("goesId")}</b>
+          </p>
+          <p>
+            GOES Password: <b>{watch("goesPassword")}</b>
+          </p>
+          <p>
+            PASSID: <b>{watch("passId")}</b>
+          </p>
           <p>
             Personal Key: <b>{watch("personalKey")}</b>
           </p>
@@ -3214,32 +3616,10 @@ export default function FormUsaChild() {
 
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Parent / Guardian Details
-          </h2>
-          <p>
-            Parent / Guardian Name: <b>{watch("parentGuardianName")}</b>
-          </p>
-          <p>
-            Parent / Guardian Birth Date{" "}
-            <b>{watch("parentGuardianBirthDate")}</b>
-          </p>
-          <p>
-            Parent / Guardian Gender <b>{watch("parentGuardianGender")}</b>
-          </p>
-          <p>
-            Home Phone Number <b>{watch("parentHomePhoneNumber")}</b>
-          </p>
-          <p>
-            State / Province of birth{" "}
-            <b>{watch("parentStateProvinceOfBirth")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Citizenship & Nationality
           </h2>
           <p>
-            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>
+            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>{" "}
           </p>
           <p>
             Primary Passport Number: <b>{watch("primaryPassportNumber")}</b>{" "}
@@ -3592,11 +3972,125 @@ export default function FormUsaChild() {
           <p>Country: {watch("employer4Country")}</p>
 
           <br />
+
+
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+          RFC / CURP Details
+          </h2> 
+          <p>
+          RFC (Registro Federal de Contribuyentes): <b>{watch("RFC")}</b>
+          </p>
+          <p>
+          Check if this RFC is owned by you: <b>{watch("RFCIsOwned")}</b>
+          </p>
+          <p>
+          CURP: <b>{watch("CURP")}</b>
+          </p>
+
+          <br />
+
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+          Vehicle Information
+          </h2> 
+          <p>
+          Do you plan to drive across the border from Mexico to the United
+              States?: <b>{watch("driveAcrossBorderMexicoToUnitedStates")}</b>
+          </p>
+
+          <p>
+          Is the vehicle already actively registered on your account or on
+              another Trusted Traveler Program member&#39;s account?: <b>{watch("vehicleAlreadyActivelyRegistered")}</b>
+          </p>
+
+          <p>
+          Make: <b>{watch("Make")}</b>
+          </p>
+
+          <p>
+          Model: <b>{watch("Model")}</b>
+          </p>
+
+          <p>
+          Year of Manufacture: <b>{watch("yearOfManufacture")}</b>
+          </p>
+
+          <p>
+          VIN Number: <b>{watch("VINNumber")}</b>
+          </p>
+
+          <p>
+          Licence Plate Number: <b>{watch("licencePlateNumber")}</b>
+          </p>
+
+          <p>
+          Vehicle Country of Issue: <b>{watch("vehicleCountryOfIssue")}</b>
+          </p>
+
+          <p>
+          Vehicle State / Province of Issue: <b>{watch("vehicleStateProvinceOfIssue")}</b>
+          </p>
+
+          <p>
+          Is this a Govenment Issue Plate: <b>{watch("isThisGovenmentIssuePlate")}</b>
+          </p>
+
+          <p>
+          Is a Vehicle Inspection Required: <b>{watch("isVehicleInspectionRequired")}</b>
+          </p>
+       
+          <br />
+
+
+
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+          Vehicle Owner
+          </h2>
+          <p>
+          Vehicle Owner Gender: <b>{watch("vehicleOwnerGender")}</b>
+          </p>
+
+          <p>
+          Owner: <b>{watch("owner")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner Phone Number: <b>{watch("vehicleOwnerPhoneNumber")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner Address: <b>{watch("vehicleOwnerAddress")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner Address :Line 2: <b>{watch("vehicleOwnerAddress2")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner City: <b>{watch("vehicleOwnerAddressCity")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner State/Province: <b>{watch("vehicleOwnerAddressStateProvince")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner ZIP / Postal: <b>{watch("vehicleOwnerAddressZIPPostal")}</b>
+          </p>
+
+          <p>
+          Vehicle Owner Date of Birth: <b>{watch("vehicleOwnerDateOfBirth")}</b>
+          </p>
+
+
+          <br />
+        
+
+
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Travel History
           </h2>
           <p>
-            Countries: <b>{watch("travelHistory")}</b>{" "}
+            Countries: <b>{watch("travelHistory")}</b>
           </p>
 
           <br />

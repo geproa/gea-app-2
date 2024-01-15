@@ -28,9 +28,8 @@ export default function Login() {
   return (
     <section style={styles}>
       <div>
-        {/* <p>Log in to Continue</p> */}
-        <button onClick={signInWithGoogle} style={{ color: "red" }}>
-          Log in
+        <button onClick={signInWithGoogle} style={{ color:"lightblue" }}>
+        Log in to Continue
         </button>
       </div>
     </section>

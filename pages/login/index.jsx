@@ -21,9 +21,12 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <p>Log in with Google to Continue</p>
-      <button onClick={signInWithGoogle} style={{color:'red'}}>Log in</button>
-    </div>
+    <section style={styles}>
+      <div>
+        <button onClick={signInWithGoogle} style={{ color:"lightblue" }}>
+        Log in to Continue
+        </button>
+      </div>
+    </section>
   );
 }

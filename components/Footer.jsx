@@ -41,6 +41,7 @@ function Footer() {
             <Link href="/refund">Refund Policy</Link>
             <Link href="/about">About Us</Link>
             <Link href="/contacts">Contacts</Link>
+            <Link href="/enrollment-centers">CBP Enrollment Centers</Link>
           </div>
         </div>
       </div>

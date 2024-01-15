@@ -4,6 +4,11 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useRouter } from "next/router";
 
 export default function Login() {
+  const styles = {
+    width: "1224px",
+    margin: "80px auto",
+  };
+
   const router = useRouter();
 
   const signInWithGoogle = async () => {
@@ -23,8 +28,8 @@ export default function Login() {
   return (
     <section style={styles}>
       <div>
-        <button onClick={signInWithGoogle} style={{ color:"lightblue" }}>
-        Log in to Continue
+        <button onClick={signInWithGoogle} style={{ color: "lightblue" }}>
+          Log in to Continue
         </button>
       </div>
     </section>

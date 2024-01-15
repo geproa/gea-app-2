@@ -87,6 +87,14 @@ export default function Example() {
               Contacts
             </p>
           </Link>
+          <Link
+            href="/enrollment-centers"
+            class="hidden sm:hidden md:block lg:blocl xl:block"
+          >
+            <p className="text-white hover:text-gray-600 text-xs font-medium mr-5 ">
+            CBP Enrollment Centers
+            </p>
+          </Link>
         </div>
       </div>
       <nav
@@ -447,6 +455,13 @@ export default function Example() {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Contacts
+                  </Link>
+                  <Link
+                    href="/enrollment-centers"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-xs font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    CBP Enrollment Centers
                   </Link>
                 </div>
               </div>

@@ -144,7 +144,7 @@ export default function Mexico() {
             If you want to save precious time, let our experts handle the
             paperwork for you. By choosing our services, you can experience a
             hassle-free application process, with the total cost amounting to
-            $139,99 (One-time payment via PayPal).
+            $149,00 (One-time payment via PayPal).
             <br />
             <br />
             This fee is payable at the time of application submission and covers

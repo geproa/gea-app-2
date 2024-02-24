@@ -34,12 +34,12 @@ export default function Usa() {
           <p>
             <b>Global Entry is a Trusted Traveler Program</b> that allows
             pre-approved, low-risk travelers to receive expedited clearance upon
-            arrival in the United States.
+            arrival <br />in the United States.
             <br />
             <br />
             With a valid membership card lasting 5 years, Global Entry
             participants can skip long lines and quickly complete the customs
-            process at designated kiosks in airports.
+            process <br /> at designated kiosks in airports.
             <br />
             <br />
             By presenting their machine-readable passport or US permanent
@@ -205,7 +205,7 @@ export default function Usa() {
             If you want to save precious time, let our experts handle the
             paperwork for you. By choosing our services, you can experience a
             hassle-free application process, with the total cost amounting to
-            $139,99 (One-time payment via PayPal).
+            $149,00 (One-time payment via PayPal).
             <br />
             <br />
             This fee is payable at the time of application submission and covers
@@ -364,13 +364,13 @@ export default function Usa() {
           </h3>
           <p>
             Global Entry members have the convenience of updating their passport
-            information directly through their TTP account. By selecting the
-            &#34;Update Documents&#34; option, members can easily make the
+            information directly through their TTP account. <br />By selecting
+            the &#34;Update Documents&#34; option, members can easily make the
             necessary changes.
             <br />
             <br />
             However, in the case of a name change on the passport, it is
-            mandatory to visit a Global Entry enrollment center to ensure that
+            mandatory to visit a Global Entry enrollment center to ensure that<br />
             the information is properly updated.
           </p>
         </div>

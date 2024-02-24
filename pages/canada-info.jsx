@@ -25,7 +25,7 @@ export default function Canada() {
             <br />
             With a single fee payment, NEXUS members enjoy expedited crossing
             privileges at air, land, and marine ports of entry that participate
-            in the program.
+            in <br />the program.
             <br />
             <br />
             In a collaborative effort between the US Customs and Border
@@ -127,7 +127,7 @@ export default function Canada() {
             If you want to save precious time, let our experts handle the
             paperwork for you. By choosing our services, you can experience a
             hassle-free application process, with the total cost amounting to
-            $139,99 (One-time payment via PayPal).
+            $149,00 (One-time payment via PayPal).
             <br />
             <br />
             This fee is payable at the time of application submission and covers
@@ -186,7 +186,7 @@ export default function Canada() {
             <br />
             <br />
             Your membership will expire on your birthday. To renew your NEXUS
-            membership, you can initiate the process up to 3 months before the
+            membership, you can initiate the process up to 3 months before <br /> the
             expiration date, and upon renewal, it will be extended for another 5
             years starting from your next birthday.
             <br />
@@ -305,7 +305,7 @@ export default function Canada() {
           <p>
             To update your information, you can either visit one of the
             enrollment centers located on either side of the US-Canada border or
-            make the changes online using the information provided in the email
+            make <br /> the changes online using the information provided in the email
             we have sent to you.
           </p>
         </div>
@@ -315,7 +315,7 @@ export default function Canada() {
           <h3>What if I have lost my Nexus card?</h3>
           <p>
             If your NEXUS card is lost or stolen, it is necessary to visit one
-            of the Nexus enrollment centers and report the loss. A replacement
+            of the Nexus enrollment centers and report the loss. <br /> A replacement
             card can be issued for a small fee.
           </p>
           <div className={styles.ctaDiv}>

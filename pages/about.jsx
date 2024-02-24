@@ -26,7 +26,7 @@ export default function AboutUs() {
           </h3>
           <p>
             We understand the challenges and complexities involved in the Global
-            Entry, Nexus, and Sentri programs, which are all part of the Trusted
+            Entry, Nexus, and Sentri programs, which are all part of <br />the Trusted
             Traveler Program. That&#39;s why we&#39;re here to help with the
             application.
             <br />
@@ -36,7 +36,7 @@ export default function AboutUs() {
             <br />
             <br />
             We&#39;ll not only provide expert guidance but also demystify the
-            government&#39;s jargon, making it easier for you to navigate through
+            government&#39;s jargon, making it easier for you to navigate through <br />
             the requirements.
             <br />
             <br />
@@ -105,7 +105,7 @@ export default function AboutUs() {
               <p>
                 <b>1. Unmatched Expertise:</b> With years of experience and
                 in-depth knowledge of the application process, our experts have
-                what it takes to handle all your needs. We stay updated with the
+                what it takes <br />to handle all your needs. We stay updated with the
                 latest program requirements, giving your application an edge.
               </p>
             </li>

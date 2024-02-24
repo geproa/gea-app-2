@@ -22,8 +22,8 @@ export default function Refund() {
             <br />
             To ensure a swift refund, simply drop an email to{" "}
             <span>
-              <a href="mailto:mail@mail.com" style={{ color: "#5DBBF0" }}>
-                mail@mail.com
+              <a href="mailto:geproassist@gmail.com" style={{ color: "#5DBBF0" }}>
+              geproassist@gmail.com
               </a>
             </span>
             .

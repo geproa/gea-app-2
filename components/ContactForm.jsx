@@ -118,7 +118,7 @@ export default function ContactForm() {
             <h3>
               You can also write to us here:{" "}
               <span >
-                <a href="mailto:mail@mail.com" style={{ color: "#5DBBF0" }}>mail@mail.com</a>
+                <a href="mailto:geproassist@gmail.com" style={{ color: "#5DBBF0" }}>geproassist@gmail.com</a>
               </span>
             </h3>
           </form>

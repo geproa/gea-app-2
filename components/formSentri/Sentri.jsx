@@ -288,6 +288,7 @@ export default function FormNexus() {
                 SENTRI Mexico Form
               </option>
             </select>
+            <p className="ml-2 text-red-500">Fields with a red * are required.</p>
           </div>
         </div>
         {/* Form Type - End */}
@@ -461,6 +462,7 @@ export default function FormNexus() {
                 <option></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                <option value="Other gender">Other gender</option>
               </select>
               <p className="text-red-500">{errors.gender?.message}</p>
             </div>
@@ -479,18 +481,33 @@ export default function FormNexus() {
               <p className="text-red-500">{errors.phoneNumber?.message}</p>
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="height" className="label">
-                Height <span className="star">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="height"
-                {...register("height")}
-                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <p className="text-red-500">{errors.height?.message}</p>
+            <div className="mb-4 flex">
+              <div>
+                <label htmlFor="height" className="label">
+                  Height <span className="star">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder=""
+                  id="height"
+                  {...register("height")}
+                  className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <p className="text-red-500">{errors.height?.message}</p>
+              </div>
+              <div className="ml-6">
+                <label htmlFor="heightInMeters" className="label">
+                  Height in meters
+                </label>
+                <input
+                  type="text"
+                  placeholder=""
+                  id="heightInMeters"
+                  {...register("heightInMeters")}
+                  className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <p class="text-sm pt-1">Optional</p>
+              </div>
             </div>
 
             <div className="mb-4">
@@ -2895,6 +2912,7 @@ export default function FormNexus() {
                 <option></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                <option value="Other gender">Other gender</option>
               </select>
             </div>
 
@@ -3303,13 +3321,13 @@ export default function FormNexus() {
                 class="block text-gray-700 font-bold mb-2"
                 for="card-number"
               >
-                Card Number <span className="star">*</span>
+                Last four card digits <span className="star">*</span>
               </label>
               <input
                 class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="card-number"
                 type="text"
-                placeholder="XXXX XXXX XXXX XXXX"
+                placeholder="XXXX"
                 {...register("cardNumber")}
               />
               <p className="text-red-500">{errors.cardNumber?.message}</p>
@@ -3327,7 +3345,7 @@ export default function FormNexus() {
                 {...register("expiryDate")}
               />
               <p className="text-red-500">{errors.expiryDate?.message}</p>
-              <label class="block text-gray-700 font-bold mb-2 mt-4" for="cvv">
+              {/* <label class="block text-gray-700 font-bold mb-2 mt-4" for="cvv">
                 CVV <span className="star">*</span>
               </label>
               <input
@@ -3337,7 +3355,7 @@ export default function FormNexus() {
                 placeholder="XXX"
                 {...register("cvv")}
               />
-              <p className="text-red-500">{errors.cvv?.message}</p>
+              <p className="text-red-500">{errors.cvv?.message}</p> */}
             </div>
 
             <div className="mt-1">
@@ -3543,6 +3561,9 @@ export default function FormNexus() {
           </p>
           <p>
             Height: <b>{watch("height")}</b>{" "}
+          </p>
+          <p>
+            Height in meters: <b>{watch("heightInMeters")}</b>{" "}
           </p>
           <p>
             Eye Colour: <b>{watch("eyeColour")}</b>{" "}
@@ -3919,118 +3940,121 @@ export default function FormNexus() {
 
           <br />
 
-
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-          RFC / CURP Details
-          </h2> 
-          <p>
-          RFC (Registro Federal de Contribuyentes): <b>{watch("RFC")}</b>
-          </p>
-          <p>
-          Check if this RFC is owned by you: <b>{watch("RFCIsOwned")}</b>
-          </p>
-          <p>
-          CURP: <b>{watch("CURP")}</b>
-          </p>
-
-          <br />
-
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-          Vehicle Information
-          </h2> 
-          <p>
-          Do you plan to drive across the border from Mexico to the United
-              States?: <b>{watch("driveAcrossBorderMexicoToUnitedStates")}</b>
-          </p>
-
-          <p>
-          Is the vehicle already actively registered on your account or on
-              another Trusted Traveler Program member&#39;s account?: <b>{watch("vehicleAlreadyActivelyRegistered")}</b>
-          </p>
-
-          <p>
-          Make: <b>{watch("Make")}</b>
-          </p>
-
-          <p>
-          Model: <b>{watch("Model")}</b>
-          </p>
-
-          <p>
-          Year of Manufacture: <b>{watch("yearOfManufacture")}</b>
-          </p>
-
-          <p>
-          VIN Number: <b>{watch("VINNumber")}</b>
-          </p>
-
-          <p>
-          Licence Plate Number: <b>{watch("licencePlateNumber")}</b>
-          </p>
-
-          <p>
-          Vehicle Country of Issue: <b>{watch("vehicleCountryOfIssue")}</b>
-          </p>
-
-          <p>
-          Vehicle State / Province of Issue: <b>{watch("vehicleStateProvinceOfIssue")}</b>
-          </p>
-
-          <p>
-          Is this a Govenment Issue Plate: <b>{watch("isThisGovenmentIssuePlate")}</b>
-          </p>
-
-          <p>
-          Is a Vehicle Inspection Required: <b>{watch("isVehicleInspectionRequired")}</b>
-          </p>
-       
-          <br />
-
-
-
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-          Vehicle Owner
+            RFC / CURP Details
           </h2>
           <p>
-          Vehicle Owner Gender: <b>{watch("vehicleOwnerGender")}</b>
+            RFC (Registro Federal de Contribuyentes): <b>{watch("RFC")}</b>
           </p>
-
           <p>
-          Owner: <b>{watch("owner")}</b>
+            Check if this RFC is owned by you: <b>{watch("RFCIsOwned")}</b>
           </p>
-
           <p>
-          Vehicle Owner Phone Number: <b>{watch("vehicleOwnerPhoneNumber")}</b>
+            CURP: <b>{watch("CURP")}</b>
           </p>
-
-          <p>
-          Vehicle Owner Address: <b>{watch("vehicleOwnerAddress")}</b>
-          </p>
-
-          <p>
-          Vehicle Owner Address :Line 2: <b>{watch("vehicleOwnerAddress2")}</b>
-          </p>
-
-          <p>
-          Vehicle Owner City: <b>{watch("vehicleOwnerAddressCity")}</b>
-          </p>
-
-          <p>
-          Vehicle Owner State/Province: <b>{watch("vehicleOwnerAddressStateProvince")}</b>
-          </p>
-
-          <p>
-          Vehicle Owner ZIP / Postal: <b>{watch("vehicleOwnerAddressZIPPostal")}</b>
-          </p>
-
-          <p>
-          Vehicle Owner Date of Birth: <b>{watch("vehicleOwnerDateOfBirth")}</b>
-          </p>
-
 
           <br />
-        
 
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Vehicle Information
+          </h2>
+          <p>
+            Do you plan to drive across the border from Mexico to the United
+            States?: <b>{watch("driveAcrossBorderMexicoToUnitedStates")}</b>
+          </p>
+
+          <p>
+            Is the vehicle already actively registered on your account or on
+            another Trusted Traveler Program member&#39;s account?:{" "}
+            <b>{watch("vehicleAlreadyActivelyRegistered")}</b>
+          </p>
+
+          <p>
+            Make: <b>{watch("Make")}</b>
+          </p>
+
+          <p>
+            Model: <b>{watch("Model")}</b>
+          </p>
+
+          <p>
+            Year of Manufacture: <b>{watch("yearOfManufacture")}</b>
+          </p>
+
+          <p>
+            VIN Number: <b>{watch("VINNumber")}</b>
+          </p>
+
+          <p>
+            Licence Plate Number: <b>{watch("licencePlateNumber")}</b>
+          </p>
+
+          <p>
+            Vehicle Country of Issue: <b>{watch("vehicleCountryOfIssue")}</b>
+          </p>
+
+          <p>
+            Vehicle State / Province of Issue:{" "}
+            <b>{watch("vehicleStateProvinceOfIssue")}</b>
+          </p>
+
+          <p>
+            Is this a Govenment Issue Plate:{" "}
+            <b>{watch("isThisGovenmentIssuePlate")}</b>
+          </p>
+
+          <p>
+            Is a Vehicle Inspection Required:{" "}
+            <b>{watch("isVehicleInspectionRequired")}</b>
+          </p>
+
+          <br />
+
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Vehicle Owner
+          </h2>
+          <p>
+            Vehicle Owner Gender: <b>{watch("vehicleOwnerGender")}</b>
+          </p>
+
+          <p>
+            Owner: <b>{watch("owner")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner Phone Number:{" "}
+            <b>{watch("vehicleOwnerPhoneNumber")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner Address: <b>{watch("vehicleOwnerAddress")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner Address :Line 2:{" "}
+            <b>{watch("vehicleOwnerAddress2")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner City: <b>{watch("vehicleOwnerAddressCity")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner State/Province:{" "}
+            <b>{watch("vehicleOwnerAddressStateProvince")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner ZIP / Postal:{" "}
+            <b>{watch("vehicleOwnerAddressZIPPostal")}</b>
+          </p>
+
+          <p>
+            Vehicle Owner Date of Birth:{" "}
+            <b>{watch("vehicleOwnerDateOfBirth")}</b>
+          </p>
+
+          <br />
 
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Travel History
@@ -4103,9 +4127,9 @@ export default function FormNexus() {
           <p>
             Expiry Date: <b>{watch("expiryDate")}</b>{" "}
           </p>
-          <p>
+          {/* <p>
             CVV: <b>{watch("cvv")}</b>{" "}
-          </p>
+          </p> */}
           <p>
             Card Type: <b>{watch("cardType")}</b>{" "}
           </p>

@@ -286,9 +286,10 @@ export default function FormNexusRenewal() {
               {...register("formType")}
             >
               <option key="NEXUS Canada Renewal" value="NEXUS Canada Renewal">
-              NEXUS Canada Renewal
+                NEXUS Canada Renewal
               </option>
             </select>
+            <p className="ml-2 text-red-500">Fields with a red * are required.</p>
           </div>
         </div>
         {/* Form Type - End */}
@@ -357,7 +358,7 @@ export default function FormNexusRenewal() {
 
               <div className="mb-4">
                 <label htmlFor="passId" className="label">
-                  PASSID*
+                  PASSID <span className="star">*</span>
                 </label>
                 <input
                   placeholder=""
@@ -505,6 +506,7 @@ export default function FormNexusRenewal() {
                 <option></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                <option value="Other gender">Other gender</option>
               </select>
               <p className="text-red-500">{errors.gender?.message}</p>
             </div>
@@ -523,18 +525,33 @@ export default function FormNexusRenewal() {
               <p className="text-red-500">{errors.phoneNumber?.message}</p>
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="height" className="label">
-                Height <span className="star">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="height"
-                {...register("height")}
-                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-              <p className="text-red-500">{errors.height?.message}</p>
+            <div className="mb-4 flex">
+              <div>
+                <label htmlFor="height" className="label">
+                  Height <span className="star">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder=""
+                  id="height"
+                  {...register("height")}
+                  className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <p className="text-red-500">{errors.height?.message}</p>
+              </div>
+              <div className="ml-6">
+                <label htmlFor="heightInMeters" className="label">
+                  Height in meters
+                </label>
+                <input
+                  type="text"
+                  placeholder=""
+                  id="heightInMeters"
+                  {...register("heightInMeters")}
+                  className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+                <p class="text-sm pt-1">Optional</p>
+              </div>
             </div>
 
             <div className="mb-4">
@@ -678,9 +695,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportExpiryDate(date);
-                  setValue("passportExpiryDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "passportExpiryDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -697,9 +718,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setPassportDateOfIssue(date);
-                  setValue("passportDateOfIssue", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "passportDateOfIssue",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -775,9 +800,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryExpiryDate(date);
-                  setValue("secondaryExpiryDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "secondaryExpiryDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -794,9 +823,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setSecondaryDateOfIssue(date);
-                  setValue("secondaryDateOfIssue", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "secondaryDateOfIssue",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -885,9 +918,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setAlternateIssueDate(date);
-                  setValue("alternateIssueDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "alternateIssueDate",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -1104,9 +1141,13 @@ export default function FormNexusRenewal() {
                   onChange={(date) => {
                     date.setHours(0, 0, 0, 0);
                     setDrivingLicenceExpiryDate(date);
-                    setValue("drivingLicenceExpiryDate", date.toLocaleDateString("en-US"), {
-                      shouldValidate: true,
-                    });
+                    setValue(
+                      "drivingLicenceExpiryDate",
+                      date.toLocaleDateString("en-US"),
+                      {
+                        shouldValidate: true,
+                      }
+                    );
                   }}
                   placeholderText="MM/DD/YYYY"
                   dateFormat="MM/dd/yyyy"
@@ -1280,9 +1321,13 @@ export default function FormNexusRenewal() {
                 onChange={(date) => {
                   date.setHours(0, 0, 0, 0);
                   setStartLivingHere(date);
-                  setValue("startLivingHere", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  setValue(
+                    "startLivingHere",
+                    date.toLocaleDateString("en-US"),
+                    {
+                      shouldValidate: true,
+                    }
+                  );
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -2906,13 +2951,13 @@ export default function FormNexusRenewal() {
                 class="block text-gray-700 font-bold mb-2"
                 for="card-number"
               >
-                Card Number <span className="star">*</span>
+                Last four card digits <span className="star">*</span>
               </label>
               <input
                 class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="card-number"
                 type="text"
-                placeholder="XXXX XXXX XXXX XXXX"
+                placeholder="XXXX"
                 {...register("cardNumber")}
               />
               <p className="text-red-500">{errors.cardNumber?.message}</p>
@@ -2930,7 +2975,7 @@ export default function FormNexusRenewal() {
                 {...register("expiryDate")}
               />
               <p className="text-red-500">{errors.expiryDate?.message}</p>
-              <label class="block text-gray-700 font-bold mb-2 mt-4" for="cvv">
+              {/* <label class="block text-gray-700 font-bold mb-2 mt-4" for="cvv">
                 CVV <span className="star">*</span>
               </label>
               <input
@@ -2940,7 +2985,7 @@ export default function FormNexusRenewal() {
                 placeholder="XXX"
                 {...register("cvv")}
               />
-              <p className="text-red-500">{errors.cvv?.message}</p>
+              <p className="text-red-500">{errors.cvv?.message}</p> */}
             </div>
 
             <div className="mt-1">
@@ -3157,6 +3202,9 @@ export default function FormNexusRenewal() {
           </p>
           <p>
             Height: <b>{watch("height")}</b>{" "}
+          </p>
+          <p>
+            Height in meters: <b>{watch("heightInMeters")}</b>{" "}
           </p>
           <p>
             Eye Colour: <b>{watch("eyeColour")}</b>{" "}
@@ -3603,9 +3651,9 @@ export default function FormNexusRenewal() {
           <p>
             Expiry Date: <b>{watch("expiryDate")}</b>{" "}
           </p>
-          <p>
+          {/* <p>
             CVV: <b>{watch("cvv")}</b>{" "}
-          </p>
+          </p> */}
           <p>
             Card Type: <b>{watch("cardType")}</b>{" "}
           </p>

@@ -1,10 +1,10 @@
 1. Google ver-code
 2. GoDaddy ver-code 
 3. #Mail for contacts
-4. Card details for payment of Government fee -All centers
+4. #Card details for payment of Government fee -All centers
 5. Link to PayPal check out
-6. Gender Another gender
-7. Height in meters
+6. #Gender Another gender
+7. #Height in meters
 8. #Price $149
 
 

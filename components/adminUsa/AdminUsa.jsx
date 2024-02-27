@@ -117,7 +117,7 @@ function AdminUsa({ totalDocs }) {
 
   return (
     <div className="max-w-7xl mx-auto mt-10">
-      <h1 className="text-xl mb-5">Applications for USA program:</h1>
+      <h1 className="text-xl mb-5">Applications:</h1>
       <table className="table-auto">
         <thead>
           <tr>
@@ -171,7 +171,7 @@ function AdminUsa({ totalDocs }) {
                 />
               </td>
               <td className="border border-blue-500 border-opacity-100 p-2">
-                {item.firstName} {item.lastName}
+                <b>{item.firstName} {item.lastName}</b> | date: {item.todayDate}
               </td>
               <td className="border border-blue-500 border-opacity-100 p-2">
                 <Link href={`/usa/${item.id}`}>

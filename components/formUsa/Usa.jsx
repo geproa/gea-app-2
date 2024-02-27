@@ -102,7 +102,7 @@ export default function FormUsa() {
     agreeCertificationDisclaimer: yup.string().required("Answer is required!"),
     cardNumber: yup.string().required("Card Number is required!"),
     expiryDate: yup.string().required("Expiry Date is required!"),
-    cvv: yup.string().required("CVV is required!"),
+    // cvv: yup.string().required("CVV is required!"),
     cardType: yup.string().required("Card Type is required!"),
     cardHoldersFirstName: yup
       .string()
@@ -174,6 +174,9 @@ export default function FormUsa() {
   const [employmentFor5YearsOrMore, setEmploymentFiveYears] = useState("Yes");
   const [showfiveYearsEmploymentInput, setShowfiveYearsEmploymentInput] =
     useState(false);
+
+// Today Date
+    const [todayDate, setTodayDate] = useState(new Date().toISOString().split('T')[0]);
 
   useEffect(() => {
     if (register.birthDate) {
@@ -269,6 +272,12 @@ export default function FormUsa() {
     return groups;
   }, {});
 
+  // Today Date
+
+  const handleTodayDateChange = (e) => {
+    setTodayDate(e.target.value);
+  };
+
   return (
     <div class="max-w-screen-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
@@ -289,6 +298,15 @@ export default function FormUsa() {
               </option>
             </select>
             <p className="ml-2 text-red-500">Fields with a red * are required.</p>
+            <input
+            className="hidden"
+              type="date"
+              id="todayDate"
+              name="todayDate"
+              value={todayDate}
+              onChange={handleTodayDateChange}
+              {...register("todayDate")}
+           />
           </div>
         </div>
         {/* Form Type - End */}

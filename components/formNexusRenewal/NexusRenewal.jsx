@@ -36,8 +36,8 @@ export default function FormNexusRenewal() {
     birthDate: yup
       .string()
       .default(() => new Date())
-      .required("Birth Date is required!")
-      .nullable(),
+      .required("Birth Date is required!"),
+      // .nullable(),
     cityBirth: yup.string().required("City of Birth required!"),
     stateBirth: yup
       .string()

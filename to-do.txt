@@ -6,7 +6,6 @@
 
 2. Page for Enrollment Centers 
 3. .env
-4. Admin panel connection and render information
 5. Connect to PayPal 
 6. Meta SEO
 7. Public domain

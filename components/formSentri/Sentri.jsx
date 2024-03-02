@@ -2906,6 +2906,8 @@ export default function FormNexus() {
         </div>
 
         {/* Vehicle Information - End */}
+
+          {/* Vehicle Owner */}
         <div className="formSection">
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">Vehicle Owner</h3>
@@ -3029,24 +3031,20 @@ export default function FormNexus() {
                   if (date) {
                     date.setHours(0, 0, 0, 0);
                     setStartDate(date);
-                    setValue(
-                      "vehicleOwnerDateOfBirth",
-                      date.toLocaleDateString("en-US"),
-                      {
-                        shouldValidate: true,
-                      }
-                    );
+                    setValue("vehicleOwnerDateOfBirth", date.toLocaleDateString("en-US"), {
+                      shouldValidate: true,
+                    });
                   }
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
         </div>
 
-        {/* Vehicle Owner */}
+      
 
         {/* Vehicle Owner - End */}
 

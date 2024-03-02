@@ -131,7 +131,7 @@ function AdminUsa({ totalDocs }) {
               Admin 2
             </th>
             <th className="border border-blue-500 border-opacity-100 p-2">
-              Name
+              Name | Date | Form type
             </th>
             <th></th>
             <th></th>
@@ -171,7 +171,7 @@ function AdminUsa({ totalDocs }) {
                 />
               </td>
               <td className="border border-blue-500 border-opacity-100 p-2">
-                <b>{item.firstName} {item.lastName}</b> | date: {item.todayDate}
+                <b>{item.firstName} {item.lastName}</b> | {item.todayDate} | {item.formType}
               </td>
               <td className="border border-blue-500 border-opacity-100 p-2">
                 <Link href={`/usa/${item.id}`}>

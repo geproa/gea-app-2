@@ -1,12 +1,5 @@
-1. Link to PayPal check out
-
-
-
-
-
-2. Page for Enrollment Centers 
-3. .env
-5. Connect to PayPal 
-6. Meta SEO
-7. Public domain
-8. Site Map
+1. Page for Enrollment Centers 
+2. Connect to PayPal 
+3. Meta SEO
+4. Public domain
+5. Site Map

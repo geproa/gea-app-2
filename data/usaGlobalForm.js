@@ -9,6 +9,12 @@ export const eyeColor = [
   "Red",
 ];
 
+export const enrollmentCenters =[
+  "",
+  "New York Enrollment Center",
+  "Los Angeles Enrollment Center"
+]
+
 export const employmentStatus =[
   "",
   "Employed",

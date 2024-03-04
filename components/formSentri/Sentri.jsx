@@ -4076,7 +4076,7 @@ export default function FormNexus() {
             Travel History
           </h2>
           <p>
-            Countries: <b>{watch("travelHistory")}</b>
+          Countries: <b>{watch("travelHistory") ? watch("travelHistory").join(", ") : ""} | Other Country: {watch("otherCountry")}</b>
           </p>
 
           <br />

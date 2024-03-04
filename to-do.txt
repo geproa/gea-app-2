@@ -1,5 +1,5 @@
 1. Link to PayPal check out
-
+2. Fix country field
 
 
 

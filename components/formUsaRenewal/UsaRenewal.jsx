@@ -3602,7 +3602,7 @@ export default function FormUsaRenewal() {
             Travel History
           </h2>
           <p>
-          Countries: <b>{watch("travelHistory") ? watch("travelHistory").join(", ") : ""} | Other Country: {watch("otherCountry")}</b>
+          Countries: <b>{watch("travelHistory") ? watch("travelHistory").join(", ") : ""}</b> | Other Country: <b> {watch("otherCountry")}</b>
           </p>
 
           <br />

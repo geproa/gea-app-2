@@ -3556,8 +3556,10 @@ export default function FormUsa() {
             Travel History
           </h2>
           <p>
-            Countries: <b>{watch("travelHistory")}</b>{" "}
+          Countries: <b>{watch("travelHistory") ? watch("travelHistory").join(", ") : ""} | Other Country: {watch("otherCountry")}</b>
           </p>
+
+
 
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>

@@ -322,7 +322,7 @@ function UsaItem() {
       <br />
       <h2 className="text-xl font-bold my-1">Travel History</h2>
       <p>Countries: {item.travelHistory}</p>
-      <p>Other Country:: {item.otherCountry}</p>
+      <p>Other Country: {item.otherCountry}</p>
       <br />
       <h2 className="text-xl font-bold my-1">Additional Information</h2>
       <p>

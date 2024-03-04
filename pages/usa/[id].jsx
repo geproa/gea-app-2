@@ -28,22 +28,22 @@ function UsaItem() {
   return (
     <div className="max-w-7xl mx-auto py-5">
       <h1>Form type: {item.formType}</h1>
-      <br/>
-      <h1>Application form for {item.firstName} {item.firstLast}</h1>
+      <br />
+      <h1>
+        Application form for {item.firstName} {item.firstLast}
+      </h1>
 
       <br />
       <h2>Have you created a LOGIN.GOV Account: {item.loginGovAccount}</h2>
       <p>Personal Key: {item.personalKey}</p>
       <p>Email address: {item.personalKeyEmail}</p>
       <p>Password: {item.personalKeyPassword}</p>
-      
-      <br/>
+
+      <br />
       <span className=" text-red-500">Only for Renewal Form </span>
       <p>GOES ID: {item.goesId}</p>
       <p>GOES Password: {item.goesPassword}</p>
       <p>PASSID: {item.passId}</p>
-
-     
 
       <br />
       <h2 className="text-xl font-bold my-1">Personal Details</h2>
@@ -62,15 +62,16 @@ function UsaItem() {
       <p>State / Province of Birth: {item.stateBirth}</p>
       <p>Country of Birth {item.countryBirth}</p>
 
-
       <br />
-      <h2 className="text-xl font-bold my-1">Parent / Guardian Details <span className=" text-red-500">(Only for child forms) </span></h2>
+      <h2 className="text-xl font-bold my-1">
+        Parent / Guardian Details{" "}
+        <span className=" text-red-500">(Only for child forms) </span>
+      </h2>
       <p>Parent / Guardian Name: {item.parentGuardianName}</p>
       <p>Parent / Guardian Birth Date: {item.parentGuardianBirthDate}</p>
       <p>Parent / Guardian Gender: {item.parentGuardianGender}</p>
       <p>Home Phone Number: {item.parentHomePhoneNumber}</p>
       <p>State / Province of birth: {item.parentStateProvinceOfBirth}</p>
-
 
       <br />
       <h2 className="text-xl font-bold my-1">Citizenship & Nationality</h2>
@@ -78,9 +79,7 @@ function UsaItem() {
       <p>Primary Passport Number: {item.primaryPassportNumber}</p>
       <p>Passport Expiry Date: {item.passportExpiryDate}</p>
       <p>Passport Date of Issue: {item.passportDateOfIssue}</p>
-      <p>
-        Exact Name on Primary Passport: {item.exactNameOnPrimaryPassport}
-      </p>
+      <p>Exact Name on Primary Passport: {item.exactNameOnPrimaryPassport}</p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Secondary Citizenship:</h2>
@@ -95,9 +94,7 @@ function UsaItem() {
 
       <br />
       <h2 className="text-xl font-bold my-1">Alternate Documents:</h2>
-      <p>
-        Citizenship Certificate Number: {item.citizenshipCertificateNumber}
-      </p>
+      <p>Citizenship Certificate Number: {item.citizenshipCertificateNumber}</p>
       <p>Country of Issue: {item.countryOfIssue}</p>
       <p>
         Exact Name on Citizenship Certificate:
@@ -105,9 +102,7 @@ function UsaItem() {
       </p>
       <p>Alternate Issue Date: {item.alternateIssueDate}</p>
       <p>Birth Certificate Number: {item.birthCertificateNumber}</p>
-      <p>
-        Exact Name on Birth Certificate: {item.exactNameOnBirthCertificate}
-      </p>
+      <p>Exact Name on Birth Certificate: {item.exactNameOnBirthCertificate}</p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Canada/US Permanent Residence</h2>
@@ -146,9 +141,7 @@ function UsaItem() {
       <p>Current Address: {item.currentAddress}</p>
       <p>Current Address Line 2: {item.currentAddressLine2}</p>
       <p>Current City: {item.currentCity}</p>
-      <p>
-        Current State/Province/Region: {item.currentStateProvinceRegion}
-      </p>
+      <p>Current State/Province/Region: {item.currentStateProvinceRegion}</p>
       <p>Current Zip/Postal Code: {item.currentZipPostalCode}</p>
       <p>Current Country: {item.currentCountry}</p>
       <h3 className="text-lg font-semibold">Mailing Address:</h3>
@@ -164,7 +157,9 @@ function UsaItem() {
       <h3 className="text-lg font-semibold">
         Address 2 - when Did you start living here: {item.address2monthYear}
       </h3>
-      <h3 className="text-lg font-semibold">End Date: {item.address2monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">
+        End Date: {item.address2monthYearEndDate}
+      </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 2</h3>
       <p>Address Line 1: {item.address2addressLine1}</p>
       <p>Address Line 2: {item.address2addressLine2}</p>
@@ -177,7 +172,9 @@ function UsaItem() {
       <h3 className="text-lg font-semibold">
         Address 3 - when Did you start living here: {item.address3monthYear}
       </h3>
-      <h3 className="text-lg font-semibold">End Date: {item.address3monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">
+        End Date: {item.address3monthYearEndDate}
+      </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 3</h3>
       <p>Address Line 1: {item.address3addressLine1}</p>
       <p>Address Line 2: {item.address3addressLine2}</p>
@@ -190,7 +187,9 @@ function UsaItem() {
       <h3 className="text-lg font-semibold">
         Address 4 - when Did you start living here: {item.address4monthYear}
       </h3>
-      <h3 className="text-lg font-semibold">End Date: {item.address4monthYearEndDate}</h3>
+      <h3 className="text-lg font-semibold">
+        End Date: {item.address4monthYearEndDate}
+      </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 4</h3>
       <p>Address Line 1: {item.address4addressLine1}</p>
       <p>Address Line 2: {item.address4addressLine2}</p>
@@ -218,7 +217,9 @@ function UsaItem() {
       <p>Country: {item.usContactAddressCountry}</p>
 
       <br />
-      <h2 className="text-xl font-bold my-1">Information About Your Current Work</h2>
+      <h2 className="text-xl font-bold my-1">
+        Information About Your Current Work
+      </h2>
       <p>
         Has your employment status been the same for 5 years or more:
         {item.employmentFor5YearsOrMore}
@@ -283,32 +284,48 @@ function UsaItem() {
       <p>ZIP / Postal: {item.employer4ZipPostal}</p>
       <p>Country: {item.employer4Country}</p>
 
-
-
       <br />
-      <h2 className="text-xl font-bold my-1">RFC / CURP Details <span className=" text-red-500">(Only for Sentri Form )</span></h2>
+      <h2 className="text-xl font-bold my-1">
+        RFC / CURP Details{" "}
+        <span className=" text-red-500">(Only for Sentri Form )</span>
+      </h2>
       <p>RFC (Registro Federal de Contribuyentes): {item.RFC}</p>
       <p>Check if this RFC is owned by you: {item.RFCIsOwned}</p>
       <p>CURP: {item.CURP}</p>
 
-
       <br />
-      <h2 className="text-xl font-bold my-1">Vehicle Information <span className=" text-red-500">(Only for Sentri Form )</span></h2>
-      <p>Do you plan to drive across the border from Mexico to the United States?: {item.driveAcrossBorderMexicoToUnitedStates}</p>
-      <p>Is the vehicle already actively registered on your account or on another Trusted Traveler Program member&apos;s account?: {item.vehicleAlreadyActivelyRegistered}</p>
+      <h2 className="text-xl font-bold my-1">
+        Vehicle Information{" "}
+        <span className=" text-red-500">(Only for Sentri Form )</span>
+      </h2>
+      <p>
+        Do you plan to drive across the border from Mexico to the United
+        States?: {item.driveAcrossBorderMexicoToUnitedStates}
+      </p>
+      <p>
+        Is the vehicle already actively registered on your account or on another
+        Trusted Traveler Program member&apos;s account?:{" "}
+        {item.vehicleAlreadyActivelyRegistered}
+      </p>
       <p>Make: {item.Make}</p>
       <p>Model: {item.Model}</p>
       <p>Year of Manufacture: {item.yearOfManufacture}</p>
       <p>VIN Number: {item.VINNumber}</p>
       <p>Licence Plate Number: {item.licencePlateNumber}</p>
       <p>Vehicle Country of Issue: {item.vehicleCountryOfIssue}</p>
-      <p>Vehicle State / Province of Issue: {item.vehicleStateProvinceOfIssue}</p>
+      <p>
+        Vehicle State / Province of Issue: {item.vehicleStateProvinceOfIssue}
+      </p>
       <p>Is this a Govenment Issue Plate: {item.isThisGovenmentIssuePlate}</p>
-      <p>Is a Vehicle Inspection Required: {item.isVehicleInspectionRequired}</p>
-
+      <p>
+        Is a Vehicle Inspection Required: {item.isVehicleInspectionRequired}
+      </p>
 
       <br />
-      <h2 className="text-xl font-bold my-1">Vehicle Owner <span className=" text-red-500">(Only for Sentri Form )</span></h2>
+      <h2 className="text-xl font-bold my-1">
+        Vehicle Owner{" "}
+        <span className=" text-red-500">(Only for Sentri Form )</span>
+      </h2>
       <p>Vehicle Owner Gender: {item.vehicleOwnerGender}</p>
       <p> Owner: {item.owner}</p>
       <p>Vehicle Owner Phone Number: {item.vehicleOwnerPhoneNumber}</p>
@@ -358,14 +375,18 @@ function UsaItem() {
       <p>{item.agreeCertificationDisclaimer}</p>
 
       <br />
-      <h2 className="text-xl font-bold my-1">Card details for payment of Government fee</h2>
+      <h2 className="text-xl font-bold my-1">
+        Card details for payment of Government fee
+      </h2>
       <p>Card Number (last four digits): {item.cardNumber}</p>
       <p>Expiry Date: {item.expiryDate}</p>
       {/* <p>CVV: {item.cvv}</p> */}
       <p>Card Type {item.cardType}</p>
 
       <br />
-      <h2 className="text-xl font-bold my-1">Card Holder Name & Address Details</h2>
+      <h2 className="text-xl font-bold my-1">
+        Card Holder Name & Address Details
+      </h2>
       <p>Card Holders First Name: {item.cardHoldersFirstName}</p>
       <p>Card Holders Last Name: {item.cardHoldersLastName}</p>
       <p>Card Holders Address: {item.cardHoldersAddress}</p>
@@ -377,6 +398,10 @@ function UsaItem() {
       </p>
       <p>Card Holders Zip/Postal Code: {item.cardHoldersZipPostalCode}</p>
       <p>Card Holders Country: {item.cardHoldersCountry}</p>
+
+      <br />
+      <h2 className="text-xl font-bold my-1">Enrollment Center: </h2>
+      <p>{item.enrollmentCenter}</p>
     </div>
   );
 }

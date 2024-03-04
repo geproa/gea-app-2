@@ -14,6 +14,7 @@ import {
   countryList,
   employmentStatus,
   historyCountryList,
+  enrollmentCenters,
 } from "@/data/usaGlobalForm";
 
 import DatePicker from "react-datepicker";
@@ -123,6 +124,7 @@ export default function FormNexus() {
     cardHoldersCountry: yup
       .string()
       .required("Card Holders Country is required!"),
+      enrollmentCenter: yup.string().required("Enrollment Center is required!"),
   });
 
   const {
@@ -3107,9 +3109,37 @@ export default function FormNexus() {
             />
             <p className="text-red-500">{errors.cardHoldersCountry?.message}</p>
           </div>
+
+           {/* Card details for payment of Government fee - End */}
+
+            {/* Select Enrollment Center */}
+            <div class="title-box">
+            <h3 class="text-3xl text-white pb-2">
+              Global Entry Enrollment Centers
+            </h3>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="enrollmentCenter" className="label">
+              Select Enrollment Center <span className="star"> *</span>
+            </label>
+            <select
+              id="enrollmentCenter"
+              className="shadow  border border-red-500 rounded w-96 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setValue("enrollmentCenter", e.target.value)}
+              {...register("enrollmentCenter")}
+            >
+              {enrollmentCenters.map((center) => (
+                <option key={center} value={center}>
+                  {center}
+                </option>
+              ))}
+            </select>
+            <p className="text-red-500">{errors.enrollmentCenter?.message}</p>
+          </div>
+          {/* Select Enrollment Center  - End*/}
         </div>
 
-        {/* Card details for payment of Government fee - End */}
+       
 
         <input
           value="Preview"
@@ -3653,6 +3683,13 @@ export default function FormNexus() {
           </p>
           <p>
             Card Holders Country: <b>{watch("cardHoldersCountry")}</b>{" "}
+          </p>
+          <br />
+          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
+            Enrollment Center:
+          </h2>
+          <p>
+            <b>{watch("enrollmentCenter")}</b>{" "}
           </p>
 
           <button

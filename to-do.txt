@@ -1,5 +1,6 @@
-1. Link to PayPal check out
-2. Page for Enrollment Centers 
+1. Page for Enrollment Centers 
+(https://www.cbp.gov/travel/trusted-traveler-programs/global-entry/enrollment-centers)
+2. Connect to PayPal 
 3. Meta SEO
 4. Public domain
 5. Site Map

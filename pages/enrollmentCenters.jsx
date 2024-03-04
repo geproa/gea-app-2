@@ -1,5 +1,4 @@
-import {useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 
 const centers = [
     { 
@@ -22,10 +21,20 @@ const centers = [
 const EnrollmentCenters = () => {
   const mapContainerRef = useRef(null);
   const [selectedCenter, setSelectedCenter] = useState(centers[0]); // Initially select the first center
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
-    initMap();
-  }, [selectedCenter]);
+    if (!mapLoaded) {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+      script.defer = true;
+      script.async = true;
+      script.onload = () => setMapLoaded(true);
+      document.head.appendChild(script);
+    } else {
+      initMap();
+    }
+  }, [mapLoaded, selectedCenter]);
 
   const initMap = () => {
     const map = new window.google.maps.Map(mapContainerRef.current, {

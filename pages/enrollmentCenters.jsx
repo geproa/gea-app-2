@@ -20,7 +20,6 @@ export default function EnrollmentCenters() {
       {/* Hero Section - End*/}
 
       <section className={styles.allContent}>
-        {/* faq1 */}
         <div className={styles.faq}>
           <h2 className="mb-10 text-2xl">
             Find Your Nearest Enrollment Center

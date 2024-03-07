@@ -88,7 +88,7 @@ export default function Example() {
             </p>
           </Link>
           <Link
-            href="/enrollmentCenters"
+            href="/enrollment-centers"
             class="hidden sm:hidden md:block lg:blocl xl:block"
           >
             <p className="text-white hover:text-gray-600 text-xs font-medium mr-5 ">

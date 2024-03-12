@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 
+
 export default function Tab1() {
   return (
     <div>
@@ -302,7 +303,7 @@ export default function Tab1() {
         </AccordionItem>
 
         <AccordionItem key="4" aria-label="Arkansas" title="Arkansas">
-          <p>
+          <p className="text-tiny">
             There are currently no Global Entry enrollment centers in Arkansas.
           </p>
         </AccordionItem>
@@ -969,30 +970,30 @@ export default function Tab1() {
             <tbody>
               <tr>
                 <th scope="row">
-                  <p>Address:</p>
+                 Address:
                 </th>
                 <td>
-                  <p>
+                
                     2600&nbsp;Maynard H. Jackson Blvd
                     <br />
                     Atlanta, GA 30320&nbsp;
-                  </p>
+              
                 </td>
               </tr>
               <tr>
                 <th scope="row">
-                  <p>Hours of Operation:</p>
+                Hours of Operation:
                 </th>
                 <td>
-                  <p>6:00AM - 4:00PM&nbsp;</p>
+                 6:00AM - 4:00PM&nbsp;
                 </td>
               </tr>
               <tr>
                 <th scope="row">
-                  <p>Contact Information:</p>
+                 Contact Information:
                 </th>
                 <td>
-                  <p>(404) 765-2302</p>
+               (404) 765-2302
                 </td>
               </tr>
             </tbody>
@@ -1168,12 +1169,12 @@ export default function Tab1() {
             cellpadding="1"
             cellspacing="1"
             class="qa"
-            summary="Chicago O'Hare International Airport Hours of Operation and Contact Information"
+            summary="Chicago O&#39;Hare International Airport Hours of Operation and Contact Information"
           >
             <thead>
               <tr>
                 <th colspan="2" scope="col">
-                  <strong>Chicago O'Hare International Airport</strong>
+                  <strong>Chicago O&#39;Hare International Airport</strong>
                 </th>
               </tr>
             </thead>
@@ -1278,9 +1279,9 @@ export default function Tab1() {
           title="Kansas"
           className="text-left"
         >
-          <p>
+          
             There are currently no Global Entry enrollment centers in Kansas.
-          </p>
+         
         </AccordionItem>
 
         <AccordionItem
@@ -2062,10 +2063,10 @@ export default function Tab1() {
           title="New Hampshire"
           className="text-left"
         >
-          <p>
+       
             There are currently no Global Entry enrollment centers in New
             Hampshire.
-          </p>
+        
         </AccordionItem>
 
         <AccordionItem
@@ -2108,7 +2109,7 @@ export default function Tab1() {
                   updates and name changes only - all other interviews require
                   appointments. NO passport updates or name changes are
                   conducted on Federal Holidays. Name changes must bring their
-                  new Passport, New Driver's License and proof of name change
+                  new Passport, New Driver&#39;s License and proof of name change
                   paperwork.
                 </td>
               </tr>
@@ -2554,9 +2555,9 @@ export default function Tab1() {
           title="Oklahoma"
           className="text-left"
         >
-          <p>
+          
             There are currently no Global Entry enrollment centers in Oklahoma.
-          </p>
+         
         </AccordionItem>
 
         <AccordionItem
@@ -2634,15 +2635,15 @@ export default function Tab1() {
               <tr>
                 <td>Hours of Operation:</td>
                 <td>
-                  <p>
+                
                     1:30 p.m. - 9:00 p.m.,&nbsp; Monday - Thursday by
                     appointment only
-                  </p>
-                  <p>
+                
+               
                     1:00 p.m. - 5:00 p.m., Saturday &amp; Sunday by appointment
                     only
-                  </p>
-                  <p>Closed on Fridays</p>
+                 
+                 Closed on Fridays
                 </td>
               </tr>
               <tr>
@@ -2793,10 +2794,10 @@ export default function Tab1() {
           title="South Carolina"
           className="text-left"
         >
-          <p>
+       
             There are currently no Global Entry enrollment centers in South
             Carolina.
-          </p>
+      
         </AccordionItem>
 
         <AccordionItem
@@ -2805,10 +2806,10 @@ export default function Tab1() {
           title="South Dakota"
           className="text-left"
         >
-          <p>
+       
             There are currently no Global Entry enrollment centers in South
             Dakota.
-          </p>
+       
         </AccordionItem>
 
         <AccordionItem
@@ -3588,10 +3589,10 @@ export default function Tab1() {
           title="West Virginia"
           className="text-left"
         >
-          <p>
+        
             There are currently no Global Entry enrollment centers in West
             Virginia.
-          </p>
+        
         </AccordionItem>
 
         <AccordionItem
@@ -3646,9 +3647,9 @@ export default function Tab1() {
           title="Wyoming"
           className="text-left"
         >
-          <p>
+         
             There are currently no Global Entry enrollment centers in Wyoming.
-          </p>
+       
         </AccordionItem>
 
         <AccordionItem

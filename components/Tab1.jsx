@@ -303,9 +303,9 @@ export default function Tab1() {
         </AccordionItem>
 
         <AccordionItem key="4" aria-label="Arkansas" title="Arkansas">
-          <p className="text-tiny">
+         
             There are currently no Global Entry enrollment centers in Arkansas.
-          </p>
+         
         </AccordionItem>
 
         <AccordionItem

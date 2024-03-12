@@ -107,7 +107,7 @@ export default function EnrollmentCenters() {
                       className={openTab === 3 ? "block" : "hidden"}
                       id="link3"
                     >
-                      {/* <Tab3 /> */}
+                      <Tab3 />
                     </div>
                   </div>
                 </div>

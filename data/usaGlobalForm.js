@@ -183,6 +183,28 @@ export const enrollmentCentersNexus =[
   "Canada | Winnipeg Richardson International Airport (YWG) Enrollment Center",
 ]
 
+
+
+export const enrollmentCentersSentri =[
+  "",
+  "Arizona | Douglas, Arizona Enrollment Center",
+  "Arizona | Nogales, Arizona Enrollment Center",
+  "Arizona | San Luis, Arizona Enrollment Center",
+  "Arizona | Phoenix, Arizona Enrollment Center",
+  "Arizona | Tucson, Arizona Enrollment Center",
+
+  "California | Calexico, California Enrollment Center",
+  "California | Otay Mesa, California Enrollment Center",
+
+  "New Mexico | Albuquerque International Sunport Airport (ABQ)",
+
+  "Texas | Brownsville, Texas Enrollment Center",
+  "Texas | Del Rio, Texas Enrollment Center",
+  "Texas | El Paso, Texas Enrollment Center",
+  "Texas | Hidalgo, Texas Enrollment Center",
+  "Texas | Laredo, Texas Enrollment Center",
+]
+
 export const employmentStatus =[
   "",
   "Employed",

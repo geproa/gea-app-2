@@ -87,14 +87,14 @@ export default function Example() {
               Contacts
             </p>
           </Link>
-          <Link
+          {/* <Link
             href="/enrollment-centers"
             class="hidden sm:hidden md:block lg:blocl xl:block"
           >
             <p className="text-white hover:text-gray-600 text-xs font-medium mr-5 ">
             CBP Enrollment Centers
             </p>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <nav
@@ -283,6 +283,15 @@ export default function Example() {
           </Popover>
           {/* MEXICO - MENU - END */}
 
+          <Popover.Group className="hidden lg:flex lg:gap-x-12 items-center">
+          <Link
+            href="/enrollment-centers"
+            className="text-sm font-semibold leading-6 text-gray-900 hover:text-blueMain"
+          >
+            CBP ENROLLMENT CENTERS
+          </Link>
+          </Popover.Group>
+
           <Link
             href="/apply"
             className="rounded-md bg-blueMain px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -418,6 +427,13 @@ export default function Example() {
                     </>
                   )}
                 </Disclosure>
+                <Link
+                  href="/enrollment-centers"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  ENROLLMENT CENTERS
+                </Link>
               </div>
               <div className="py-1 divide-y">
                 <Link
@@ -456,13 +472,13 @@ export default function Example() {
                   >
                     Contacts
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/enrollment-centers"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-xs font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     CBP Enrollment Centers
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

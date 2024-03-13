@@ -14,7 +14,7 @@ import {
   countryList,
   employmentStatus,
   historyCountryList,
-  enrollmentCenters,
+  enrollmentCentersNexus,
 } from "@/data/usaGlobalForm";
 
 import DatePicker from "react-datepicker";
@@ -3170,7 +3170,7 @@ export default function FormNexusRenewal() {
               onChange={(e) => setValue("enrollmentCenter", e.target.value)}
               {...register("enrollmentCenter")}
             >
-              {enrollmentCenters.map((center) => (
+              {enrollmentCentersNexus.map((center) => (
                 <option key={center} value={center}>
                   {center}
                 </option>

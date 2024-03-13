@@ -303,9 +303,9 @@ export default function Tab1() {
         </AccordionItem>
 
         <AccordionItem key="4" aria-label="Arkansas" title="Arkansas">
-         
+          <p className="text-tiny">
             There are currently no Global Entry enrollment centers in Arkansas.
-         
+          </p>
         </AccordionItem>
 
         <AccordionItem
@@ -353,7 +353,7 @@ export default function Tab1() {
             <thead>
               <tr>
                 <th colspan="2" scope="col">
-                  Calexico, California Enrollment Center
+                Los Angeles International Airport (LAX)
                 </th>
               </tr>
             </thead>
@@ -361,23 +361,23 @@ export default function Tab1() {
               <tr>
                 <td>Address:</td>
                 <td>
-                  1699 East Carr Road
+                11099 S. La Cienega Blvd., Suite #155
                   <br />
-                  PO Box 632
-                  <br />
-                  Calexico, CA
+                  Los Angeles, California 90045
                 </td>
               </tr>
               <tr>
                 <td>Hours of Operation:</td>
-                <td>6:00 a.m. - 2:00 p.m., Monday - Friday</td>
+                <td>7:30 a.m. - 9:30 p.m., Monday - Friday, by appointment only</td>
+          
+                <td> | Closed Temporarily, Saturday</td>
+             
+                <td> | Closed Temporarily, Sunday</td>
               </tr>
               <tr>
                 <td>Contact Information:</td>
                 <td>
-                  (760) 768-2406
-                  <br />
-                  (760) 768-2473
+                (310) 642-1425
                 </td>
               </tr>
             </tbody>
@@ -813,7 +813,7 @@ export default function Tab1() {
                   (813) 676-4929,{" "}
                   <a
                     href="mailto:TampaTTPinformation@cbp.dhs.gov"
-                    class="survey-processed"
+                    class="survey-processed text-blue-500"
                   >
                     TampaTTPinformation@cbp.dhs.gov&nbsp;
                   </a>
@@ -2119,7 +2119,7 @@ export default function Tab1() {
                   (973) 565-8000 ext. 8135 and/or{" "}
                   <a
                     href="mailto:ewrglobalentry@cbp.dhs.gov"
-                    class="survey-processed"
+                    class="survey-processed text-blue-500"
                   >
                     ewrglobalentry@cbp.dhs.gov
                   </a>

@@ -2863,27 +2863,27 @@ export default function FormUsa() {
           </div>
           <h4>
             You will be charged the following fees when you apply for your
-            GLOBAL ENTRY application with Expedite Q Consultancy Ltd:
+            GLOBAL ENTRY application with Global Entry Pro Assis:
           </h4>
           <h4>
-            The Expedite Q Consultancy Ltd fee of USD $149.99 (for checking,
-            processing, answering all your questions) via PayPal or Credit Card.
+            The Global Entry Pro Assis fee of USD $149.00 (for checking,
+            processing, answering all your questions) via PayPal.
           </h4>
           <h4>
-            In addition to the Expedite Q Consultancy Ltd fee the following
+            In addition to the Global Entry Pro Assis fee the following
             government fees are payable by you after we have completed your
             application. You will be provided your login details an in order for
             you to finalize your application.
           </h4>
           <h4>
             United States Customs and Border Protection (CBP) government
-            certification fee $100 USD for Global Entry
+            certification fee $100 USD for Global Entry.
           </h4>
           <h4>
             By Clicking &quot;I Certify & Agree&quot; below, you confirm that
             you understand that you are using a third party application
             processing service to file your application with the government.
-            Expedite Q Consultancy Ltd are not affiliated with any government
+            Global Entry Pro Assis are not affiliated with any government
             body. We offer paid assistance with services offered by the
             government. We cannot expedite your application. I agree to the
             starting of the service and I acknowledge that I lose my right to

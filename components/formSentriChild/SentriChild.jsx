@@ -3278,7 +3278,7 @@ export default function FormSenriChild() {
           {/* Select Enrollment Center */}
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">
-              Global Entry Enrollment Centers
+              SENTRI Enrollment Centers
             </h3>
           </div>
           <div className="mb-4">
@@ -3889,7 +3889,7 @@ export default function FormSenriChild() {
           </p>
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Enrollment Center:
+            SENTRI Enrollment Centers:
           </h2>
           <p>
             <b>{watch("enrollmentCenter")}</b>{" "}

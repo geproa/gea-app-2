@@ -11,8 +11,140 @@ export const eyeColor = [
 
 export const enrollmentCenters =[
   "",
-  "New York Enrollment Center",
-  "Los Angeles Enrollment Center"
+  "Alabama | Huntsville International Airport (HSV)",
+  "Alabama | Mobile Regional Airport (MOB)",
+
+  "Alaska | Anchorage Ted Stevens International Airport (ANC)",
+
+  "Arizona | Douglas, Arizona Enrollment Center",
+  "Arizona | Nogales, Arizona Enrollment Center",
+  "Arizona | Phoenix Sky Harbor Airport (PHX)",
+  "Arizona | San Luis, Arizona Enrollment Center",
+  "Arizona | Tucson International Airport (TUS)",
+  
+  "California | Calexico, California Enrollment Center",
+  "California | Los Angeles International Airport (LAX)",
+  "California | Otay Mesa, California Enrollment Center",
+  "California | San Francisco International Airport (SFO)",
+  "California | San Diego International Airport (SAN)",
+
+  "Colorado | Denver International Airport (DEN)",
+
+  "Connecticut | Bradley International Airport (BDL)",
+
+  "District of Columbia | Washington, DC Enrollment Center",
+
+  "Florida | Ft. Lauderdale/Hollywood International Airport (FLL)",
+  "Florida | Miami International Airport",
+  "Florida | Orlando International Airport (MCO)",
+  "Florida | Orlando-Sanford International Airport (SFB)",
+  "Florida | Tampa International Airport (TPA)",
+  "Florida | Treasure Coast International Airport (FPR)",
+  "Florida | West Palm Beach, Florida Enrollment Center",
+  "Florida | Port Miami",
+
+  "Georgia | Atlanta Hartsfield-Jackson International Airport",
+
+  "Guam | Guam International Airport (GUM)",
+
+  "Hawaii | Honolulu International Airport (HNL)",
+
+  "Idaho | Boise Enrollment Center",
+
+  "Illinois | Chicago, Illinois Enrollment Office",
+  "Illinois | Chicago O'Hare International Airport",
+
+  "Indiana | South Bend International Airport (SBN)",
+
+  "Iowa | Des Moines, Iowa Enrollment Center",
+
+  "Kentucky | Cincinnati/Northern Kentucky International Airport (CVG)",
+
+  "Louisiana | New Orleans Enrollment Center (MSY)",
+
+  "Maine | Calais, Maine Enrollment Center",
+
+  "Maryland | Baltimore/Washington International Thurgood Marshall Airport",
+
+  "Massachusetts | Boston-Logan International Airport (BOS)",
+
+  "Michigan | Detroit Metropolitan Airport (DTW)",
+  "Michigan | Detroit, Michigan Enrollment Center",
+  "Michigan | Port Huron, Michigan Enrollment Center",
+  "Michigan | Sault Saint Marie, Michigan Enrollment Center",
+
+  "Minnesota | Grand Portage, Minnesota Enrollment Center",
+  "Minnesota | International Falls Enrollment Center",
+  "Minnesota | Minneapolis/St. Paul International Airport (MSP)",
+  "Minnesota | Warroad, Minnesota Enrollment Center",
+
+  "Mississippi | Gulfport-Biloxi International Airport (GPT)",
+
+  "Missouri | City Enrollment Center",
+  "Missouri | St. Louis Enrollment Center",
+  "Missouri | Springfield-Branson National Airport Enrollment Center",
+
+  "Montana | Sweetgrass, Montana Enrollment Center",
+
+  "Nebraska | Omaha Enrollment Center",
+
+  "Nevada | Harry Reid International Airport (LAS)",
+
+  "New Jersey | Newark Liberty International Airport (EWR)",
+
+  "New Mexico | Albuquerque International Sunport Airport (ABQ)",
+
+  "New York | Bowling Green (U.S. Customs House)",
+  "New York | Niagara Falls, New York Enrollment Center",
+  "New York | Champlain, New York Enrollment Center",
+  "New York | New York John F. Kennedy International Airport (JFK)",
+
+  "North Carolina | Charlotte-Douglas International Airport (CLT)",
+
+  "North Dakota | Pembina, North Dakota Enrollment Center",
+
+  "Ohio | Cincinnati/Northern Kentucky International Airport (CVG)",
+  "Ohio | Cleveland, Ohio Enrollment Center",
+  "Ohio | Dayton, Ohio Enrollment Center",
+  "Ohio | Port Clinton, Ohio Enrollment Center",
+
+  "Oregon | Portland International Airport (PDX)",
+
+  "Pennsylvania | Philadelphia International Airport (PHL)",
+  "Pennsylvania | Pittsburgh International Airport (PIT)",
+
+  "Puerto Rico | San Juan Luis Muñoz Marin International Airport (SJU)",
+
+  "Rhode Island | Warwick, Rhode Island Enrollment Center",
+
+  "Tennessee | Memphis International Airport Enrollment Center",
+  "Tennessee | Nashville Enrollment Center",
+  "Tennessee | Tri-Cities Enrollment Center",
+
+  "Texas | Austin-Bergstrom International Airport (AUS)",
+  "Texas | Brownsville, Texas Enrollment Center",
+  "Texas | Dallas/Ft. Worth International Airport (DFW)",
+  "Texas | Del Rio Global Entry Enrollment Center",
+  "Texas | El Paso, Texas Enrollment Center",
+  "Texas | George Bush Intercontinental Airport (IAH)",
+  "Texas | Hidalgo, Texas Enrollment Center",
+  "Texas | Laredo, Texas Enrollment Center",
+  "Texas | San Antonio International Airport (SAT)",
+
+  "Utah | Salt Lake City International Airport (SLC)",
+
+  "Vermont | Derby Line, Vermont Enrollment Center",
+
+  "Virginia | Washington-Dulles International Airport (IAD)",
+  "Virginia | Richmond, Virginia Enrollment Center",
+  "Virginia | Norfolk, Virginia (Owen B. Pickett U.S. Customs House)",
+
+  "Washington | Birch Bay Enrollment Center",
+  "Washington | Seattle-Tacoma International Airport (SEA)",
+
+  "Wisconsin | Milwaukee, Wisconsin Enrollment Center",
+
+  "Qatar | Doha, Qatar Enrollment Center",
 ]
 
 export const employmentStatus =[

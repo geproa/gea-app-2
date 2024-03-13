@@ -37,7 +37,7 @@ export default function FormSenriChild() {
       .string()
       .default(() => new Date())
       .required("Birth Date is required!"),
-      // .nullable(),
+    // .nullable(),
     cityBirth: yup.string().required("City of Birth required!"),
     stateBirth: yup
       .string()
@@ -124,7 +124,7 @@ export default function FormSenriChild() {
     cardHoldersCountry: yup
       .string()
       .required("Card Holders Country is required!"),
-      enrollmentCenter: yup.string().required("Enrollment Center is required!"),
+    enrollmentCenter: yup.string().required("Enrollment Center is required!"),
   });
 
   const {
@@ -177,9 +177,10 @@ export default function FormSenriChild() {
   const [showfiveYearsEmploymentInput, setShowfiveYearsEmploymentInput] =
     useState(false);
 
-
-    // Today Date
-    const [todayDate, setTodayDate] = useState(new Date().toISOString().split('T')[0]);
+  // Today Date
+  const [todayDate, setTodayDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
 
   useEffect(() => {
     if (register.birthDate) {
@@ -285,12 +286,11 @@ export default function FormSenriChild() {
     return groups;
   }, {});
 
-    // Today Date
+  // Today Date
 
-    const handleTodayDateChange = (e) => {
-      setTodayDate(e.target.value);
-    };
-  
+  const handleTodayDateChange = (e) => {
+    setTodayDate(e.target.value);
+  };
 
   return (
     <div class="max-w-screen-2xl mx-auto">
@@ -313,16 +313,18 @@ export default function FormSenriChild() {
                 SENTRI Mexico Child
               </option>
             </select>
-            <p className="ml-2 text-red-500">Fields with a red * are required.</p>
+            <p className="ml-2 text-red-500">
+              Fields with a red * are required.
+            </p>
             <input
-            className="hidden"
+              className="hidden"
               type="date"
               id="todayDate"
               name="todayDate"
               value={todayDate}
               onChange={handleTodayDateChange}
               {...register("todayDate")}
-           />
+            />
           </div>
         </div>
         {/* Form Type - End */}
@@ -3022,31 +3024,31 @@ export default function FormSenriChild() {
           </div>
           <h4>
             You will be charged the following fees when you apply for your
-            GLOBAL ENTRY application with Expedite Q Consultancy Ltd:
+            SENTRI Child application with Global Entry Pro Assis:
           </h4>
           <h4>
-            The Expedite Q Consultancy Ltd fee of USD $149.99 (for checking,
-            processing, answering all your questions) via PayPal or Credit Card.
+            The Global Entry Pro Assis fee of USD $149.00 (for checking,
+            processing, answering all your questions) via PayPal.
           </h4>
           <h4>
-            In addition to the Expedite Q Consultancy Ltd fee the following
+            In addition to the Global Entry Pro Assis fee the following
             government fees are payable by you after we have completed your
             application. You will be provided your login details an in order for
             you to finalize your application.
           </h4>
           <h4>
-            United States Customs and Border Protection (CBP) government
-            certification fee $100 USD for Global Entry
+            To apply for Sentri, you&#39;ll need to submit your application
+            along with a one-time government fee of $122,25.
           </h4>
           <h4>
             By Clicking &quot;I Certify & Agree&quot; below, you confirm that
             you understand that you are using a third party application
             processing service to file your application with the government.
-            Expedite Q Consultancy Ltd are not affiliated with any government
-            body. We offer paid assistance with services offered by the
-            government. We cannot expedite your application. I agree to the
-            starting of the service and I acknowledge that I lose my right to
-            cancel once the service has been fully performed.
+            Global Entry Pro Assis are not affiliated with any government body.
+            We offer paid assistance with services offered by the government. We
+            cannot expedite your application. I agree to the starting of the
+            service and I acknowledge that I lose my right to cancel once the
+            service has been fully performed.
           </h4>
           <h4>
             You also confirm that the information contained in this form was
@@ -3055,7 +3057,7 @@ export default function FormSenriChild() {
             agencies, border protection agencies, government immigration
             agencies and other government bodies with applicable laws. Your
             information will be used for the sole purpose of processing your
-            GLOBAL ENTRY application.
+            SENTRI Child application.
           </h4>
           <br />
           <p>
@@ -3272,9 +3274,9 @@ export default function FormSenriChild() {
             />
             <p className="text-red-500">{errors.cardHoldersCountry?.message}</p>
           </div>
-           {/* Card details for payment of Government fee - End */}
-            {/* Select Enrollment Center */}
-            <div class="title-box">
+          {/* Card details for payment of Government fee - End */}
+          {/* Select Enrollment Center */}
+          <div class="title-box">
             <h3 class="text-3xl text-white pb-2">
               Global Entry Enrollment Centers
             </h3>
@@ -3299,9 +3301,6 @@ export default function FormSenriChild() {
           </div>
           {/* Select Enrollment Center  - End*/}
         </div>
-
-
-       
 
         <input
           value="Preview"
@@ -3779,7 +3778,11 @@ export default function FormSenriChild() {
             Travel History
           </h2>
           <p>
-          Countries: <b>{watch("travelHistory") ? watch("travelHistory").join(", ") : ""}</b> | Other Country: <b> {watch("otherCountry")}</b>
+            Countries:{" "}
+            <b>
+              {watch("travelHistory") ? watch("travelHistory").join(", ") : ""}
+            </b>{" "}
+            | Other Country: <b> {watch("otherCountry")}</b>
           </p>
 
           <br />
@@ -3891,7 +3894,6 @@ export default function FormSenriChild() {
           <p>
             <b>{watch("enrollmentCenter")}</b>{" "}
           </p>
-
 
           <button
             className="rounded-md bg-blue-300 mr-4 mt-6 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

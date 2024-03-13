@@ -147,6 +147,42 @@ export const enrollmentCenters =[
   "Qatar | Doha, Qatar Enrollment Center",
 ]
 
+
+export const enrollmentCentersNexus =[
+  "",
+  "Maine | Jonesport (Calais) Enrollment Center",
+  "Maine | Houlton (Woodstock) Enrollment Center",
+
+  "Michigan | Detroit, Michigan Enrollment Center",
+  "Michigan | Port Huron, Michigan Enrollment Center",
+  "Michigan | Sault Ste. Marie, Michigan Enrollment Center",
+
+  "Minnesota | International Falls Enrollment Center",
+  "Minnesota | Warroad, Minnesota Enrollment Center",
+
+  "Montana | Sweetgrass, Montana Enrollment Center",
+
+  "New York | Champlain, New York Enrollment Center",
+  "New York | Niagara Falls, New York Enrollment Center",
+
+  "North Dakota | Pembina, North Dakota Enrollment Center",
+
+  "Vermont | Derby Line, Vermont Enrollment Center",
+
+  "Washington | Blaine, Washington Enrollment Center",
+
+  "Canada | Buffalo-Fort Erie, Ontario Enrollment Center",
+  "Canada | Calgary International Airport (YYC) Enrollment Center",
+  "Canada | Edmonton International Airport (YEG) Enrollment Center",
+  "Canada | Halifax Stanfield International Airport (YHZ) Enrollment Center",
+  "Canada | Landsdowne, Ontario Enrollment Center",
+  "Canada | Montreal-Trudeau International Airport (YUL) Enrollment Center",
+  "Canada | Ottawa Macdonald-Cartier International Airport (YOW) Enrollment Center",
+  "Canada | Toronto Pearson International Airport (YYZ) Enrollment Center",
+  "Canada | Vancouver International Airport (YVR) Enrollment Center",
+  "Canada | Winnipeg Richardson International Airport (YWG) Enrollment Center",
+]
+
 export const employmentStatus =[
   "",
   "Employed",

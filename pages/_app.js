@@ -1,19 +1,23 @@
 import "@/styles/globals.css";
 import { AuthProvider } from "@/lib/auth";
 
-import {NextUIProvider} from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
 
-import Header from '../components/Header'
+import Header from "../components/Header";
 import Footer from "@/components/Footer";
+
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-    <AuthProvider>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </AuthProvider>
+      <AuthProvider>
+        <DefaultSeo {...SEO} />
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </AuthProvider>
     </NextUIProvider>
   );
 }

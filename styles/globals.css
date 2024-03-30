@@ -97,3 +97,36 @@ td{
 #enrollmentCenter{
   width: 100%;
 }
+
+.cookiesModal{
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 16px;
+  width: 30%;
+  background-color: azure;
+  position:fixed;
+  bottom:0;
+  margin-bottom: 16px;
+  right:50px; 
+  font-size: small;
+  display: flex;
+  gap: 24px;
+}
+
+
+
+@media (min-width: 360px) and (max-width: 1024px) {
+  .cookiesModal{
+    border: 1px solid grey;
+    padding: 16px;
+    width: 100%;
+    background-color: azure;
+    position:fixed;
+    bottom:0;
+    right:0px; 
+    font-size: small;
+    display: flex;
+    gap: 24px;
+  }
+}
+

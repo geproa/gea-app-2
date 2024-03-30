@@ -4,9 +4,25 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import CookiesModal from "@/components/CookiesModal";
 
+import { NextSeo } from "next-seo";
+
+
+const SEO = {
+  title: "Global Entry Pro Assist | Get Application Assistance for Global Entry, Nexus, and Sentri: Trusted Traveler Program Support",
+  description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.',
+  
+
+  openGraph: {
+    title: "Global Entry Pro Assist | Get Application Assistance for Global Entry, Nexus, and Sentri: Trusted Traveler Program Support",
+    description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.'
+   
+  },
+};
+
 export default function Home() {
   return (
     <main className={styles.main}>
+      <NextSeo {...SEO} />
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.titleH1}>

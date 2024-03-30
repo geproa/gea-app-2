@@ -72,6 +72,14 @@ export default function Example() {
             </p>
           </Link>
           <Link
+            href="/cookies"
+            class="hidden sm:hidden md:block lg:blocl xl:block"
+          >
+            <p className="text-white hover:text-gray-600 text-xs font-medium mr-5 ">
+            Cookie Policy
+            </p>
+          </Link>
+          <Link
             href="/about"
             class="hidden sm:hidden md:block lg:blocl xl:block"
           >
@@ -457,6 +465,13 @@ export default function Example() {
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Refund Policy
+                  </Link>
+                  <Link
+                    href="cookies"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-xs font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Cookie Policy
                   </Link>
                   <Link
                     href="/about"

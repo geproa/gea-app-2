@@ -170,6 +170,7 @@ export const enrollmentCentersNexus =[
   "Vermont | Derby Line, Vermont Enrollment Center",
 
   "Washington | Blaine, Washington Enrollment Center",
+  "Washington | King County International Airport ",
 
   "Canada | Buffalo-Fort Erie, Ontario Enrollment Center",
   "Canada | Calgary International Airport (YYC) Enrollment Center",

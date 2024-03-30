@@ -465,6 +465,39 @@ export default function Tab2() {
         </AccordionItem>
 
         <AccordionItem
+          key="8"
+          aria-label="Washington"
+          title="Washington"
+          className="text-left"
+        >
+          <table border="1" cellpadding="1" cellspacing="1" class="qa">
+            <thead>
+              <tr>
+                <th colspan="2" scope="col">
+                  <strong>King County International Airport Washington</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address:</td>
+                <td>
+                7277 Perimeter Road Room 116 
+                  <br />
+                  Seattle, WA 98108
+                </td>
+              </tr>
+              <tr>
+                <td>Contact Information:</td>
+                <td>
+                (206) 553-0667
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </AccordionItem>
+
+        <AccordionItem
           key="9"
           aria-label="Canada"
           title="Canada"

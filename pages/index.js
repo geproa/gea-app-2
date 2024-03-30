@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
+import CookiesModal from "@/components/CookiesModal";
 
 export default function Home() {
   return (
@@ -196,6 +197,7 @@ export default function Home() {
         <Link href="/canada-info">Canada NEXUS</Link>
         <Link href="/mexico-info">Mexico Sentri</Link>
       </section>
+      <CookiesModal/>
     </main>
   );
 }

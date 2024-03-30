@@ -203,6 +203,29 @@
     margin: 0 auto;
 }
 
+.cookiesBtn{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    border-radius: 4px;
+    background: var(--Main, #5DBBF0);
+    display: flex;
+    width: 80px;
+    height: 32px;
+    padding: 11px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.cookiesBtnDiv{
+        display: flex;
+    align-items: center;
+}
+
 .disclaimer {
     color: var(--Main-Text, #505050);
     font-family: Roboto;

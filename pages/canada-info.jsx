@@ -2,9 +2,25 @@ import Link from "next/link";
 
 import styles from "../styles/pages.module.css";
 
+import { NextSeo } from "next-seo";
+
+const SEO = {
+  title: "Global Entry Pro Assist | Canada NEXUS",
+  description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.',
+  
+
+  openGraph: {
+    title: "Global Entry Pro Assist | Canada NEXUS",
+    description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.'
+   
+  },
+};
+
+
 export default function Canada() {
   return (
     <main className={styles.main}>
+       <NextSeo {...SEO} />
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.titleH1}>

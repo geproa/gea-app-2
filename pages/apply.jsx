@@ -1,6 +1,20 @@
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
+import { NextSeo } from "next-seo";
+
+const SEO = {
+  title: "Global Entry Pro Assist | Global Entry applications",
+  description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.',
+  
+
+  openGraph: {
+    title: "Global Entry Pro Assist | Global Entry applications",
+    description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.'
+   
+  },
+};
+
 export default function Apply() {
   const myStyle = {
     color: "#505050",
@@ -21,6 +35,7 @@ export default function Apply() {
 
   return (
     <section className={styles.how} style={sectionStyle}>
+       <NextSeo {...SEO} />
       <div className={styles.wrapperDiv}>
         <div className={styles.elementDiv}>
           <div className={styles.titleElement}>

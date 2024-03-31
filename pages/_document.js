@@ -20,6 +20,7 @@ export default function Document() {
         <meta property="og:title" content="Global Entry Pro Assist" />
         <meta property="og:url" content="www.globalentryproassist.com" />
         <meta property="og:type" content="website" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <body>
         <Main />

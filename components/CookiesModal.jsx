@@ -33,7 +33,7 @@ export default function CookiesModal() {
       </div>
       <div className={styles.cookiesBtnDiv}>
         <button className={styles.cookiesBtn} onClick={handleAgree}>
-          Agree
+        Accept
         </button>
       </div>
     </div>

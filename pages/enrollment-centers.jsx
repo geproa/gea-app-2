@@ -6,11 +6,26 @@ import Tab1 from "@/components/Tab1";
 import Tab2 from "@/components/Tab2";
 import Tab3 from "@/components/Tab3";
 
+import { NextSeo } from "next-seo";
+
+const SEO = {
+  title: "Global Entry Pro Assist | CBP Enrollment Centers",
+  description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.',
+  
+
+  openGraph: {
+    title: "Global Entry Pro Assist | CBP Enrollment Centers",
+    description:'We provide  application assistance with Global Entry, Nexus and Sentri programs, part of the Trusted Traveler Program. Apply with us here.'
+   
+  },
+};
+
 export default function EnrollmentCenters() {
   const [openTab, setOpenTab] = useState(1);
 
   return (
     <main className={styles.main}>
+       <NextSeo {...SEO} />
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.titleH1}>

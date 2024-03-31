@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /pages/admin/
-Disallow: /pages/usa/
-Disallow: /pages/login/
+Disallow: /admin/
+Disallow: /usa/
+Disallow: /login/

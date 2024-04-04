@@ -3035,6 +3035,7 @@ export default function FormUsaChild() {
                 id="card-number"
                 type="text"
                 placeholder="XXXX"
+                maxLength={4}
                 {...register("cardNumber")}
               />
               <p className="text-red-500">{errors.cardNumber?.message}</p>

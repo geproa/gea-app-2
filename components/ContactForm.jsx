@@ -11,7 +11,7 @@ export default function ContactForm() {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "c930d947-9d82-444b-8deb-7a7941195bf0");
+    formData.append("access_key", "b1bd36c0-ff6f-44bf-a5ee-d81649c6b23c");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -29,7 +29,7 @@ export default function ContactForm() {
 
   useEffect(() => {
     const form = document.getElementById("myForm");
-    form.addEventListener("submit", handleSubmit);
+  
 
     return () => {
       form.removeEventListener("submit", handleSubmit);

@@ -157,7 +157,7 @@ export default function FormNexusRenewal() {
     }
     setShowReviewModal(false);
     reset();
-    router.push("/");
+    router.push("https://www.paypal.com/ncp/payment/3677M53HRBNKJ");
   };
 
   const [showReviewModal, setShowReviewModal] = useState(false);

@@ -90,11 +90,11 @@ const CookieConsent = () => {
         <button className={styles.cookiesBtn} onClick={handleAccept}>Accept</button>
       </div>
     </div>
-      <p>
+      {/* <p>
         We use cookies to enhance your browsing experience. By continuing to visit this site, you agree to our use of cookies.
       </p>
       <button onClick={handleAccept}>Accept</button>
-      {/* <style jsx>{`
+      <style jsx>{`
         .cookie-consent {
           position: fixed;
           bottom: 0;

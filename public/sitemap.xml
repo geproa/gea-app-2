@@ -53,3 +53,51 @@
   <priority>0.70</priority>
 </url>
 </urlset>
+
+
+<url>
+  <loc>https://www.globalentryproassist.us/</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/usa-info</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/canada-info</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/mexico-info</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/enrollment-centers</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/about</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/terms</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/cookies</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.globalentryproassist.us/refund</loc>
+  <lastmod>2024-05-16</lastmod>
+  <priority>0.70</priority>
+</url>
+</urlset>

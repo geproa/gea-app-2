@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 
+import { Link } from "@nextui-org/react";
+
+import styles from "../../styles/pages.module.css";
+
 function UsaItem() {
   const router = useRouter();
   const { id } = router.query;
@@ -27,10 +31,20 @@ function UsaItem() {
 
   return (
     <div className="max-w-7xl mx-auto py-5">
-      <h1>Form type: {item.formType}</h1>
+      <button className={styles.btnBack}>
+        <Link href="/admin">Back to Administration</Link>
+      </button>
+      <h1>
+        Form type:{" "}
+        <span className="text-lg font-bold my-1">{item.formType}</span>
+      </h1>
       <br />
       <h1>
-        Application form for {item.firstName} {item.firstLast}
+        Application form for{" "}
+        <span className="text-lg font-bold my-1">
+          {" "}
+          {item.firstName} {item.lastName}{" "}
+        </span>
       </h1>
 
       <br />
@@ -338,7 +352,7 @@ function UsaItem() {
 
       <br />
       <h2 className="text-xl font-bold my-1">Travel History</h2>
-      <p>Countries: {item.travelHistory}</p>
+      <p>Countries: {item.travelHistory.join(", ")} </p>
       <p>Other Country: {item.otherCountry}</p>
       <br />
       <h2 className="text-xl font-bold my-1">Additional Information</h2>

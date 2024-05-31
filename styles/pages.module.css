@@ -214,9 +214,28 @@
     margin: 0 56px;
 }
 
-.ctaBtns a:hover{
-    color: rgb(59 130 246 / 0.5); 
+.ctaBtns a:hover {
+    color: rgb(59 130 246 / 0.5);
     transition: 0.3s;
+}
+
+.btnBack {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 10px;
+    background: var(--Main, #5DBBF0);
+    display: flex;
+    /* width: 100px; */
+    /* height: 77px; */
+    padding: 11px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 40px;
 }
 
 @media (min-width: 360px) and (max-width: 1024px) {
@@ -231,80 +250,81 @@
         line-height: 36px;
     }
 
-    .titleBox{
+    .titleBox {
         margin-top: 0px;
     }
-    .title{
+
+    .title {
         margin: 0px 10px;
         width: 100%;
     }
 
 
-    .allContent{
+    .allContent {
         margin: 0px 10px;
         width: 100%;
     }
 
-    .allContent p{
+    .allContent p {
         font-size: 16px;
     }
 
-    .allContent h2{
+    .allContent h2 {
         font-size: 16px;
     }
 
-    .steps h4{
+    .steps h4 {
         font-size: 24px;
     }
 
-    .cardBlue li{
+    .cardBlue li {
         font-size: 16px;
     }
 
-    .faq{
+    .faq {
         width: 95%;
     }
 
-    .faq h2{
+    .faq h2 {
         font-size: 24px;
     }
 
 
-    .faq li{
+    .faq li {
         margin-top: 16px;
         font-size: 16px;
     }
 
-    .steps{
+    .steps {
         width: 90%;
     }
 
-    .steps h4{
+    .steps h4 {
         line-height: 28px;
     }
 
 
-    .heroSection{
+    .heroSection {
         height: 88px;
     }
 
-    .ctaBtns{
+    .ctaBtns {
         width: 90%;
-    justify-content: center;
-    margin-bottom: 40px;
-    flex-direction: column;
-    align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .ctaBtns a{
+    .ctaBtns a {
         margin: 8px 0;
     }
 
-    .ctaBtn2{
+    .ctaBtn2 {
         width: 300px;
     }
 
-    .h2contacts{
+    .h2contacts {
         text-align: left !important;
         margin-left: 10px;
     }

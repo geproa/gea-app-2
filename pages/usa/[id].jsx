@@ -35,200 +35,199 @@ function UsaItem() {
         <Link href="/admin">Back to Administration</Link>
       </button>
       <h1>
-        Form type:{" "}
-        <span className="text-lg font-bold my-1">{item.formType}</span>
+        Form type:
+        <span className="text-lg font-bold my-1"><b>{item.formType}</b></span>
       </h1>
       <br />
       <h1>
-        Application form for{" "}
+        Application form for
         <span className="text-lg font-bold my-1">
-          {" "}
-          {item.firstName} {item.lastName}{" "}
+        <b>  {item.firstName} {item.lastName}</b>
         </span>
       </h1>
 
       <br />
-      <h2>Have you created a LOGIN.GOV Account: {item.loginGovAccount}</h2>
-      <p>Personal Key: {item.personalKey}</p>
-      <p>Email address: {item.personalKeyEmail}</p>
-      <p>Password: {item.personalKeyPassword}</p>
+      <h2>Have you created a LOGIN.GOV Account:<b> {item.loginGovAccount}</b></h2>
+      <p>Personal Key: <b>{item.personalKey}</b></p>
+      <p>Email address: <b>{item.personalKeyEmail}</b></p>
+      <p>Password: <b>{item.personalKeyPassword}</b></p>
 
       <br />
       <span className=" text-red-500">Only for Renewal Form </span>
-      <p>GOES ID: {item.goesId}</p>
-      <p>GOES Password: {item.goesPassword}</p>
-      <p>PASSID: {item.passId}</p>
+      <p>GOES ID: <b>{item.goesId}</b></p>
+      <p>GOES Password: <b>{item.goesPassword}</b></p>
+      <p>PASSID: <b>{item.passId}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Personal Details</h2>
-      <p>Email: {item.email}</p>
-      <p>First Name: {item.firstName}</p>
-      <p>Last Name: {item.lastName}</p>
-      <p>Middle Names: {item.middleNames}</p>
-      <p>Other Names: {item.otherNames}</p>
-      <p>Gender: {item.gender}</p>
-      <p>Phone Number: {item.phoneNumber}</p>
-      <p>Height: {item.height}</p>
-      <p>Height in meters: {item.heightInMeters}</p>
-      <p>Eye Colour: {item.eyeColour}</p>
-      <p>Birth Date: {item.birthDate}</p>
-      <p>City of Birth: {item.cityBirth}</p>
-      <p>State / Province of Birth: {item.stateBirth}</p>
-      <p>Country of Birth {item.countryBirth}</p>
+      <p>Email: <b>{item.email}</b></p>
+      <p>First Name: <b>{item.firstName}</b></p>
+      <p>Last Name: <b>{item.lastName}</b></p>
+      <p>Middle Names: <b>{item.middleNames}</b></p>
+      <p>Other Names: <b>{item.otherNames}</b></p>
+      <p>Gender: <b>{item.gender}</b></p>
+      <p>Phone Number: <b>{item.phoneNumber}</b></p>
+      <p>Height: <b>{item.height}</b></p>
+      <p>Height in meters: <b>{item.heightInMeters}</b></p>
+      <p>Eye Colour: <b>{item.eyeColour}</b></p>
+      <p>Birth Date: <b>{item.birthDate}</b></p>
+      <p>City of Birth: <b>{item.cityBirth}</b></p>
+      <p>State / Province of Birth: <b>{item.stateBirth}</b></p>
+      <p>Country of Birth <b>{item.countryBirth}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
-        Parent / Guardian Details{" "}
+        Parent / Guardian Details
         <span className=" text-red-500">(Only for child forms) </span>
       </h2>
-      <p>Parent / Guardian Name: {item.parentGuardianName}</p>
-      <p>Parent / Guardian Birth Date: {item.parentGuardianBirthDate}</p>
-      <p>Parent / Guardian Gender: {item.parentGuardianGender}</p>
-      <p>Home Phone Number: {item.parentHomePhoneNumber}</p>
-      <p>State / Province of birth: {item.parentStateProvinceOfBirth}</p>
+      <p>Parent / Guardian Name: <b>{item.parentGuardianName}</b></p>
+      <p>Parent / Guardian Birth Date: <b>{item.parentGuardianBirthDate}</b></p>
+      <p>Parent / Guardian Gender: <b>{item.parentGuardianGender}</b></p>
+      <p>Home Phone Number: <b>{item.parentHomePhoneNumber}</b></p>
+      <p>State / Province of birth: <b>{item.parentStateProvinceOfBirth}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Citizenship & Nationality</h2>
-      <p>Primary Citizenship: {item.primaryCitizenship}</p>
-      <p>Primary Passport Number: {item.primaryPassportNumber}</p>
-      <p>Passport Expiry Date: {item.passportExpiryDate}</p>
-      <p>Passport Date of Issue: {item.passportDateOfIssue}</p>
-      <p>Exact Name on Primary Passport: {item.exactNameOnPrimaryPassport}</p>
+      <p>Primary Citizenship: <b>{item.primaryCitizenship}</b></p>
+      <p>Primary Passport Number: <b>{item.primaryPassportNumber}</b></p>
+      <p>Passport Expiry Date: <b>{item.passportExpiryDate}</b></p>
+      <p>Passport Date of Issue: <b>{item.passportDateOfIssue}</b></p>
+      <p>Exact Name on Primary Passport: <b>{item.exactNameOnPrimaryPassport}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Secondary Citizenship:</h2>
-      <p>Secondary Citizenship: {item.secondaryCitizenship}</p>
-      <p>Secondary Passport Number: {item.secondaryPassportNumber}</p>
-      <p>Secondary Expiry Date: {item.secondaryExpiryDate}</p>
-      <p>Secondary Date of Issue: {item.secondaryDateOfIssue}</p>
+      <p>Secondary Citizenship: <b>{item.secondaryCitizenship}</b></p>
+      <p>Secondary Passport Number: <b>{item.secondaryPassportNumber}</b></p>
+      <p>Secondary Expiry Date: <b>{item.secondaryExpiryDate}</b></p>
+      <p>Secondary Date of Issue: <b>{item.secondaryDateOfIssue}</b></p>
       <p>
         Exact Name on Secondary Passport:
-        {item.exactNameOnSecondaryPassport}
+       <b> {item.exactNameOnSecondaryPassport}</b>
       </p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Alternate Documents:</h2>
-      <p>Citizenship Certificate Number: {item.citizenshipCertificateNumber}</p>
-      <p>Country of Issue: {item.countryOfIssue}</p>
+      <p>Citizenship Certificate Number: <b>{item.citizenshipCertificateNumber}</b></p>
+      <p>Country of Issue: <b>{item.countryOfIssue}</b></p>
       <p>
         Exact Name on Citizenship Certificate:
-        {item.exactNameOnCitizenshipCertificate}
+        <b>{item.exactNameOnCitizenshipCertificate}</b>
       </p>
-      <p>Alternate Issue Date: {item.alternateIssueDate}</p>
-      <p>Birth Certificate Number: {item.birthCertificateNumber}</p>
-      <p>Exact Name on Birth Certificate: {item.exactNameOnBirthCertificate}</p>
+      <p>Alternate Issue Date: <b>{item.alternateIssueDate}</b></p>
+      <p>Birth Certificate Number: <b>{item.birthCertificateNumber}</b></p>
+      <p>Exact Name on Birth Certificate: <b>{item.exactNameOnBirthCertificate}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Canada/US Permanent Residence</h2>
-      <p>Permanent Resident: {item.permanentResident}</p>
-      <p>PR Card Number (USCIS Number): {item.pRCardNumber}</p>
-      <p>PR Country of Issue: {item.pRCountryOfIssue}</p>
-      <p>Exact Name on PR Card: {item.exactNameOnPrCard}</p>
+      <p>Permanent Resident:<b> {item.permanentResident}</b></p>
+      <p>PR Card Number (USCIS Number): <b>{item.pRCardNumber}</b></p>
+      <p>PR Country of Issue:<b> {item.pRCountryOfIssue}</b></p>
+      <p>Exact Name on PR Card:<b> {item.exactNameOnPrCard}</b></p>
       <p>
         Does your Permanent Resident Card have a machine readable zone?:
-        {item.readableZone}
+       <b> {item.readableZone}</b>
       </p>
-      <p>PR Expiry Date: {item.pRExpiryDate}</p>
+      <p>PR Expiry Date:<b> {item.pRExpiryDate}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Driving Licence</h2>
-      <p>Have a driving licence: {item.hasDrivingLicence}</p>
-      <p>Driving Licence Number: {item.drivingLicenceNumber}</p>
-      <p>Driving Licence Expiry Date: {item.drivingLicenceExpiryDate}</p>
-      <p>DL State / Province of Issue: {item.dlProvinceOfIssue} </p>
-      <p>DL Country: {item.dLCountry}</p>
-      <p>Is this an Enhanced Licence: {item.enhancedLicence}</p>
+      <p>Have a driving licence:<b> {item.hasDrivingLicence}</b></p>
+      <p>Driving Licence Number:<b> {item.drivingLicenceNumber}</b></p>
+      <p>Driving Licence Expiry Date: <b>{item.drivingLicenceExpiryDate}</b></p>
+      <p>DL State / Province of Issue:<b> {item.dlProvinceOfIssue}</b> </p>
+      <p>DL Country:<b> {item.dLCountry}</b></p>
+      <p>Is this an Enhanced Licence:<b> {item.enhancedLicence}</b></p>
       <p>
         Has this Licence a Hazardous Material Endorsement:
-        {item.hazardousMaterialEndorsement}
+       <b> {item.hazardousMaterialEndorsement}</b>
       </p>
-      <p>Is this a Commercial Licence: {item.commercialLicence} </p>
-      <p>Exact Name on Licence: {item.exactNameOnLicence}</p>
+      <p>Is this a Commercial Licence:<b> {item.commercialLicence}</b> </p>
+      <p>Exact Name on Licence:<b> {item.exactNameOnLicence}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Address History</h2>
       <p>
         Have you lived at your Residential Address for 5 years or more:
-        {item.residentialAddressFor5YearsOrMore}
+        <b>{item.residentialAddressFor5YearsOrMore}</b>
       </p>
-      <p>Current When did you start living here: {item.startLivingHere}</p>
-      <p>Current Address: {item.currentAddress}</p>
-      <p>Current Address Line 2: {item.currentAddressLine2}</p>
-      <p>Current City: {item.currentCity}</p>
-      <p>Current State/Province/Region: {item.currentStateProvinceRegion}</p>
-      <p>Current Zip/Postal Code: {item.currentZipPostalCode}</p>
-      <p>Current Country: {item.currentCountry}</p>
+      <p>Current When did you start living here: <b></b>{item.startLivingHere}</p>
+      <p>Current Address: <b>{item.currentAddress}</b></p>
+      <p>Current Address Line 2: <b>{item.currentAddressLine2} </b></p>
+      <p>Current City: <b>{item.currentCity}</b></p>
+      <p>Current State/Province/Region: <b>{item.currentStateProvinceRegion}</b></p>
+      <p>Current Zip/Postal Code: <b>{item.currentZipPostalCode}</b></p>
+      <p>Current Country: <b>{item.currentCountry}</b></p>
       <h3 className="text-lg font-semibold">Mailing Address:</h3>
-      <p>Address Line 1: {item.mailingAddressLine1}</p>
-      <p>Address Line 2: {item.mailingAddressLine2}</p>
-      <p>City: {item.mailingAddressCity}</p>
-      <p>State/Province: {item.mailingAddressStateProvince}</p>
-      <p>ZIP / Postal: {item.mailingAddressZipPostal}</p>
-      <p>Country: {item.mailingAddressCountry}</p>
+      <p>Address Line 1:<b> {item.mailingAddressLine1}</b></p>
+      <p>Address Line 2: <b>{item.mailingAddressLine2}</b></p>
+      <p>City:<b> {item.mailingAddressCity}</b></p>
+      <p>State/Province:<b> {item.mailingAddressStateProvince}</b></p>
+      <p>ZIP / Postal:<b> {item.mailingAddressZipPostal}</b></p>
+      <p>Country: <b>{item.mailingAddressCountry}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">5 Year Address History</h2>
       <h3 className="text-lg font-semibold">
-        Address 2 - when Did you start living here: {item.address2monthYear}
+        Address 2 - when Did you start living here: <b>{item.address2monthYear}</b>
       </h3>
       <h3 className="text-lg font-semibold">
-        End Date: {item.address2monthYearEndDate}
+        End Date: <b>{item.address2monthYearEndDate}</b>
       </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 2</h3>
-      <p>Address Line 1: {item.address2addressLine1}</p>
-      <p>Address Line 2: {item.address2addressLine2}</p>
-      <p>City: {item.address2City}</p>
-      <p>State/Province: {item.address2StateProvince}</p>
-      <p>ZIP / Postal: {item.address2ZipPostal}</p>
-      <p>Country: {item.addressLine2Country}</p>
+      <p>Address Line 1: <b>{item.address2addressLine1}</b></p>
+      <p>Address Line 2:<b> {item.address2addressLine2}</b></p>
+      <p>City: <b>{item.address2City}</b></p>
+      <p>State/Province: <b>{item.address2StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.address2ZipPostal}</b></p>
+      <p>Country: <b>{item.addressLine2Country}</b></p>
 
       <br />
       <h3 className="text-lg font-semibold">
-        Address 3 - when Did you start living here: {item.address3monthYear}
+        Address 3 - when Did you start living here: <b>{item.address3monthYear}</b>
       </h3>
       <h3 className="text-lg font-semibold">
-        End Date: {item.address3monthYearEndDate}
+        End Date: <b>{item.address3monthYearEndDate}</b>
       </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 3</h3>
-      <p>Address Line 1: {item.address3addressLine1}</p>
-      <p>Address Line 2: {item.address3addressLine2}</p>
-      <p>City: {item.address3City}</p>
-      <p>State/Province: {item.address3StateProvince}</p>
-      <p>ZIP / Postal: {item.address3ZipPostal}</p>
-      <p>Country: {item.addressLine3Country}</p>
+      <p>Address Line 1: <b>{item.address3addressLine1}</b></p>
+      <p>Address Line 2: <b>{item.address3addressLine2}</b></p>
+      <p>City: <b>{item.address3City}</b></p>
+      <p>State/Province: <b>{item.address3StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.address3ZipPostal}</b></p>
+      <p>Country: <b>{item.addressLine3Country}</b></p>
 
       <br />
       <h3 className="text-lg font-semibold">
-        Address 4 - when Did you start living here: {item.address4monthYear}
+        Address 4 - when Did you start living here: <b>{item.address4monthYear}</b>
       </h3>
       <h3 className="text-lg font-semibold">
-        End Date: {item.address4monthYearEndDate}
+        End Date: <b>{item.address4monthYearEndDate}</b>
       </h3>
       <h3 className="text-lg font-semibold">Five Year History Address 4</h3>
-      <p>Address Line 1: {item.address4addressLine1}</p>
-      <p>Address Line 2: {item.address4addressLine2}</p>
-      <p>City: {item.address4City}</p>
-      <p>State/Province: {item.address4StateProvince}</p>
-      <p>ZIP / Postal: {item.address4ZipPostal}</p>
-      <p>Country: {item.addressLine4Country}</p>
+      <p>Address Line 1: <b>{item.address4addressLine1}</b></p>
+      <p>Address Line 2: <b>{item.address4addressLine2}</b></p>
+      <p>City: <b>{item.address4City}</b></p>
+      <p>State/Province: <b>{item.address4StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.address4ZipPostal}</b></p>
+      <p>Country: <b>{item.addressLine4Country}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">US Contact Address</h2>
       <p>
         Since when have you used this contact address:
-        {item.uSContactAddressSinceWhen}
+       <b> {item.uSContactAddressSinceWhen}</b>
       </p>
       <h3 className="text-lg font-semibold">US Contact Name</h3>
-      <p>First Name: {item.uSContactFirstName}</p>
-      <p>Last Name: {item.uSContactLastName}</p>
-      <p>US Contact Phone Number: {item.uSContactPhoneNumber}</p>
+      <p>First Name: <b>{item.uSContactFirstName}</b></p>
+      <p>Last Name: <b>{item.uSContactLastName}</b></p>
+      <p>US Contact Phone Number: <b>{item.uSContactPhoneNumber}</b></p>
       <h3 className="text-lg font-semibold">Contact Address</h3>
-      <p>Address Line 1: {item.usContactAddressLine1}</p>
-      <p>Address Line 2: {item.usContactAddressLine2}</p>
-      <p>City: {item.usContactAddressCity}</p>
-      <p>State/Province: {item.usContactAddressStateProvince}</p>
-      <p>ZIP / Postal: {item.usContactAddressZipPostal}</p>
-      <p>Country: {item.usContactAddressCountry}</p>
+      <p>Address Line 1: <b>{item.usContactAddressLine1}</b></p>
+      <p>Address Line 2: <b>{item.usContactAddressLine2}</b></p>
+      <p>City: <b>{item.usContactAddressCity}</b></p>
+      <p>State/Province: <b>{item.usContactAddressStateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.usContactAddressZipPostal}</b></p>
+      <p>Country:<b>{item.usContactAddressCountry}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
@@ -236,76 +235,76 @@ function UsaItem() {
       </h2>
       <p>
         Has your employment status been the same for 5 years or more:
-        {item.employmentFor5YearsOrMore}
+        <b>{item.employmentFor5YearsOrMore}</b>
       </p>
-      <p>From: {item.employmentDate}</p>
-      <p>Employment Status: {item.employmentStatus}</p>
-      <p>Occupation: {item.occupation}</p>
-      <p>Employer Name: {item.employerName}</p>
-      <p>Employer Phone Number: {item.employerPhoneNumber}</p>
+      <p>From: <b>{item.employmentDate}</b></p>
+      <p>Employment Status: <b>{item.employmentStatus}</b></p>
+      <p>Occupation: <b>{item.occupation}</b></p>
+      <p>Employer Name: <b>{item.employerName}</b></p>
+      <p>Employer Phone Number: <b>{item.employerPhoneNumber}</b></p>
       <h3 className="text-lg font-semibold">Employer Address</h3>
-      <p>Address Line 1: {item.employerAddressLine1}</p>
-      <p>Address Line 2: {item.employerAddressLine2}</p>
-      <p>City: {item.employerAddressCity}</p>
-      <p>State/Province: {item.employerAddressStateProvince}</p>
-      <p>ZIP / Postal: {item.employerAddressZipPostal}</p>
-      <p>Country: {item.employerAddressCountry}</p>
+      <p>Address Line 1: <b>{item.employerAddressLine1}</b></p>
+      <p>Address Line 2: <b>{item.employerAddressLine2}</b></p>
+      <p>City: <b>{item.employerAddressCity}</b></p>
+      <p>State/Province: <b>{item.employerAddressStateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.employerAddressZipPostal}</b></p>
+      <p>Country: <b>{item.employerAddressCountry}</b></p>
 
       <h2 className="text-xl font-bold my-1">Employment Continued</h2>
-      <p>Employer 2 From: {item.employer2monthYear}</p>
-      <p>End Date: {item.employer2monthYearEndDate}</p>
-      <p>Employment Status 2: {item.employmentStatus2}</p>
-      <p>Employer 2 Occupation: {item.employer2Occupation}</p>
-      <p>Employer 2 Name: {item.employerName2}</p>
-      <p>Employer 2 Phone Number: {item.employer2PhoneNumber}</p>
+      <p>Employer 2 From: <b>{item.employer2monthYear}</b></p>
+      <p>End Date: <b>{item.employer2monthYearEndDate}</b></p>
+      <p>Employment Status 2: <b>{item.employmentStatus2}</b></p>
+      <p>Employer 2 Occupation: <b>{item.employer2Occupation}</b></p>
+      <p>Employer 2 Name: <b>{item.employerName2}</b></p>
+      <p>Employer 2 Phone Number: <b>{item.employer2PhoneNumber}</b></p>
       <h3 className="text-lg font-semibold">Employer 2 Address</h3>
-      <p>Address Line 1: {item.employer2addressLine1}</p>
-      <p>Address Line 2: {item.employer2addressLine2}</p>
-      <p>City: {item.employer2City}</p>
-      <p>State/Province: {item.employer2StateProvince}</p>
-      <p>ZIP / Postal: {item.employer2ZipPostal}</p>
-      <p>Country: {item.employer2Country}</p>
+      <p>Address Line 1: <b>{item.employer2addressLine1}</b></p>
+      <p>Address Line 2: <b>{item.employer2addressLine2}</b></p>
+      <p>City: <b>{item.employer2City}</b></p>
+      <p>State/Province: <b>{item.employer2StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.employer2ZipPostal}</b></p>
+      <p>Country: <b>{item.employer2Country}</b></p>
 
       <br />
 
-      <p>Employer 3 From: {item.employer3monthYear}</p>
-      <p>End Date: {item.employer3monthYearEndDate}</p>
-      <p>Employment Status 3: {item.employmentStatus3}</p>
-      <p>Employer 3 Occupation: {item.employer3Occupation}</p>
-      <p>Employer 3 Name: {item.employerName3}</p>
-      <p>Employer 3 Phone Number: {item.employer3PhoneNumber}</p>
+      <p>Employer 3 From: <b>{item.employer3monthYear}</b></p>
+      <p>End Date: <b>{item.employer3monthYearEndDate}</b></p>
+      <p>Employment Status 3: <b>{item.employmentStatus3}</b></p>
+      <p>Employer 3 Occupation:<b> {item.employer3Occupation}</b></p>
+      <p>Employer 3 Name: <b>{item.employerName3}</b></p>
+      <p>Employer 3 Phone Number:<b> {item.employer3PhoneNumber}</b></p>
       <h3 className="text-lg font-semibold">Employer 3 Address</h3>
-      <p>Address Line 1: {item.employer3addressLine1}</p>
-      <p>Address Line 2: {item.employer3addressLine2}</p>
-      <p>City: {item.employer3City}</p>
-      <p>State/Province: {item.employer3StateProvince}</p>
-      <p>ZIP / Postal: {item.employer3ZipPostal}</p>
-      <p>Country: {item.employer3Country}</p>
+      <p>Address Line 1:<b> {item.employer3addressLine1}</b></p>
+      <p>Address Line 2: <b>{item.employer3addressLine2}</b></p>
+      <p>City: <b>{item.employer3City}</b></p>
+      <p>State/Province: <b>{item.employer3StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.employer3ZipPostal}</b></p>
+      <p>Country: <b>{item.employer3Country}</b></p>
 
       <br />
 
-      <p>Employer 4 From: {item.employer4monthYear}</p>
-      <p>End Date: {item.employer4monthYearEndDate}</p>
-      <p>Employment Status 4: {item.employmentStatus4}</p>
-      <p>Employer 4 Occupation: {item.employer4Occupation}</p>
-      <p>Employer 4 Name: {item.employerName4}</p>
-      <p>Employer 4 Phone Number: {item.employer4PhoneNumber}</p>
+      <p>Employer 4 From: <b>{item.employer4monthYear}</b></p>
+      <p>End Date: <b>{item.employer4monthYearEndDate}</b></p>
+      <p>Employment Status 4: <b>{item.employmentStatus4}</b></p>
+      <p>Employer 4 Occupation: <b>{item.employer4Occupation}</b></p>
+      <p>Employer 4 Name: <b>{item.employerName4}</b></p>
+      <p>Employer 4 Phone Number: <b>{item.employer4PhoneNumber}</b></p>
       <h3 className="text-lg font-semibold">Employer 4 Address</h3>
-      <p>Address Line 1: {item.employer4addressLine1}</p>
-      <p>Address Line 2: {item.employer4addressLine2}</p>
-      <p>City: {item.employer4City}</p>
-      <p>State/Province: {item.employer4StateProvince}</p>
-      <p>ZIP / Postal: {item.employer4ZipPostal}</p>
-      <p>Country: {item.employer4Country}</p>
+      <p>Address Line 1: <b>{item.employer4addressLine1}</b></p>
+      <p>Address Line 2: <b>{item.employer4addressLine2}</b></p>
+      <p>City: <b>{item.employer4City}</b></p>
+      <p>State/Province: <b>{item.employer4StateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.employer4ZipPostal}</b></p>
+      <p>Country: <b>{item.employer4Country}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
-        RFC / CURP Details{" "}
+        RFC / CURP Details
         <span className=" text-red-500">(Only for Sentri Form )</span>
       </h2>
-      <p>RFC (Registro Federal de Contribuyentes): {item.RFC}</p>
-      <p>Check if this RFC is owned by you: {item.RFCIsOwned}</p>
-      <p>CURP: {item.CURP}</p>
+      <p>RFC (Registro Federal de Contribuyentes): <b>{item.RFC}</b></p>
+      <p>Check if this RFC is owned by you: <b>{item.RFCIsOwned}</b></p>
+      <p>CURP: <b>{item.CURP}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
@@ -314,46 +313,46 @@ function UsaItem() {
       </h2>
       <p>
         Do you plan to drive across the border from Mexico to the United
-        States?: {item.driveAcrossBorderMexicoToUnitedStates}
+        States?: <b> {item.driveAcrossBorderMexicoToUnitedStates}</b>
       </p>
       <p>
         Is the vehicle already actively registered on your account or on another
         Trusted Traveler Program member&apos;s account?:{" "}
-        {item.vehicleAlreadyActivelyRegistered}
+        <b> {item.vehicleAlreadyActivelyRegistered}</b>
       </p>
-      <p>Make: {item.Make}</p>
-      <p>Model: {item.Model}</p>
-      <p>Year of Manufacture: {item.yearOfManufacture}</p>
-      <p>VIN Number: {item.VINNumber}</p>
-      <p>Licence Plate Number: {item.licencePlateNumber}</p>
-      <p>Vehicle Country of Issue: {item.vehicleCountryOfIssue}</p>
+      <p>Make:  <b>{item.Make}</b></p>
+      <p>Model: <b> {item.Model}</b></p>
+      <p>Year of Manufacture: <b>{item.yearOfManufacture}</b></p>
+      <p>VIN Number: <b> {item.VINNumber}</b></p>
+      <p>Licence Plate Number: <b> {item.licencePlateNumber}</b></p>
+      <p>Vehicle Country of Issue:  <b>{item.vehicleCountryOfIssue}</b></p>
       <p>
-        Vehicle State / Province of Issue: {item.vehicleStateProvinceOfIssue}
+        Vehicle State / Province of Issue: <b> {item.vehicleStateProvinceOfIssue}</b>
       </p>
-      <p>Is this a Govenment Issue Plate: {item.isThisGovenmentIssuePlate}</p>
+      <p>Is this a Govenment Issue Plate: <b> {item.isThisGovenmentIssuePlate}</b></p>
       <p>
-        Is a Vehicle Inspection Required: {item.isVehicleInspectionRequired}
+        Is a Vehicle Inspection Required: <b> {item.isVehicleInspectionRequired}</b>
       </p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
-        Vehicle Owner{" "}
+        Vehicle Owner
         <span className=" text-red-500">(Only for Sentri Form )</span>
       </h2>
-      <p>Vehicle Owner Gender: {item.vehicleOwnerGender}</p>
-      <p> Owner: {item.owner}</p>
-      <p>Vehicle Owner Phone Number: {item.vehicleOwnerPhoneNumber}</p>
-      <p>Vehicle Owner Address: {item.vehicleOwnerAddress}</p>
-      <p>Address Line 2: {item.vehicleOwnerAddress2}</p>
-      <p>City: {item.vehicleOwnerAddressCity}</p>
-      <p>State/Province: {item.vehicleOwnerAddressStateProvince}</p>
-      <p>ZIP / Postal: {item.vehicleOwnerAddressZIPPostal}</p>
-      <p> Vehicle Owner Date of Birth: {item.vehicleOwnerDateOfBirth}</p>
+      <p>Vehicle Owner Gender: <b>{item.vehicleOwnerGender}</b></p>
+      <p> Owner: <b>{item.owner}</b></p>
+      <p>Vehicle Owner Phone Number: <b>{item.vehicleOwnerPhoneNumber}</b></p>
+      <p>Vehicle Owner Address: <b>{item.vehicleOwnerAddress}</b></p>
+      <p>Address Line 2: <b>{item.vehicleOwnerAddress2}</b></p>
+      <p>City: <b>{item.vehicleOwnerAddressCity}</b></p>
+      <p>State/Province: <b>{item.vehicleOwnerAddressStateProvince}</b></p>
+      <p>ZIP / Postal: <b>{item.vehicleOwnerAddressZIPPostal}</b></p>
+      <p> Vehicle Owner Date of Birth: <b>{item.vehicleOwnerDateOfBirth}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Travel History</h2>
-      <p>Countries: {item.travelHistory.join(", ")} </p>
-      <p>Other Country: {item.otherCountry}</p>
+      <p>Countries: <b>{item.travelHistory.join(", ")}</b> </p>
+      <p>Other Country: <b>{item.otherCountry}</b></p>
       <br />
       <h2 className="text-xl font-bold my-1">Additional Information</h2>
       <p>
@@ -364,58 +363,58 @@ function UsaItem() {
         was expunged/removed from your record, please provide the details
         (optional))?
       </p>
-      <p>{item.additionalInformation1question}</p>
+      <p><b>{item.additionalInformation1question}</b></p>
       <p>
         2. Have you ever received a waiver of inadmissibility to the USA from a
         US government agency?
       </p>
-      <p>{item.additionalInformation2question}</p>
+      <p><b>{item.additionalInformation2question}</b></p>
       <p>
         3. Have you ever been approved by Citizenship and Immigration Canada for
         rehabilitation because of past criminal activity?
       </p>
-      <p>{item.additionalInformation3question}</p>
+      <p><b>{item.additionalInformation3question}</b></p>
       <p>
         4. Have you ever been found in violation of Customs or Immigration laws
         or other federal import laws?
       </p>
-      <p>{item.additionalInformation4question}</p>
+      <p><b>{item.additionalInformation4question}</b></p>
 
       <br />
       <h2>Certification Disclaimer</h2>
       <p>
         I certify and agree that I have understood the Certification Disclaimer
       </p>
-      <p>{item.agreeCertificationDisclaimer}</p>
+      <p><b>{item.agreeCertificationDisclaimer}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
         Card details for payment of Government fee
       </h2>
-      <p>Card Number (last four digits): {item.cardNumber}</p>
-      <p>Expiry Date: {item.expiryDate}</p>
+      <p>Card Number (last four digits): <b>{item.cardNumber}</b></p>
+      <p>Expiry Date: <b>{item.expiryDate}</b></p>
       {/* <p>CVV: {item.cvv}</p> */}
-      <p>Card Type {item.cardType}</p>
+      <p>Card Type <b>{item.cardType}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">
         Card Holder Name & Address Details
       </h2>
-      <p>Card Holders First Name: {item.cardHoldersFirstName}</p>
-      <p>Card Holders Last Name: {item.cardHoldersLastName}</p>
-      <p>Card Holders Address: {item.cardHoldersAddress}</p>
-      <p>Card Holders Address Line 2: {item.cardHoldersAddressLine2}</p>
-      <p>Card Holders City: {item.cardHoldersCity}</p>
+      <p>Card Holders First Name: <b>{item.cardHoldersFirstName}</b></p>
+      <p>Card Holders Last Name:<b> {item.cardHoldersLastName}</b></p>
+      <p>Card Holders Address: <b>{item.cardHoldersAddress}</b></p>
+      <p>Card Holders Address Line 2:<b> {item.cardHoldersAddressLine2}</b></p>
+      <p>Card Holders City: <b>{item.cardHoldersCity}</b></p>
       <p>
         Card Holders State/Province/Region:
-        {item.cardHoldersStateProvinceRegion}
+        <b>{item.cardHoldersStateProvinceRegion}</b>
       </p>
-      <p>Card Holders Zip/Postal Code: {item.cardHoldersZipPostalCode}</p>
-      <p>Card Holders Country: {item.cardHoldersCountry}</p>
+      <p>Card Holders Zip/Postal Code: <b>{item.cardHoldersZipPostalCode}</b></p>
+      <p>Card Holders Country: <b>{item.cardHoldersCountry}</b></p>
 
       <br />
       <h2 className="text-xl font-bold my-1">Enrollment Center: </h2>
-      <p>{item.enrollmentCenter}</p>
+      <p><b>{item.enrollmentCenter}</b></p>
     </div>
   );
 }

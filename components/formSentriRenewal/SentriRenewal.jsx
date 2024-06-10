@@ -3077,7 +3077,14 @@ export default function FormNexus() {
               <label htmlFor="vehicleOwnerDateOfBirth" className="label">
                 Vehicle Owner Date of Birth
               </label>
-              <DatePicker
+              <input
+                type="text"
+                placeholder="MM/DD/YYYY"
+                id="vehicleOwnerDateOfBirth"
+                {...register("vehicleOwnerDateOfBirth")}
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+              {/* <DatePicker
                 selected={startDate}
                 {...register("vehicleOwnerDateOfBirth")}
                 onChange={(date) => {
@@ -3096,7 +3103,7 @@ export default function FormNexus() {
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
+              /> */}
             </div>
           </div>
         </div>

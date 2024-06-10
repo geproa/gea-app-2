@@ -976,7 +976,7 @@ export default function FormNexus() {
               <input
                 type="text"
                 placeholder=""
-                maxlength="9"
+                maxLength="9"
                 id="pRCardNumber"
                 {...register("pRCardNumber")}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -3030,7 +3030,7 @@ export default function FormNexus() {
               <label htmlFor="vehicleOwnerDateOfBirth" className="label">
                 Vehicle Owner Date of Birth
               </label>
-              <DatePicker
+              {/* <DatePicker
                 selected={startDate}
                 {...register("vehicleOwnerDateOfBirth")}
                 onChange={(date) => {
@@ -3049,6 +3049,13 @@ export default function FormNexus() {
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
                 className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              /> */}
+                 <input
+                type="text"
+                placeholder="MM/DD/YYYY"
+                id="vehicleOwnerDateOfBirth"
+                {...register("vehicleOwnerDateOfBirth")}
+                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -3343,7 +3350,7 @@ export default function FormNexus() {
             <div>
               <label
                 class="block text-gray-700 font-bold mb-2"
-                for="card-number"
+                htmlFor="card-number"
               >
                 Last four card digits <span className="star">*</span>
               </label>
@@ -3358,7 +3365,7 @@ export default function FormNexus() {
               <p className="text-red-500">{errors.cardNumber?.message}</p>
               <label
                 class="block text-gray-700 font-bold mb-2 mt-4"
-                for="expiry-date"
+                htmlFor="expiry-date"
               >
                 Expiry Date <span className="star">*</span>
               </label>

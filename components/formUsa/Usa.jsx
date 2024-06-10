@@ -512,7 +512,7 @@ export default function FormUsa() {
                 </label>
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder="Feet"
                   id="height"
                   {...register("height")}
                   className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -521,11 +521,11 @@ export default function FormUsa() {
               </div>
               <div className="ml-6">
                 <label htmlFor="heightInMeters" className="label">
-                  Height in meters
+                  Height in centimeters
                 </label>
                 <input
                   type="text"
-                  placeholder=""
+                  placeholder="Centimeters"
                   id="heightInMeters"
                   {...register("heightInMeters")}
                   className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

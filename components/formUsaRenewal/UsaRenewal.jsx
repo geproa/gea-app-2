@@ -44,6 +44,11 @@ export default function FormUsaRenewal() {
       .string()
       .required("Your State / Province of Birth required!"),
     countryBirth: yup.string().required("Your Country of birth required!"),
+    primaryCitizenship: yup.string().required("Your Primary Citizenship is required!"),
+    primaryPassportNumber: yup.string().required("Your Primary Passport Number is required!"),
+    passportExpiryDate: yup.string().required("Your Passport Expiry Date is required!"),
+    passportDateOfIssue: yup.string().required("Your Passport Date of Issuee is required!"),
+    exactNameOnPrimaryPassport: yup.string().required("Your Exact Name on Primary Passport is required!"),
     drivingLicenceNumber: yup.string().when("showTextInputsDriving", {
       is: true,
       then: yup.string().required("Driving Licence Number is required!"),
@@ -682,7 +687,7 @@ export default function FormUsaRenewal() {
               <select
                 id="primaryCitizenship"
                 onChange={(e) => setValue("primaryCitizenship", e.target.value)}
-                className="shadow  border rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow  border border-red-500 rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 {...register("primaryCitizenship")}
               >
                 {countryList.map((country) => (
@@ -691,6 +696,7 @@ export default function FormUsaRenewal() {
                   </option>
                 ))}
               </select>
+              <p className="text-red-500">{errors.primaryCitizenship?.message}</p>
             </div>
 
             <div className="mb-4">
@@ -702,8 +708,9 @@ export default function FormUsaRenewal() {
                 placeholder=""
                 id="primaryPassportNumber"
                 {...register("primaryPassportNumber")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.primaryPassportNumber?.message}</p>
             </div>
 
             <div className="mb-4">
@@ -725,8 +732,9 @@ export default function FormUsaRenewal() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.passportExpiryDate?.message}</p>
             </div>
 
             <div className="mb-4">
@@ -748,8 +756,9 @@ export default function FormUsaRenewal() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.passportDateOfIssue?.message}</p>
             </div>
 
             <div className="mb-4">
@@ -761,8 +770,9 @@ export default function FormUsaRenewal() {
                 placeholder=""
                 id="exactNameOnPrimaryPassport"
                 {...register("exactNameOnPrimaryPassport")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.exactNameOnPrimaryPassport?.message}</p>
             </div>
           </div>
         </div>

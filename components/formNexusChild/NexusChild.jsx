@@ -43,6 +43,11 @@ export default function FormUsaChild() {
       .string()
       .required("Your State / Province of Birth required!"),
     countryBirth: yup.string().required("Your Country of birth required!"),
+    primaryCitizenship: yup.string().required("Your Primary Citizenship is required!"),
+    primaryPassportNumber: yup.string().required("Your Primary Passport Number is required!"),
+    passportExpiryDate: yup.string().required("Your Passport Expiry Date is required!"),
+    passportDateOfIssue: yup.string().required("Your Passport Date of Issuee is required!"),
+    exactNameOnPrimaryPassport: yup.string().required("Your Exact Name on Primary Passport is required!"),
     drivingLicenceNumber: yup.string().when("showTextInputsDriving", {
       is: true,
       then: yup.string().required("Driving Licence Number is required!"),
@@ -725,7 +730,7 @@ export default function FormUsaChild() {
         {/* Parent / Guardian Details - End */}
 
         {/* Citizenship & Nationality */}
-        <div className="formSection">
+   <div className="formSection">
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">Citizenship & Nationality</h3>
             <p class="font-normal">
@@ -737,12 +742,12 @@ export default function FormUsaChild() {
           <div class="inputsGrid">
             <div className="mb-4">
               <label htmlFor="primaryCitizenship" className="label">
-                Primary Citizenship
+                Primary Citizenship<span className="star">*</span>
               </label>
               <select
                 id="primaryCitizenship"
                 onChange={(e) => setValue("primaryCitizenship", e.target.value)}
-                className="shadow  border rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow  border border-red-500 rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 {...register("primaryCitizenship")}
               >
                 {countryList.map((country) => (
@@ -751,24 +756,26 @@ export default function FormUsaChild() {
                   </option>
                 ))}
               </select>
+              <p className="text-red-500">{errors.primaryCitizenship?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="primaryPassportNumber" className="label">
-                Primary Passport Number
+                Primary Passport Number<span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder=""
                 id="primaryPassportNumber"
                 {...register("primaryPassportNumber")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+              <p className="text-red-500">{errors.primaryPassportNumber?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="passportExpiryDate" className="label">
-                Passport Expiry Date
+                Passport Expiry Date<span className="star">*</span>
               </label>
               <DatePicker
                 selected={passportExpiryDate}
@@ -785,13 +792,14 @@ export default function FormUsaChild() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.passportExpiryDate?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="passportDateOfIssue" className="label">
-                Passport Date of Issue
+                Passport Date of Issue<span className="star">*</span>
               </label>
               <DatePicker
                 selected={passportDateOfIssue}
@@ -808,21 +816,23 @@ export default function FormUsaChild() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+              <p className="text-red-500">{errors.passportDateOfIssue?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="exactNameOnPrimaryPassport" className="label">
-                Exact Name on Primary Passport
+                Exact Name on Primary Passport<span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder=""
                 id="exactNameOnPrimaryPassport"
                 {...register("exactNameOnPrimaryPassport")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.exactNameOnPrimaryPassport?.message}</p>
             </div>
           </div>
         </div>

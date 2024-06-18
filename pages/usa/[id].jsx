@@ -22,7 +22,9 @@ function UsaItem() {
         setItem(null);
       }
     }
-    getItem();
+    if (id) {
+      getItem();
+    }
   }, [id]);
 
   if (!item) {
@@ -34,6 +36,7 @@ function UsaItem() {
       <button className={styles.btnBack}>
         <Link href="/admin">Back to Administration</Link>
       </button>
+      <h1>Entry ID: <b>{item.id}</b></h1>
       <h1>
         Form type:
         <span className="text-lg font-bold my-1"><b>{item.formType}</b></span>

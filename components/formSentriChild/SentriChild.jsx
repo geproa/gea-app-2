@@ -1506,13 +1506,20 @@ export default function FormSenriChild() {
             <label htmlFor="currentCountry" className="label">
               Current Country <span className="star">*</span>
             </label>
-            <input
-              type="text"
-              placeholder=""
+            <select
               id="currentCountry"
+              onChange={(e) =>
+                setValue("currentCountry", e.target.value)
+              }
+              className="shadow  border border-red-500 rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               {...register("currentCountry")}
-              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+            >
+              {countryList.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
             <p className="text-red-500">{errors.currentCountry?.message}</p>
           </div>
 

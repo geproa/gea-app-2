@@ -354,7 +354,8 @@ function UsaItem() {
 
       <br />
       <h2 className="text-xl font-bold my-1">Travel History</h2>
-      <p>Countries: <b>{item.travelHistory.join(", ")}</b> </p>
+      {Array.isArray(item.travelHistory) ? item.travelHistory.join(", ") : item.travelHistory}
+      {/* <p>Countries: <b>{item.travelHistory}</b> </p> */}
       <p>Other Country: <b>{item.otherCountry}</b></p>
       <br />
       <h2 className="text-xl font-bold my-1">Additional Information</h2>

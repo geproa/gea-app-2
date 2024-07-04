@@ -1,4 +1,4 @@
-import Usa from "../components/formUsa/Usa";
+import Usa from "../components/formUsa/Usa-original";
 
 function GlobalEntryUsaForm() {
   return (

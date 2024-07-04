@@ -62,10 +62,6 @@ function AdminUsa({ totalDocs }) {
     return unsubscribe;
   }, []);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
   const handleCheckboxChange = async (event, id) => {
     const isChecked = event.target.checked;
     const timestamp = isChecked ? new Date().toISOString() : null;
@@ -144,6 +140,10 @@ function AdminUsa({ totalDocs }) {
   const currentDocs = data.slice(indexOfFirstDoc, indexOfLastDoc);
 
   const totalPages = Math.ceil(totalDocs / docsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="max-w-7xl mx-auto mt-10">

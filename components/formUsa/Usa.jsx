@@ -1,14 +1,199 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+// import { useState } from "react";
+// import { useRouter } from "next/router";
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+// import { collection, addDoc } from "firebase/firestore";
+// import { db } from "../../lib/firebase";
+// import Modal from "react-modal";
+// import emailjs from "emailjs-com";
 
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+
+// // Import data lists
+// import {
+//   eyeColor,
+//   countryList,
+//   employmentStatus,
+//   historyCountryList,
+//   enrollmentCenters,
+// } from "@/data/usaGlobalForm";
+
+// export default function FormUsa() {
+//   const router = useRouter();
+
+//   // Validation schema
+//   const schema = yup.object().shape({
+//     email: yup.string().email().required("Email is required!"),
+//     firstName: yup.string().required("First name is required!"),
+//     lastName: yup.string().required("Last name is required!"),
+//   });
+
+//   const {
+//     register,
+//     handleSubmit,
+//     formState: { errors },
+//     reset,
+//     watch,
+//   } = useForm({
+//     resolver: yupResolver(schema),
+//     defaultValues: {
+//       birthDate: null,
+//     },
+//   });
+
+//   const [showReviewModal, setShowReviewModal] = useState(false);
+
+//   const onSubmit = (data) => {
+//     console.log("Submitted data:", data); // Debugging line
+//     setShowReviewModal(true);
+//   };
+
+//   const handleConfirm = async () => {
+//     const data = watch(); // Capture the current form data
+//     console.log("Form data to be confirmed:", data); // Debugging line
+//     try {
+//       const docRef = await addDoc(collection(db, "entries"), data);
+//       console.log("Document written with ID: ", docRef.id);
+
+//       // Send email using EmailJS
+//       emailjs
+//         .send(
+//           "service_jpc7te9",
+//           "template_7f9xugr",
+//           {
+//             to_email: data.email, // Use the correct variable name as per your EmailJS template
+//             to_name: `${data.firstName} ${data.lastName}`, // Concatenate first and last name
+//             db_id: docRef.id, // Database document ID
+//             message: "Success",
+//           },
+//           "ryt4AJZWi64Vq3UbD"
+//         )
+//         .then((response) => {
+//           console.log(
+//             "Email sent successfully!",
+//             response.status,
+//             response.text
+//           );
+//         })
+//         .catch((error) => {
+//           console.error("Error sending email:", error);
+//         });
+
+//       reset();
+//       setShowReviewModal(false);
+//       router.push("https://www.paypal.com/ncp/payment/3677M53HRBNKJ");
+//     } catch (e) {
+//       console.error("Error adding document:", e);
+//     }
+//   };
+
+//   return (
+//     <div className="max-w-screen-2xl mx-auto">
+//       <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
+//         <div className="formSection">
+//           <div className="inputsGrid">
+//             <div className="mb-4">
+//               <label htmlFor="email" className="label">
+//                 Email<span className="star">*</span>
+//               </label>
+//               <input
+//                 type="email"
+//                 id="email"
+//                 {...register("email")}
+//                 className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+//                   errors.email ? "border-red-500" : ""
+//                 }`}
+//               />
+//               <p className="text-red-500">{errors.email?.message}</p>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="firstName" className="label">
+//             Your First Name <span className="star">*</span>
+//           </label>
+//           <input
+//             type="text"
+//             placeholder=""
+//             id="firstName"
+//             {...register("firstName")}
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.firstName ? "border-red-500" : ""
+//             }`}
+//           />
+//           <p className="text-red-500">{errors.firstName?.message}</p>
+//         </div>
+//         <div className="mb-4">
+//           <label htmlFor="lastName" className="label">
+//             Your Last Name <span className="star">*</span>
+//           </label>
+//           <input
+//             type="text"
+//             placeholder=""
+//             id="lastName"
+//             {...register("lastName")}
+//             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+//               errors.lastName ? "border-red-500" : ""
+//             }`}
+//           />
+//           <p className="text-red-500">{errors.lastName?.message}</p>
+//         </div>
+//         <input
+//           value="Preview"
+//           type="submit"
+//           className="bg-blue-500 hover:bg-blue-700 text-white w-32 ml-48 cursor-pointer font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+//         />
+//         <Modal
+//           isOpen={showReviewModal}
+//           onRequestClose={() => setShowReviewModal(false)}
+//           contentLabel="Form Review"
+//           className="modalContent"
+//           overlayClassName="modalOverlay"
+//         >
+//           <h2 className="text-xl font-semibold mb-4">
+//             Review Your Information
+//           </h2>
+//           <p>
+//             Email address: <b>{watch("email")}</b>
+//           </p>
+//           <div className="mt-6">
+//             <button
+//               className="rounded-md bg-blue-300 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+//               onClick={() => setShowReviewModal(false)}
+//             >
+//               Edit
+//             </button>
+//             <button
+//               className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+//               onClick={handleConfirm}
+//             >
+//               Confirm
+//             </button>
+//           </div>
+//         </Modal>
+//       </form>
+//     </div>
+//   );
+// }
+
+//-=> NEW WORKING CODE <=-
+
+import { useState } from "react";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
-
 import Modal from "react-modal";
+import emailjs from "emailjs-com";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+// Import data lists
 import {
   eyeColor,
   countryList,
@@ -16,13 +201,6 @@ import {
   historyCountryList,
   enrollmentCenters,
 } from "@/data/usaGlobalForm";
-
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { redirect } from "next/dist/server/api-utils";
-
-export default function FormUsa() {
-  const router = useRouter();
 
   const schema = yup.object().shape({
     // loginGovAccount: yup.string().required("Required!"),
@@ -41,8 +219,13 @@ export default function FormUsa() {
     cityBirth: yup.string().required("City of Birth required!"),
     stateBirth: yup
       .string()
-      .required("Your State / Province of Birth required!"),
-    countryBirth: yup.string().required("Your Country of birth required!"),
+      .required("Your State / Province of Birth is required!"),
+    countryBirth: yup.string().required("Your Country of birth is required!"),
+    primaryCitizenship: yup.string().required("Your Primary Citizenship is required!"),
+    primaryPassportNumber: yup.string().required("Your Primary Passport Number is required!"),
+    passportExpiryDate: yup.string().required("Your Passport Expiry Date is required!"),
+    passportDateOfIssue: yup.string().required("Your Passport Date of Issuee is required!"),
+    exactNameOnPrimaryPassport: yup.string().required("Your Exact Name on Primary Passport is required!"),
     drivingLicenceNumber: yup.string().when("showTextInputsDriving", {
       is: true,
       then: yup.string().required("Driving Licence Number is required!"),
@@ -127,294 +310,76 @@ export default function FormUsa() {
     enrollmentCenter: yup.string().required("Enrollment Center is required!"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-    watch,
-  } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
       birthDate: null,
     },
   });
 
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = (data) => {
     setShowReviewModal(true);
   };
 
-  const handleConfirm = async (data) => {
+  const handleConfirm = async () => {
+    const data = watch(); // Capture the current form data
+    console.log("Form data to be confirmed:", data); // Debugging line
+    setIsSubmitting(true); // Disable the confirm button while submitting
+
     try {
+      // Add document to Firestore
       const docRef = await addDoc(collection(db, "entries"), data);
       console.log("Document written with ID: ", docRef.id);
-      console.log(data);
+
+      // Send email using EmailJS
+      try {
+        const response = await emailjs.send(
+          "service_jpc7te9",
+          "template_7f9xugr",
+          {
+            to_email: data.email,
+            to_name: `${data.firstName} ${data.lastName}`,
+            db_id: docRef.id,
+            message: "Success",
+          },
+          "ryt4AJZWi64Vq3UbD"
+        );
+        console.log("Email sent successfully!", response.status, response.text);
+      } catch (emailError) {
+        console.error("Error sending email:", emailError);
+        alert("There was an issue sending the confirmation email. Please try again.");
+      }
+
       reset();
+      setShowReviewModal(false);
+      router.push("https://www.paypal.com/ncp/payment/3677M53HRBNKJ");
     } catch (e) {
-      console.error("Error adding document: ", e);
+      console.error("Error adding document:", e);
+      alert("There was an issue submitting your form. Please try again.");
+    } finally {
+      setIsSubmitting(false); // Re-enable the confirm button
     }
-    setShowReviewModal(false);
-    reset();
-    router.push("https://www.paypal.com/ncp/payment/3677M53HRBNKJ");
-  };
-
-  const [showReviewModal, setShowReviewModal] = useState(false);
-
-  const [hasLoginGovAccount, setHasLoginGovAccount] = useState("No");
-  const [showTextInputs, setShowTextInputs] = useState(false);
-
-  //  for  Birth Date
-  const [startDate, setStartDate] = useState(null);
-
-  const [hasDrivingLicence, setHasDrivingLicence] = useState("No");
-  const [showTextInputsDriving, setShowTextInputsDriving] = useState(false);
-
-  const [fiveYears, setFiveYears] = useState("Yes");
-  const [showfiveYearsInput, setShowfiveYearsInput] = useState(false);
-
-  const [employmentFor5YearsOrMore, setEmploymentFiveYears] = useState("Yes");
-  const [showfiveYearsEmploymentInput, setShowfiveYearsEmploymentInput] =
-    useState(false);
-
-  // Today Date
-  const [todayDate, setTodayDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
-
-  useEffect(() => {
-    if (register.birthDate) {
-      setStartDate(new Date(register.birthDate.value));
-    }
-  }, [register.birthDate]);
-
-  //   for Citizenship & Nationality Passport Expiry Date
-  const [passportExpiryDate, setPassportExpiryDate] = useState(null);
-  useEffect(() => {
-    if (register.passportExpiryDate) {
-      setPassportExpiryDate(new Date(register.passportExpiryDate.value));
-    }
-  }, [register.passportExpiryDate]);
-
-  //   for Citizenship & Nationality Passport Date of Issue
-  const [passportDateOfIssue, setPassportDateOfIssue] = useState(null);
-  useEffect(() => {
-    if (register.passportDateOfIssue) {
-      setPassportDateOfIssue(new Date(register.passportDateOfIssue.value));
-    }
-  }, [register.passportDateOfIssue]);
-
-  //   for  Secondary Citizenship Passport Expiry Date
-  const [secondaryExpiryDate, setSecondaryExpiryDate] = useState(null);
-  useEffect(() => {
-    if (register.secondaryExpiryDate) {
-      setSecondaryExpiryDate(new Date(register.secondaryExpiryDate.value));
-    }
-  }, [register.secondaryExpiryDate]);
-
-  //   for  Secondary Citizenship Passport Date of Issue
-  const [secondaryDateOfIssue, setSecondaryDateOfIssue] = useState(null);
-  useEffect(() => {
-    if (register.secondaryDateOfIssue) {
-      setSecondaryDateOfIssue(new Date(register.secondaryDateOfIssue.value));
-    }
-  }, [register.secondaryDateOfIssue]);
-
-  //   for  Alternate Documents - Alternate Issue Date
-  const [alternateIssueDate, setAlternateIssueDate] = useState(null);
-  useEffect(() => {
-    if (register.alternateIssueDate) {
-      setAlternateIssueDate(new Date(register.alternateIssueDate.value));
-    }
-  }, [register.alternateIssueDate]);
-
-  //   for  Canada/US Permanent Residence -PR Expiry Date
-  const [pRExpiryDate, setPRExpiryDate] = useState(null);
-  useEffect(() => {
-    if (register.pRExpiryDate) {
-      setPRExpiryDate(new Date(register.pRExpiryDate.value));
-    }
-  }, [register.pRExpiryDate]);
-
-  //   for  Driving Licence - Expiry Date
-  const [drivingLicenceExpiryDate, setDrivingLicenceExpiryDate] =
-    useState(null);
-  useEffect(() => {
-    if (register.drivingLicenceExpiryDate) {
-      setDrivingLicenceExpiryDate(
-        new Date(register.drivingLicenceExpiryDate.value)
-      );
-    }
-  }, [register.drivingLicenceExpiryDate]);
-
-  //   for  Address History -start living here
-  const [startLivingHere, setStartLivingHere] = useState(null);
-  useEffect(() => {
-    if (register.startLivingHere) {
-      setStartLivingHere(new Date(register.startLivingHere.value));
-    }
-  }, [register.startLivingHere]);
-
-  //  for Travel History
-  const [selectedCountries, setSelectedCountries] = useState([]);
-
-  const handleCheckboxChange = (event) => {
-    const country = event.target.value;
-    if (event.target.checked) {
-      setSelectedCountries([...selectedCountries, country]);
-    } else {
-      setSelectedCountries(selectedCountries.filter((c) => c !== country));
-    }
-  };
-
-  const groupedCountries = historyCountryList.reduce((groups, country) => {
-    const letter = country.charAt(0).toUpperCase();
-    if (!groups[letter]) {
-      groups[letter] = [];
-    }
-    groups[letter].push(country);
-    return groups;
-  }, {});
-
-  // Today Date
-
-  const handleTodayDateChange = (e) => {
-    setTodayDate(e.target.value);
   };
 
   return (
-    <div class="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="formContainer">
-        {/* Form Type */}
         <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Global Entry Apply Form</h3>
-          </div>
-          <div>
-            <select
-              id="formType"
-              className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={(e) => setValue("Global Entry Apply", e.target.value)}
-              {...register("formType")}
-            >
-              <option key="Global Entry Apply" value="Global Entry Apply">
-                Global Entry Apply
-              </option>
-            </select>
-            <p className="ml-2 text-red-500">
-              Fields with a red * are required.
-            </p>
-            <input
-              className="hidden"
-              type="date"
-              id="todayDate"
-              name="todayDate"
-              value={todayDate}
-              onChange={handleTodayDateChange}
-              {...register("todayDate")}
-            />
-          </div>
-        </div>
-        {/* Form Type - End */}
-
-        {/* LOGIN.GOV Account */}
-        <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">LOGIN.GOV Account</h3>
-          </div>
-          <label className="label">
-            Have you created a LOGIN.GOV Account<span className="star">*</span>
-          </label>
-          <div className="pb-3">
-            <label className="inline-flex items-center">
-              <input
-                type="radio"
-                value="No"
-                {...register("loginGovAccount")}
-                className="form-radio h-5 w-5 text-blue-600"
-                checked={hasLoginGovAccount === "No"}
-                onChange={(e) => {
-                  setHasLoginGovAccount(e.target.value);
-                  setShowTextInputs(false);
-                }}
-              />
-              <span className="ml-2 text-red-500">No</span>
-            </label>
-            <label className="inline-flex items-center mx-4">
-              <input
-                type="radio"
-                value="Yes"
-                {...register("loginGovAccount")}
-                className="form-radio h-5 w-5 text-blue-600"
-                checked={hasLoginGovAccount === "Yes"}
-                onChange={(e) => {
-                  setHasLoginGovAccount(e.target.value);
-                  setShowTextInputs(true);
-                }}
-              />
-              <span className="ml-2 text-red-500">Yes</span>
-            </label>
-          </div>
-          {showTextInputs && (
-            <>
-              <div className="mb-4">
-                <label className="label">
-                  Please enter Personal Key (Should be 16 digits or 19 digits if
-                  &apos;-&apos; is used)
-                </label>
-                <input
-                  {...register("personalKey")}
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="****-****-****-****"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="label">
-                  If so please enter email address used
-                </label>
-                <input
-                  {...register("personalKeyEmail")}
-                  type="email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="label">Please enter password</label>
-                <input
-                  {...register("personalKeyPassword")}
-                  type="text"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-            </>
-          )}
-        </div>
-        {/* LOGIN.GOV Account - End */}
-
-        {/* Personal Details */}
-        <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Personal Details</h3>
-            <p class="font-normal">
-              You must give EXACT details as they appear on your official
-              documents
-            </p>
-          </div>
-
-          <div class="inputsGrid">
+          <div className="inputsGrid">
             <div className="mb-4">
               <label htmlFor="email" className="label">
                 Email<span className="star">*</span>
               </label>
               <input
                 type="email"
-                placeholder=""
                 id="email"
                 {...register("email")}
-                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+                  errors.email ? "border-red-500" : ""
+                }`}
               />
               <p className="text-red-500">{errors.email?.message}</p>
             </div>
@@ -639,12 +604,12 @@ export default function FormUsa() {
           <div class="inputsGrid">
             <div className="mb-4">
               <label htmlFor="primaryCitizenship" className="label">
-                Primary Citizenship
+                Primary Citizenship<span className="star">*</span>
               </label>
               <select
                 id="primaryCitizenship"
                 onChange={(e) => setValue("primaryCitizenship", e.target.value)}
-                className="shadow  border rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow  border border-red-500 rounded w-full h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 {...register("primaryCitizenship")}
               >
                 {countryList.map((country) => (
@@ -653,24 +618,26 @@ export default function FormUsa() {
                   </option>
                 ))}
               </select>
+              <p className="text-red-500">{errors.primaryCitizenship?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="primaryPassportNumber" className="label">
-                Primary Passport Number
+                Primary Passport Number<span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder=""
                 id="primaryPassportNumber"
                 {...register("primaryPassportNumber")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+              <p className="text-red-500">{errors.primaryPassportNumber?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="passportExpiryDate" className="label">
-                Passport Expiry Date
+                Passport Expiry Date<span className="star">*</span>
               </label>
               <DatePicker
                 selected={passportExpiryDate}
@@ -687,13 +654,14 @@ export default function FormUsa() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.passportExpiryDate?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="passportDateOfIssue" className="label">
-                Passport Date of Issue
+                Passport Date of Issue<span className="star">*</span>
               </label>
               <DatePicker
                 selected={passportDateOfIssue}
@@ -710,21 +678,23 @@ export default function FormUsa() {
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+              <p className="text-red-500">{errors.passportDateOfIssue?.message}</p>
             </div>
 
             <div className="mb-4">
               <label htmlFor="exactNameOnPrimaryPassport" className="label">
-                Exact Name on Primary Passport
+                Exact Name on Primary Passport<span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder=""
                 id="exactNameOnPrimaryPassport"
                 {...register("exactNameOnPrimaryPassport")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
+               <p className="text-red-500">{errors.exactNameOnPrimaryPassport?.message}</p>
             </div>
           </div>
         </div>
@@ -3160,570 +3130,36 @@ export default function FormUsa() {
         <input
           value="Preview"
           type="submit"
-          className=" bg-blue-500 hover:bg-blue-700 text-white w-32 ml-48 cursor-pointer font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-blue-500 hover:bg-blue-700 text-white w-32 ml-48 cursor-pointer font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         />
         <Modal
           isOpen={showReviewModal}
           onRequestClose={() => setShowReviewModal(false)}
           contentLabel="Form Review"
+          className="modalContent"
+          overlayClassName="modalOverlay"
         >
-          <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview - Global Entry Apply
-          </h1>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Have you created a LOGIN.GOV Account:{" "}
-            <b> {watch("loginGovAccount")}</b>
+          <h2 className="text-xl font-semibold mb-4">
+            Review Your Information
           </h2>
           <p>
-            Personal Key: <b>{watch("personalKey")}</b>
-          </p>
-          <p>
-            Email address: <b>{watch("personalKeyEmail")}</b>
-          </p>
-          <p>
-            Password: <b>{watch("personalKeyPassword")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Personal Details
-          </h2>
-          <p>
-            Email: <b>{watch("email")}</b>{" "}
-          </p>
-          <p>
-            First Name: <b>{watch("firstName")}</b>
-          </p>
-          <p>
-            Last Name: <b>{watch("lastName")}</b>{" "}
-          </p>
-          <p>
-            Middle Names: <b>{watch("middleNames")}</b>{" "}
-          </p>
-          <p>
-            Other Names: <b>{watch("otherNames")}</b>{" "}
-          </p>
-          <p>
-            Gender: <b>{watch("gender")}</b>{" "}
-          </p>
-          <p>
-            Phone Number: <b>{watch("phoneNumber")}</b>{" "}
-          </p>
-          <p>
-            Height: <b>{watch("height")}</b>{" "}
-          </p>
-          <p>
-            Height in meters: <b>{watch("heightInMeters")}</b>{" "}
-          </p>
-          <p>
-            Eye Colour: <b>{watch("eyeColour")}</b>{" "}
-          </p>
-          <p>
-            Birth Date: <b>{watch("birthDate")}</b>{" "}
-          </p>
-          <p>
-            City of Birth: <b>{watch("cityBirth")}</b>{" "}
-          </p>
-          <p>
-            State / Province of Birth: <b>{watch("stateBirth")}</b>{" "}
-          </p>
-          <p>
-            Country of Birth: <b>{watch("countryBirth")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Citizenship & Nationality
-          </h2>
-          <p>
-            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>{" "}
-          </p>
-          <p>
-            Primary Passport Number: <b>{watch("primaryPassportNumber")}</b>{" "}
-          </p>
-          <p>
-            Passport Expiry Date: <b>{watch("passportExpiryDate")}</b>{" "}
-          </p>
-          <p>
-            Passport Date of Issue: <b>{watch("passportDateOfIssue")}</b>{" "}
-          </p>
-          <p>
-            Exact Name on Primary Passport:{" "}
-            <b>{watch("exactNameOnPrimaryPassport")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Secondary Citizenship:
-          </h2>
-          <p>
-            Secondary Citizenship: <b>{watch("secondaryCitizenship")}</b>{" "}
-          </p>
-          <p>
-            Secondary Passport Number: <b>{watch("secondaryPassportNumber")}</b>{" "}
-          </p>
-          <p>
-            Secondary Expiry Date: <b>{watch("secondaryExpiryDate")}</b>{" "}
-          </p>
-          <p>
-            Secondary Date of Issue: <b>{watch("secondaryDateOfIssue")}</b>{" "}
-          </p>
-          <p>
-            Exact Name on Secondary Passport:{" "}
-            <b>{watch("exactNameOnSecondaryPassport")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Alternate Documents:
-          </h2>
-          <p>
-            Citizenship Certificate Number:{" "}
-            <b> {watch("citizenshipCertificateNumber")}</b>
-          </p>
-          <p>
-            Country of Issue: <b></b> {watch("countryOfIssue")}
-          </p>
-          <p>
-            Exact Name on Citizenship Certificate:{" "}
-            <b> {watch("exactNameOnCitizenshipCertificate")}</b>
-          </p>
-          <p>
-            Alternate Issue Date: <b>{watch("alternateIssueDate")}</b>{" "}
-          </p>
-          <p>
-            Birth Certificate Number: <b>{watch("birthCertificateNumber")}</b>{" "}
-          </p>
-          <p>
-            Exact Name on Birth Certificate:{" "}
-            <b> {watch("exactNameOnBirthCertificate")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Canada/US Permanent Residence
-          </h2>
-          <p>
-            Permanent Resident: <b>{watch("permanentResident")}</b>{" "}
-          </p>
-          <p>
-            PR Card Number (USCIS Number): <b>{watch("pRCardNumber")}</b>{" "}
-          </p>
-          <p>
-            PR Country of Issue: <b>{watch("pRCountryOfIssue")}</b>{" "}
-          </p>
-          <p>
-            Exact Name on PR Card: <b>{watch("exactNameOnPrCard")}</b>{" "}
-          </p>
-          <p>
-            Does your Permanent Resident Card have a machine readable zone?:
-            {watch("readableZone")}
-          </p>
-          <p>
-            PR Expiry Date: <b>{watch("pRExpiryDate")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Driving Licence
-          </h2>
-          <p>
-            Have a driving licence: <b>{watch("hasDrivingLicence")}</b>{" "}
-          </p>
-          <p>
-            Driving Licence Number: <b>{watch("drivingLicenceNumber")}</b>{" "}
-          </p>
-          <p>
-            Driving Licence Expiry Date:{" "}
-            <b>{watch("drivingLicenceExpiryDate")}</b>
-          </p>
-          <p>
-            DL State / Province of Issue: <b>{watch("dlProvinceOfIssue")}</b>{" "}
-          </p>
-          <p>
-            DL Country: <b>{watch("dLCountry")}</b>{" "}
-          </p>
-          <p>
-            Is this an Enhanced Licence: <b></b> {watch("enhancedLicence")}
-          </p>
-          <p>
-            Has this Licence a Hazardous Material Endorsement:{" "}
-            <b>{watch("hazardousMaterialEndorsement")}</b>
-          </p>
-          <p>
-            Is this a Commercial Licence: <b>{watch("commercialLicence")}</b>{" "}
-          </p>
-          <p>
-            Exact Name on Licence: <b>{watch("exactNameOnLicence")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Address History
-          </h2>
-          <p>
-            Have you lived at your Residential Address for 5 years or more:{" "}
-            <b> {watch("residentialAddressFor5YearsOrMore")}</b>
-          </p>
-          <p>
-            Current When did you start living here:{" "}
-            <b>{watch("startLivingHere")}</b>
-          </p>
-          <p>
-            Current Address: <b>{watch("currentAddress")}</b>{" "}
-          </p>
-          <p>
-            Current Address Line 2: <b>{watch("currentAddressLine2")}</b>{" "}
-          </p>
-          <p>
-            Current City: <b>{watch("currentCity")}</b>{" "}
-          </p>
-          <p>
-            Current State/Province/Region:{" "}
-            <b>{watch("currentStateProvinceRegion")}</b>
-          </p>
-          <p>
-            Current Zip/Postal Code: <b>{watch("currentZipPostalCode")}</b>{" "}
-          </p>
-          <p>
-            Current Country: <b>{watch("currentCountry")}</b>{" "}
-          </p>
-          <h3 style={{ fontWeight: "bold" }}>Mailing Address:</h3>
-          <p>
-            Address Line 1: <b>{watch("mailingAddressLine1")}</b>{" "}
-          </p>
-          <p>
-            Address Line 2: <b>{watch("mailingAddressLine2")}</b>{" "}
-          </p>
-          <p>
-            City: <b>{watch("mailingAddressCity")}</b>{" "}
-          </p>
-          <p>
-            State/Province: <b>{watch("mailingAddressStateProvince")}</b>{" "}
-          </p>
-          <p>
-            ZIP / Postal: <b>{watch("mailingAddressZipPostal")}</b>{" "}
-          </p>
-          <p>
-            Country: <b>{watch("mailingAddressCountry")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            5 Year Address History
-          </h2>
-          <h3 style={{ fontWeight: "bold" }}>
-            Address 2 - when Did you start living here:
-            {watch("address2monthYear")}
-          </h3>
-          <h3>End Date: {watch("address2monthYearEndDate")}</h3>
-          <h3>Five Year History Address 2</h3>
-          <p>Address Line 1: {watch("address2addressLine1")}</p>
-          <p>Address Line 2: {watch("address2addressLine2")}</p>
-          <p>City: {watch("address2City")}</p>
-          <p>State/Province: {watch("address2StateProvince")}</p>
-          <p>ZIP / Postal: {watch("address2ZipPostal")}</p>
-          <p>Country: {watch("addressLine2Country")}</p>
-
-          <br />
-          <h3 style={{ fontWeight: "bold" }}>
-            Address 3 - when Did you start living here:
-            {watch("address3monthYear")}
-          </h3>
-          <h3>End Date: {watch("address3monthYearEndDate")}</h3>
-          <h3>Five Year History Address 3</h3>
-          <p>Address Line 1: {watch("address3addressLine1")}</p>
-          <p>Address Line 2: {watch("address3addressLine2")}</p>
-          <p>City: {watch("address3City")}</p>
-          <p>State/Province: {watch("address3StateProvince")}</p>
-          <p>ZIP / Postal: {watch("address3ZipPostal")}</p>
-          <p>Country: {watch("addressLine3Country")}</p>
-
-          <br />
-          <h3 style={{ fontWeight: "bold" }}>
-            Address 4 - when Did you start living here:
-            {watch("address4monthYear")}
-          </h3>
-          <h3 style={{ fontWeight: "bold" }}>
-            End Date: {watch("address4monthYearEndDate")}
-          </h3>
-          <h3 style={{ fontWeight: "bold" }}>Five Year History Address 4</h3>
-          <p>Address Line 1: {watch("address4addressLine1")}</p>
-          <p>Address Line 2: {watch("address4addressLine2")}</p>
-          <p>City: {watch("address4City")}</p>
-          <p>State/Province: {watch("address4StateProvince")}</p>
-          <p>ZIP / Postal: {watch("address4ZipPostal")}</p>
-          <p>Country: {watch("addressLine4Country")}</p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            US Contact Address
-          </h2>
-          <p>
-            Since when have you used this contact address:
-            <b>{watch("uSContactAddressSinceWhen")}</b>
-          </p>
-          <h3 style={{ fontWeight: "bold" }}>US Contact Name</h3>
-          <p>
-            First Name:<b>{watch("uSContactFirstName")}</b>{" "}
-          </p>
-          <p>
-            Last Name:<b>{watch("uSContactLastName")}</b>{" "}
-          </p>
-          <p>
-            US Contact Phone Number:<b>{watch("uSContactPhoneNumber")}</b>{" "}
-          </p>
-          <h3 style={{ fontWeight: "bold" }}>Contact Address</h3>
-          <p>
-            Address Line 1:<b>{watch("usContactAddressLine1")}</b>{" "}
-          </p>
-          <p>
-            Address Line 2:<b>{watch("usContactAddressLine2")}</b>{" "}
-          </p>
-          <p>
-            City:<b>{watch("usContactAddressCity")}</b>{" "}
-          </p>
-          <p>
-            State/Province:<b>{watch("usContactAddressStateProvince")}</b>{" "}
-          </p>
-          <p>
-            ZIP / Postal:<b>{watch("usContactAddressZipPostal")}</b>{" "}
-          </p>
-          <p>
-            Country:<b>{watch("usContactAddressCountry")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Information About Your Current Work
-          </h2>
-          <p>
-            Has your employment status been the same for 5 years or more:{" "}
-            <b> {watch("employmentFor5YearsOrMore")}</b>
-          </p>
-          <p>
-            From: <b>{watch("employmentDate")}</b>{" "}
-          </p>
-          <p>
-            Employment Status: <b>{watch("employmentStatus")}</b>{" "}
-          </p>
-          <p>
-            Occupation: <b>{watch("occupation")}</b>{" "}
-          </p>
-          <p>
-            Employer Name: <b>{watch("employerName")}</b>{" "}
-          </p>
-          <p>
-            Employer Phone Number: <b>{watch("employerPhoneNumber")}</b>{" "}
-          </p>
-          <h3 style={{ fontWeight: "bold" }}>Employer Address</h3>
-          <p>
-            Address Line 1: <b>{watch("employerAddressLine1")}</b>{" "}
-          </p>
-          <p>
-            Address Line 2: <b>{watch("employerAddressLine2")}</b>{" "}
-          </p>
-          <p>
-            City: <b>{watch("employerAddressCity")}</b>{" "}
-          </p>
-          <p>
-            State/Province: <b>{watch("employerAddressStateProvince")}</b>{" "}
-          </p>
-          <p>
-            ZIP / Postal: <b>{watch("employerAddressZipPostal")}</b>{" "}
-          </p>
-          <p>
-            Country: <b>{watch("employerAddressCountry")}</b>{" "}
-          </p>
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Employment Continued
-          </h2>
-          <p>Employer 2 From: {watch("employer2monthYear")}</p>
-          <p>End Date: {watch("employer2monthYearEndDate")}</p>
-          <p>Employment Status 2: {watch("employmentStatus2")}</p>
-          <p>Employer 2 Occupation: {watch("employer2Occupation")}</p>
-          <p>Employer 2 Name: {watch("employerName2")}</p>
-          <p>Employer 2 Phone Number: {watch("employer2PhoneNumber")}</p>
-          <br />
-          <h3 style={{ fontWeight: "bold" }}>Employer 2 Address</h3>
-          <p>Address Line 1: {watch("employer2addressLine1")}</p>
-          <p>Address Line 2: {watch("employer2addressLine2")}</p>
-          <p>City: {watch("employer2City")}</p>
-          <p>State/Province: {watch("employer2StateProvince")}</p>
-          <p>ZIP / Postal: {watch("employer2ZipPostal")}</p>
-          <p>Country: {watch("employer2Country")}</p>
-
-          <br />
-
-          <p>Employer 3 From: {watch("employer3monthYear")}</p>
-          <p>End Date: {watch("employer3monthYearEndDate")}</p>
-          <p>Employment Status 3: {watch("employmentStatus3")}</p>
-          <p>Employer 3 Occupation: {watch("employer3Occupation")}</p>
-          <p>Employer 3 Name: {watch("employerName3")}</p>
-          <p>Employer 3 Phone Number: {watch("employer3PhoneNumber")}</p>
-          <br />
-          <h3 style={{ fontWeight: "bold" }}>Employer 3 Address</h3>
-          <p>Address Line 1: {watch("employer3addressLine1")}</p>
-          <p>Address Line 2: {watch("employer3addressLine2")}</p>
-          <p>City: {watch("employer3City")}</p>
-          <p>State/Province: {watch("employer3StateProvince")}</p>
-          <p>ZIP / Postal: {watch("employer3ZipPostal")}</p>
-          <p>Country: {watch("employer3Country")}</p>
-
-          <br />
-
-          <p>Employer 4 From: {watch("employer4monthYear")}</p>
-          <p>End Date: {watch("employer4monthYearEndDate")}</p>
-          <p>Employment Status 4: {watch("employmentStatus4")}</p>
-          <p>Employer 4 Occupation: {watch("employer4Occupation")}</p>
-          <p>Employer 4 Name: {watch("employerName4")}</p>
-          <p>Employer 4 Phone Number: {watch("employer4PhoneNumber")}</p>
-          <br />
-          <h3 style={{ fontWeight: "bold" }}>Employer 4 Address</h3>
-          <p>Address Line 1: {watch("employer4addressLine1")}</p>
-          <p>Address Line 2: {watch("employer4addressLine2")}</p>
-          <p>City: {watch("employer4City")}</p>
-          <p>State/Province: {watch("employer4StateProvince")}</p>
-          <p>ZIP / Postal: {watch("employer4ZipPostal")}</p>
-          <p>Country: {watch("employer4Country")}</p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Travel History
-          </h2>
-          <p>
-            Countries:{" "}
-            <b>
-              {watch("travelHistory") ? watch("travelHistory").join(", ") : ""}
-            </b>{" "}
-            | Other Country: <b> {watch("otherCountry")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Additional Information
-          </h2>
-          <p>
-            1. Have you ever been convicted of a criminal offense (including
-            misdemeanor or felony traffic violations) in the united States or
-            any other country. Please Indicate the country where the incident(s)
-            occurred (Even if you&#39;ve had only an arrest or had an incident
-            that was expunged/removed from your record, please provide the
-            details (optional))?
-          </p>
-          <p>
-            {" "}
-            <b>{watch("additionalInformation1question")}</b>
-          </p>
-          <p>
-            2. Have you ever received a waiver of inadmissibility to the USA
-            from a US government agency?
-          </p>
-          <p>
-            {" "}
-            <b>{watch("additionalInformation2question")}</b>
-          </p>
-          <p>
-            3. Have you ever been approved by Citizenship and Immigration Canada
-            for rehabilitation because of past criminal activity?
-          </p>
-          <p>
-            {" "}
-            <b>{watch("additionalInformation3question")}</b>
-          </p>
-          <p>
-            4. Have you ever been found in violation of Customs or Immigration
-            laws or other federal import laws?
-          </p>
-          <p>
-            {" "}
-            <b>{watch("additionalInformation4question")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Certification Disclaimer
-          </h2>
-          <p>
-            I certify and agree that I have understood the Certification
-            Disclaimer
-          </p>
-          <p>
-            {" "}
-            <b>{watch("agreeCertificationDisclaimer")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Card details for payment of Government fee
-          </h2>
-          <p>
-            Card Number: <b>{watch("cardNumber")}</b>{" "}
-          </p>
-          <p>
-            Expiry Date: <b>{watch("expiryDate")}</b>{" "}
-          </p>
-          {/* <p>
-            CVV: <b>{watch("cvv")}</b>{" "}
-          </p> */}
-          <p>
-            Card Type: <b>{watch("cardType")}</b>{" "}
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Card Holder Name & Address Details
-          </h2>
-          <p>
-            Card Holders First Name: <b>{watch("cardHoldersFirstName")}</b>{" "}
-          </p>
-          <p>
-            Card Holders Last Name: <b>{watch("cardHoldersLastName")}</b>{" "}
-          </p>
-          <p>
-            Card Holders Address: <b>{watch("cardHoldersAddress")}</b>{" "}
-          </p>
-          <p>
-            Card Holders Address Line 2:{" "}
-            <b>{watch("cardHoldersAddressLine2")}</b>{" "}
-          </p>
-          <p>
-            Card Holders City: <b>{watch("cardHoldersCity")}</b>{" "}
-          </p>
-          <p>
-            Card Holders State/Province/Region:{" "}
-            <b>{watch("cardHoldersStateProvinceRegion")}</b>
-          </p>
-          <p>
-            Card Holders Zip/Postal Code:{" "}
-            <b>{watch("cardHoldersZipPostalCode")}</b>
-          </p>
-          <p>
-            Card Holders Country: <b>{watch("cardHoldersCountry")}</b>{" "}
-          </p>
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Enrollment Center:
-          </h2>
-          <p>
-            <b>{watch("enrollmentCenter")}</b>{" "}
-          </p>
-
-          <button
-            className="rounded-md bg-blue-300 mr-4 mt-6 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => setShowReviewModal(false)}
-          >
-            Edit
-          </button>
-          <button
-            className="rounded-md bg-blueMain mt-6 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            onClick={() => handleConfirm(watch())}
-          >
-            Confirm
-          </button>
+            Email address: <b>{watch("email")}</b>
+          </p>
+          <div className="mt-6">
+            <button
+              className="rounded-md bg-blue-300 mr-4 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={() => setShowReviewModal(false)}
+            >
+              Edit
+            </button>
+            <button
+              className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              onClick={handleConfirm}
+              disabled={isSubmitting} // Disable button while submitting
+            >
+              Confirm
+            </button>
+          </div>
         </Modal>
       </form>
     </div>

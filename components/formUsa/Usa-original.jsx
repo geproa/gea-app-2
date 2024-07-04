@@ -7,22 +7,25 @@ import * as yup from "yup";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 
-import Modal from "react-modal";
 import emailjs from "emailjs-com";
+
+import Modal from "react-modal";
+
+
 
 import {
   eyeColor,
   countryList,
   employmentStatus,
   historyCountryList,
-  enrollmentCentersSentri,
+  enrollmentCenters,
 } from "@/data/usaGlobalForm";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { redirect } from "next/dist/server/api-utils";
 
-export default function FormSenriChild() {
+export default function FormUsa() {
   const router = useRouter();
 
   const schema = yup.object().shape({
@@ -42,8 +45,8 @@ export default function FormSenriChild() {
     cityBirth: yup.string().required("City of Birth required!"),
     stateBirth: yup
       .string()
-      .required("Your State / Province of Birth required!"),
-    countryBirth: yup.string().required("Your Country of birth required!"),
+      .required("Your State / Province of Birth is required!"),
+    countryBirth: yup.string().required("Your Country of birth is required!"),
     primaryCitizenship: yup.string().required("Your Primary Citizenship is required!"),
     primaryPassportNumber: yup.string().required("Your Primary Passport Number is required!"),
     passportExpiryDate: yup.string().required("Your Passport Expiry Date is required!"),
@@ -147,7 +150,7 @@ export default function FormSenriChild() {
     },
   });
 
-
+  const [showReviewModal, setShowReviewModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = (data) => {
@@ -194,7 +197,7 @@ export default function FormSenriChild() {
     }
   };
 
-  const [showReviewModal, setShowReviewModal] = useState(false);
+  
 
   const [hasLoginGovAccount, setHasLoginGovAccount] = useState("No");
   const [showTextInputs, setShowTextInputs] = useState(false);
@@ -222,16 +225,6 @@ export default function FormSenriChild() {
       setStartDate(new Date(register.birthDate.value));
     }
   }, [register.birthDate]);
-
-  //   for Parent / Guardian Details  Birth Date
-  const [parentGuardianBirthDate, setParentGuardianBirthDate] = useState(null);
-  useEffect(() => {
-    if (register.parentGuardianBirthDate) {
-      setParentGuardianBirthDate(
-        new Date(register.parentGuardianBirthDate.value)
-      );
-    }
-  }, [register.parentGuardianBirthDate]);
 
   //   for Citizenship & Nationality Passport Expiry Date
   const [passportExpiryDate, setPassportExpiryDate] = useState(null);
@@ -333,19 +326,17 @@ export default function FormSenriChild() {
         {/* Form Type */}
         <div className="formSection">
           <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">SENTRI Mexico Child Form</h3>
+            <h3 class="text-3xl text-white pb-2">Global Entry Apply Form</h3>
           </div>
           <div>
             <select
               id="formType"
               className="hidden  shadow rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={(e) =>
-                setValue("SENTRI Mexico Child Form", e.target.value)
-              }
+              onChange={(e) => setValue("Global Entry Apply", e.target.value)}
               {...register("formType")}
             >
-              <option key="SENTRI Mexico Child" value="SENTRI Mexico Child">
-                SENTRI Mexico Child
+              <option key="Global Entry Apply" value="Global Entry Apply">
+                Global Entry Apply
               </option>
             </select>
             <p className="ml-2 text-red-500">
@@ -608,11 +599,13 @@ export default function FormSenriChild() {
                 selected={startDate}
                 {...register("birthDate")}
                 onChange={(date) => {
-                  date.setHours(0, 0, 0, 0);
-                  setStartDate(date);
-                  setValue("birthDate", date.toLocaleDateString("en-US"), {
-                    shouldValidate: true,
-                  });
+                  if (date) {
+                    date.setHours(0, 0, 0, 0);
+                    setStartDate(date);
+                    setValue("birthDate", date.toLocaleDateString("en-US"), {
+                      shouldValidate: true,
+                    });
+                  }
                 }}
                 placeholderText="MM/DD/YYYY"
                 dateFormat="MM/dd/yyyy"
@@ -671,98 +664,8 @@ export default function FormSenriChild() {
         </div>
         {/* Personal Details - End*/}
 
-        {/* Parent / Guardian Details */}
-        <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">Parent / Guardian Details</h3>
-          </div>
-          <div class="inputsGrid">
-            <div className="mb-4">
-              <label htmlFor="parentGuardianName" className="label">
-                Parent / Guardian Name
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentGuardianName"
-                {...register("parentGuardianName")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentGuardianBirthDate" className="label">
-                Parent / Guardian Birth Date
-              </label>
-              <DatePicker
-                selected={parentGuardianBirthDate}
-                onChange={(date) => {
-                  date.setHours(0, 0, 0, 0);
-                  setParentGuardianBirthDate(date);
-                  setValue(
-                    "parentGuardianBirthDate",
-                    date.toLocaleDateString("en-US"),
-                    {
-                      shouldValidate: true,
-                    }
-                  );
-                }}
-                placeholderText="MM/DD/YYYY"
-                dateFormat="MM/dd/yyyy"
-                className="shadow appearance-none border rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentGuardianGender" className="label">
-                Parent / Guardian Gender
-              </label>
-              <select
-                id="parentGuardianGender"
-                className="shadow  border  rounded w-32 h-9  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onChange={(e) =>
-                  setValue("parentGuardianGender", e.target.value)
-                }
-                {...register("parentGuardianGender")}
-              >
-                <option></option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other gender">Other gender</option>
-              </select>
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentHomePhoneNumber" className="label">
-                Home Phone Number
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentHomePhoneNumber"
-                {...register("parentHomePhoneNumber")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="parentStateProvinceOfBirth" className="label">
-                State / Province of birth
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="parentStateProvinceOfBirth"
-                {...register("parentStateProvinceOfBirth")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-          </div>
-        </div>
-        {/* Parent / Guardian Details - End */}
-
         {/* Citizenship & Nationality */}
-   <div className="formSection">
+        <div className="formSection">
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">Citizenship & Nationality</h3>
             <p class="font-normal">
@@ -2141,14 +2044,14 @@ export default function FormSenriChild() {
 
             <div className="mb-4">
               <label htmlFor="employmentDate" className="label">
-                From
+                From <span className="star">*</span>
               </label>
               <input
                 type="text"
                 placeholder="MM/YYYY"
                 id="employmentDate"
                 {...register("employmentDate")}
-                className="shadow appearance-none border  rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-red-500 rounded w-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
           </div>
@@ -2200,15 +2103,18 @@ export default function FormSenriChild() {
 
           <div className="mb-4">
             <label htmlFor="employerPhoneNumber" className="label">
-              Employer Phone Number
+              Employer Phone Number <span className="star">*</span>
             </label>
             <input
               type="tel"
               placeholder=""
               id="employerPhoneNumber"
               {...register("employerPhoneNumber")}
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
+            <p className="text-red-500">
+              {errors.employerPhoneNumber?.message}
+            </p>
           </div>
 
           {/* ----- Employer Address --------- */}
@@ -2788,70 +2694,6 @@ export default function FormSenriChild() {
         </div>
         {/* Information About Your Current Work - End */}
 
-        {/* RFC / CURP Details */}
-
-        <div className="formSection">
-          <div class="title-box">
-            <h3 class="text-3xl text-white pb-2">RFC / CURP Details</h3>
-          </div>
-
-          <div class="inputsGrid">
-            <div className="mb-4">
-              <label htmlFor="RFC" className="label">
-                RFC (Registro Federal de Contribuyentes)
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="RFC"
-                {...register("RFC")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-
-            <div>
-              <p>Check if this RFC is owned by you</p>
-              <div className="mb-4">
-                <div className="my-2">
-                  <label className="inline-flex items-center mr-4">
-                    <input
-                      type="radio"
-                      value="Yes"
-                      {...register("RFCIsOwned")}
-                      className="form-radio h-5 w-5 text-blue-600"
-                    />
-                    <span className="ml-2 ">Yes</span>
-                  </label>
-                  <label className="inline-flex items-center">
-                    <input
-                      type="radio"
-                      value="No"
-                      {...register("RFCIsOwned")}
-                      className="form-radio h-5 w-5 text-blue-600"
-                    />
-                    <span className="ml-2 ">No</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="CURP" className="label">
-                CURP
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                id="CURP"
-                {...register("CURP")}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* RFC / CURP Details - End */}
-
         {/* Travel History */}
         <div className="formSection">
           <div class="title-box">
@@ -3071,7 +2913,7 @@ export default function FormSenriChild() {
           </div>
           <h4>
             You will be charged the following fees when you apply for your
-            SENTRI Child application with Global Entry Pro Assis:
+            GLOBAL ENTRY application with Global Entry Pro Assis:
           </h4>
           <h4>
             The Global Entry Pro Assis fee of USD $149.00 (for checking,
@@ -3084,18 +2926,18 @@ export default function FormSenriChild() {
             you to finalize your application.
           </h4>
           <h4>
-            To apply for Sentri, you&#39;ll need to submit your application
-            along with a one-time government fee of $122,25.
+            United States Customs and Border Protection (CBP) government
+            certification fee $100 USD for Global Entry.
           </h4>
           <h4>
             By Clicking &quot;I Certify & Agree&quot; below, you confirm that
             you understand that you are using a third party application
             processing service to file your application with the government.
-            Global Entry Pro Assis are not affiliated with any government body.
-            We offer paid assistance with services offered by the government. We
-            cannot expedite your application. I agree to the starting of the
-            service and I acknowledge that I lose my right to cancel once the
-            service has been fully performed.
+            Global Entry Pro Assis are not affiliated with any government
+            body. We offer paid assistance with services offered by the
+            government. We cannot expedite your application. I agree to the
+            starting of the service and I acknowledge that I lose my right to
+            cancel once the service has been fully performed.
           </h4>
           <h4>
             You also confirm that the information contained in this form was
@@ -3104,7 +2946,7 @@ export default function FormSenriChild() {
             agencies, border protection agencies, government immigration
             agencies and other government bodies with applicable laws. Your
             information will be used for the sole purpose of processing your
-            SENTRI Child application.
+            GLOBAL ENTRY application.
           </h4>
           <br />
           <p>
@@ -3143,6 +2985,13 @@ export default function FormSenriChild() {
               >
                 Last four card digits <span className="star">*</span>
               </label>
+              {/* <input
+                class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="card-number"
+                type="text"
+                placeholder="XXXX XXXX XXXX XXXX"
+                {...register("cardNumber")}
+              /> */}
               <input
                 class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="card-number"
@@ -3323,10 +3172,11 @@ export default function FormSenriChild() {
             <p className="text-red-500">{errors.cardHoldersCountry?.message}</p>
           </div>
           {/* Card details for payment of Government fee - End */}
+
           {/* Select Enrollment Center */}
           <div class="title-box">
             <h3 class="text-3xl text-white pb-2">
-              SENTRI Enrollment Centers
+              Global Entry Enrollment Centers
             </h3>
           </div>
           <div className="mb-4">
@@ -3339,7 +3189,7 @@ export default function FormSenriChild() {
               onChange={(e) => setValue("enrollmentCenter", e.target.value)}
               {...register("enrollmentCenter")}
             >
-              {enrollmentCentersSentri.map((center) => (
+              {enrollmentCenters.map((center) => (
                 <option key={center} value={center}>
                   {center}
                 </option>
@@ -3348,8 +3198,8 @@ export default function FormSenriChild() {
             <p className="text-red-500">{errors.enrollmentCenter?.message}</p>
           </div>
           {/* Select Enrollment Center  - End*/}
+          
         </div>
-
         <input
           value="Preview"
           type="submit"
@@ -3361,7 +3211,7 @@ export default function FormSenriChild() {
           contentLabel="Form Review"
         >
           <h1 style={{ fontWeight: "bold", fontSize: "24px" }}>
-            Application Preview - Global Entry Child
+            Application Preview - Global Entry Apply
           </h1>
 
           <br />
@@ -3428,32 +3278,10 @@ export default function FormSenriChild() {
 
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            Parent / Guardian Details
-          </h2>
-          <p>
-            Parent / Guardian Name: <b>{watch("parentGuardianName")}</b>
-          </p>
-          <p>
-            Parent / Guardian Birth Date{" "}
-            <b>{watch("parentGuardianBirthDate")}</b>
-          </p>
-          <p>
-            Parent / Guardian Gender <b>{watch("parentGuardianGender")}</b>
-          </p>
-          <p>
-            Home Phone Number <b>{watch("parentHomePhoneNumber")}</b>
-          </p>
-          <p>
-            State / Province of birth{" "}
-            <b>{watch("parentStateProvinceOfBirth")}</b>
-          </p>
-
-          <br />
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Citizenship & Nationality
           </h2>
           <p>
-            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>
+            Primary Citizenship: <b>{watch("primaryCitizenship")}</b>{" "}
           </p>
           <p>
             Primary Passport Number: <b>{watch("primaryPassportNumber")}</b>{" "}
@@ -3806,22 +3634,6 @@ export default function FormSenriChild() {
           <p>Country: {watch("employer4Country")}</p>
 
           <br />
-
-          <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            RFC / CURP Details
-          </h2>
-          <p>
-            RFC (Registro Federal de Contribuyentes): <b>{watch("RFC")}</b>
-          </p>
-          <p>
-            Check if this RFC is owned by you: <b>{watch("RFCIsOwned")}</b>
-          </p>
-          <p>
-            CURP: <b>{watch("CURP")}</b>
-          </p>
-
-          <br />
-
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
             Travel History
           </h2>
@@ -3937,7 +3749,7 @@ export default function FormSenriChild() {
           </p>
           <br />
           <h2 style={{ fontWeight: "bold", fontSize: "18px" }}>
-            SENTRI Enrollment Centers:
+            Enrollment Center:
           </h2>
           <p>
             <b>{watch("enrollmentCenter")}</b>{" "}
@@ -3961,3 +3773,5 @@ export default function FormSenriChild() {
     </div>
   );
 }
+
+

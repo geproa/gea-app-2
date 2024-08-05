@@ -167,15 +167,15 @@ export default function FormNexus() {
       // Send email using EmailJS
       try {
         const response = await emailjs.send(
-          "service_t1fb7fc",
-          "template_j8gu3jp",
+          "service_2xl14jx",
+          "template_ddqc96z",
           {
             to_email: data.email,
             to_name: `${data.firstName} ${data.lastName}`,
             db_id: docRef.id,
             message: "Success",
           },
-         "3II2SJ_rZ2J9AXNdF"
+           "E4baR-hUuZlZuJ5_G"
         );
         console.log("Email sent successfully!", response.status, response.text);
       } catch (emailError) {

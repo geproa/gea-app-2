@@ -37,8 +37,8 @@ export default function Refund() {
             <br />
             To ensure a swift refund, simply drop an email to{" "}
             <span>
-              <a href="mailto:geproassist@gmail.com" style={{ color: "#5DBBF0" }}>
-              geproassist@gmail.com
+              <a href="mailto:globalentryoffice@gmail.com" style={{ color: "#5DBBF0" }}>
+              globalentryoffice@gmail.com
               </a>
             </span>
             .

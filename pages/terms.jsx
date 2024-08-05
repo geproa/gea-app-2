@@ -48,7 +48,7 @@ export default function Terms() {
             <br />
             <br />
             If, for any reason, we haven&#39;t processed your application, we are
-            happy to issue refunds. Please direct your refund requests  <br />to <span ><a href="mailto:geproassist@gmail.com" style={{color: "#5DBBF0"}}>geproassist@gmail.com</a></span>, 
+            happy to issue refunds. Please direct your refund requests  <br />to <span ><a href="mailto:globalentryoffice@gmail.com" style={{color: "#5DBBF0"}}>globalentryoffice@gmail.com</a></span>, 
             and we will promptly assist you.
             <br />
             <br />

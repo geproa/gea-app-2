@@ -11,7 +11,7 @@ export default function ContactForm() {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "b1bd36c0-ff6f-44bf-a5ee-d81649c6b23c");
+    formData.append("access_key", "2de08c3c-bce2-43b2-8c49-38e9b9404f67");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -118,7 +118,7 @@ export default function ContactForm() {
             <h3>
               You can also write to us here:{" "}
               <span >
-                <a href="mailto:geproassist@gmail.com" style={{ color: "#5DBBF0" }}>geproassist@gmail.com</a>
+                <a href="mailto:globalentryoffice@gmail.com" style={{ color: "#5DBBF0" }}>globalentryoffice@gmail.com</a>
               </span>
             </h3>
           </form>
